@@ -25,12 +25,12 @@
 
 #pragma mark - Init Methods
 
-+ (instancetype)rowWithTag:(NSString *)tag cellClass:(Class)cellClass item:(id)item
++ (instancetype)rowWithTag:(NSString *)tag cellClass:(Class)cellClass item:(id<RJFormItemValue>)item
 {
     return [[self alloc] initWithTag:tag cellClass:cellClass item:item];
 }
 
-+ (instancetype)rowWithTag:(NSString *)tag item:(id)item
++ (instancetype)rowWithTag:(NSString *)tag item:(id<RJFormItemValue>)item
 {
     if (item == nil)
     {
@@ -52,16 +52,17 @@
     return [self rowWithTag:tag cellClass:NSClassFromString(cellClassStr) item:item];
 }
 
-+ (instancetype)rowWithItem:(id)item
++ (instancetype)rowWithItem:(id<RJFormItemValue>)item
 {
     return [self rowWithTag:nil item:item];
 }
 
-- (instancetype)initWithTag:(NSString *)tag cellClass:(Class)cellClass item:(id)item
+- (instancetype)initWithTag:(NSString *)tag cellClass:(Class)cellClass item:(id<RJFormItemValue>)item
 {
     if (self = [self init])
     {
         self.tag = tag;
+        item.tag = tag;
         self.cellClass = cellClass;
         self.item = item;
     }

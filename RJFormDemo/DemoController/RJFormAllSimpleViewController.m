@@ -8,6 +8,7 @@
 
 #import "RJFormAllSimpleViewController.h"
 #import "RJForm.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface RJFormAllSimpleViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -287,6 +288,24 @@
 - (void)saveBtnClick
 {
     [self.view endEditing:YES];
+    
+    //表单验证
+    NSArray<NSError *> * errors = [self.form formValidationErrors];
+    if (errors && errors.count > 0)
+    {
+        NSError *error = errors.firstObject;
+        NSString *errorMsg = error.localizedDescription;
+//        NSLog(@"表单验证错误：%@", errorMsg);
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showErrorWithStatus:errorMsg];
+        [SVProgressHUD dismissWithDelay:1.2];
+        
+        RJFormValidationStatus *status = error.userInfo[RJFormValidationErrorKey];
+        RJFormRowDescriptor *row = status.rowDescriptor;
+        NSIndexPath *indexPath = [self.form indexPathOfFormRow:row];
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        return;
+    }
     
     NSDictionary *valueDic = [self.form formValue];
     NSLog(@"表单的值：%@", valueDic);

@@ -41,7 +41,7 @@
     UILabel *textLbl = [[UILabel alloc] init];
     [self.contentView addSubview:textLbl];
     [textLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_offset(15.0);
+        make.left.mas_offset(RJFormRowLeftAndRightMargin);
         make.centerY.mas_equalTo(self.contentView);
     }];
     self.textLbl = textLbl;
@@ -54,7 +54,7 @@
     [detailTextLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_greaterThanOrEqualTo(textLbl.mas_right).mas_offset(5.0);
         make.centerY.mas_equalTo(self.contentView);
-        make.right.mas_offset(-15.0);
+        make.right.mas_offset(-RJFormRowLeftAndRightMargin);
     }];
     self.detailTextLbl = detailTextLbl;
     detailTextLbl.text = @"";
@@ -78,7 +78,7 @@
     self.detailTextLbl.textColor = data.detailTextColor;
     
     
-    CGFloat detailTextRightMargin = data.hiddenArror ? 15.0 : 0;
+    CGFloat detailTextRightMargin = data.hiddenArror ? RJFormRowLeftAndRightMargin : 0;
     [self.detailTextLbl mas_updateConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-detailTextRightMargin);
     }];

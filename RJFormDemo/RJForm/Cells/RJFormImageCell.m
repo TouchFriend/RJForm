@@ -41,7 +41,7 @@
     UILabel *textLbl = [[UILabel alloc] init];
     [self.contentView addSubview:textLbl];
     [textLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_offset(15.0);
+        make.left.mas_offset(RJFormRowLeftAndRightMargin);
         make.centerY.mas_equalTo(self.contentView);
     }];
     self.textLbl = textLbl;
@@ -92,13 +92,13 @@
     
     self.iconImageV.image = data.iconImage;
     
-    CGFloat detailTextRightMargin = data.hiddenArror ? 15.0 : 0;
+    CGFloat detailTextRightMargin = data.hiddenArror ? RJFormRowLeftAndRightMargin : 0;
     switch (data.style) {
         case RJFormImageCellStyleLeft:
         {
             [self.iconImageV mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.centerY.mas_equalTo(self.contentView);
-                make.left.mas_offset(15.0);
+                make.left.mas_offset(RJFormRowLeftAndRightMargin);
             }];
             [self.textLbl mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.left.mas_equalTo(self.iconImageV.mas_right).mas_offset(15.0);
@@ -110,7 +110,7 @@
         case RJFormImageCellStyleMiddle:
         {
             [self.textLbl mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.left.mas_offset(15.0);
+                make.left.mas_offset(RJFormRowLeftAndRightMargin);
                 make.centerY.mas_equalTo(self.contentView);
             }];
             [self.iconImageV mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -123,7 +123,7 @@
         default:
         {
             [self.textLbl mas_remakeConstraints:^(MASConstraintMaker *make) {
-                make.left.mas_offset(15.0);
+                make.left.mas_offset(RJFormRowLeftAndRightMargin);
                 make.centerY.mas_equalTo(self.contentView);
             }];
             [self.iconImageV mas_remakeConstraints:^(MASConstraintMaker *make) {

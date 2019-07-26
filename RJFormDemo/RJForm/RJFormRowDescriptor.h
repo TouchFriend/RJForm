@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)rowWithTag:(nullable NSString * )tag cellClass:(Class)cellClass item:(id)item;
 
-+ (instancetype)rowWithTag:(nullable NSString * )tag item:(id)item;
++ (instancetype)rowWithTag:(nullable NSString * )tag item:(id<RJFormItemValue>)item;
 
 /**
  初始化方法 会通过模型类，识别对应的cell的class。
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param item 模型数据
  @return 实例对象
  */
-+ (instancetype)rowWithItem:(id)item;
++ (instancetype)rowWithItem:(id<RJFormItemValue>)item;
 
 @end
 

@@ -6,3 +6,8 @@
 //  Copyright © 2019 RJSoft. All rights reserved.
 //
 
+
+CGFloat const RJFormRowLeftAndRightMargin = 15.0;
+
+NSString * const RJFormErrorDomain = @"RJFormErrorDomain";
+NSString * const RJFormValidationErrorKey = @"RJFormValidationErrorKey";

@@ -24,6 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) UIEdgeInsets separatorInset;
 /********* 是否必须的,就值不为空 默认NO *********/
 @property (nonatomic, assign, getter=isRequired) BOOL required;
+/********* 值为空时，显示的提示 *********/
+@property (nonatomic, copy) NSString *requireMsg;
+/********* tag(标签) *********/
+@property (nonatomic, copy) NSString *tag;
+
+
 
 @end
 

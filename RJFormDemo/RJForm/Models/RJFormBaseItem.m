@@ -26,4 +26,11 @@
     return nil;
 }
 
+- (RJFormValidationStatus *)doValidation
+{
+    return nil;
+}
+
+
+
 @end

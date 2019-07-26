@@ -8,6 +8,7 @@
 
 #import "RJFormSwitchCell.h"
 #import "RJFormSwitchItem.h"
+#import "RJFormConstant.h"
 
 @interface RJFormSwitchCell ()
 
@@ -15,7 +16,7 @@
 @property (nonatomic, weak) UILabel *textLbl;
 /********* 开关 *********/
 @property (nonatomic, weak) UISwitch *openSwitch;
-/********* <#注释#> *********/
+/********* 数据 *********/
 @property (nonatomic, strong) RJFormSwitchItem *data;
 
 
@@ -42,7 +43,7 @@
     UILabel *textLbl = [[UILabel alloc] init];
     [self.contentView addSubview:textLbl];
     [textLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_offset(15.0);
+        make.left.mas_offset(RJFormRowLeftAndRightMargin);
         make.right.mas_lessThanOrEqualTo(self.contentView.mas_right).mas_offset(-15.0);
         make.centerY.mas_equalTo(self.contentView);
     }];

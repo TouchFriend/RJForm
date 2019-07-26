@@ -9,6 +9,8 @@
 #import "RJFormDescriptor.h"
 #import "RJFormSectionDescriptor.h"
 #import "RJFormRowDescriptor.h"
+#import "RJFormValidationStatus.h"
+#import "RJFormConstant.h"
 
 static NSMutableDictionary *_itemCellClassPairs = nil;
 static BOOL _addAsteriskToRequiredRowsTitle = YES;
@@ -62,6 +64,29 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     return [valueDicM copy];
 }
 
+- (NSArray<NSError *> *)formValidationErrors
+{
+    NSMutableArray *errorArrM = [NSMutableArray array];
+    for (RJFormSectionDescriptor *section in self.formSections) {
+        for (RJFormRowDescriptor *row in section.formRows) {
+            RJFormValidationStatus *status = [row.item doValidation];
+            if (status && !status.isValidte)
+            {
+                status.rowDescriptor = row;
+                NSDictionary *userInfo = @{
+                                           NSLocalizedDescriptionKey : status.msg,
+                                           RJFormValidationErrorKey : status
+                                           
+                                           };
+                NSError *error = [NSError errorWithDomain:RJFormErrorDomain code:RJFormErrorCodeValidation userInfo:userInfo];
+                [errorArrM addObject:error];
+            }
+        }
+    }
+    
+    return errorArrM;
+}
+
 - (RJFormRowDescriptor *)formRowWithTag:(NSString *)tag
 {
     for (RJFormSectionDescriptor *section in self.formSections) {
@@ -72,6 +97,20 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
             }
         }
     }
+    return nil;
+}
+
+- (NSIndexPath *)indexPathOfFormRow:(RJFormRowDescriptor *)row
+{
+    for (NSInteger i = 0; i < self.formSections.count; i++) {
+        RJFormSectionDescriptor *section = self.formSections[i];
+        if ([section.formRows containsObject:row])
+        {
+            NSUInteger index = [section.formRows indexOfObject:row];
+            return [NSIndexPath indexPathForRow:index inSection:i];
+        }
+    }
+
     return nil;
 }
 

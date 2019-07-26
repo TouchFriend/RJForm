@@ -17,11 +17,19 @@ typedef NS_ENUM(NSUInteger, RJFormImageCellStyle)
     
 };
 
+typedef NS_ENUM(NSUInteger, RJFormErrorCode)
+{
+    RJFormErrorCodeValidation = -1000, //验证错误
+};
+
 //*号颜色
 #define RJFormAsteriskColor [UIColor colorWithRed:255.0/255.0 green:105.0/255.0 blue:105.0/255.0 alpha:1.0]
 
-#warning 左右间距15.0
+//每行的左右间距 15.0
+UIKIT_EXTERN CGFloat const RJFormRowLeftAndRightMargin;
 
+FOUNDATION_EXTERN NSString * const RJFormErrorDomain;
+FOUNDATION_EXTERN NSString * const RJFormValidationErrorKey;
 
 /**
  如果需要添加*号，返回添加*号后的富文本

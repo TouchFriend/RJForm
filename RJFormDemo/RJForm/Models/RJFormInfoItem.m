@@ -7,6 +7,12 @@
 //
 
 #import "RJFormInfoItem.h"
+#import "RJFormValidationStatus.h"
+#import "RJFormEmptyTool.h"
+
+@interface RJFormInfoItem ()
+
+@end
 
 @implementation RJFormInfoItem
 
@@ -39,5 +45,35 @@
 {
     return self.detailText;
 }
+
+- (RJFormValidationStatus *)doValidation
+{
+    RJFormValidationStatus *status = nil;
+    if (self.required && [RJFormEmptyTool stringIsEmpty:[self itemValue]])
+    {
+        status = [RJFormValidationStatus validationStatusWithMsg:@"" validate:NO];
+        if (![RJFormEmptyTool stringIsEmpty:self.requireMsg])
+        {
+            status.msg = self.requireMsg;
+            return status;
+        }
+        
+        if (![RJFormEmptyTool stringIsEmpty:self.text])
+        {
+            status.msg = [NSString stringWithFormat:@"%@不能为空", self.text];
+            return status;
+        }
+        
+        if (![RJFormEmptyTool stringIsEmpty:self.tag])
+        {
+            status.msg = [NSString stringWithFormat:@"%@不能为空", self.tag];
+            return status;
+        }
+    }
+    
+    return status;
+}
+
+
 
 @end

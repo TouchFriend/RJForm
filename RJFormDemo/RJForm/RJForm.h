@@ -14,6 +14,7 @@
 #import "RJFormSectionDescriptor.h"
 #import "RJFormRowDescriptor.h"
 #import "RJFormConstant.h"
+#import "RJFormValidationStatus.h"
 
 #import "RJFormInfoCell.h"
 #import "RJFormImageCell.h"

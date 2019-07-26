@@ -7,5 +7,5 @@ target 'RJFormDemo' do
   
   pod 'Masonry'  
   pod 'IQKeyboardManager'
-
+  pod 'SVProgressHUD'
 end

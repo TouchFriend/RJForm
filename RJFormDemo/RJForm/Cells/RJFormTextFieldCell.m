@@ -49,7 +49,7 @@
     UILabel *textLbl = [[UILabel alloc] init];
     [self.contentView addSubview:textLbl];
     [textLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_offset(15.0);
+        make.left.mas_offset(RJFormRowLeftAndRightMargin);
         make.centerY.mas_equalTo(self.contentView);
     }];
     self.textLbl = textLbl;
@@ -62,7 +62,7 @@
     [detailTextF mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.bottom.mas_equalTo(self.contentView);
-        make.right.mas_equalTo(self.contentView).mas_offset(-15.0);
+        make.right.mas_equalTo(self.contentView).mas_offset(-RJFormRowLeftAndRightMargin);
         make.left.mas_equalTo(textLbl.mas_right).mas_offset(10.0);
     }];
     self.detailTextF = detailTextF;

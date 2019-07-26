@@ -42,7 +42,18 @@
 
 - (UIImage *)itemValue
 {
+#warning 还需要处理网络图片地址
     return self.iconImage;
+}
+
+- (RJFormValidationStatus *)doValidation
+{
+#warning 还需要处理网络图片地址
+    if (!self.iconImage)
+    {
+        return nil;
+    }
+    return nil;
 }
 
 @end

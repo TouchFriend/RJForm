@@ -54,12 +54,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ 表单验证，哪些行是否有错
+
+ @return 所有错误
+ */
+- (NSArray<NSError *> *)formValidationErrors;
+
+/**
  获取tag所对应的RJFormRowDescriptor
 
  @param tag tag
  @return tag所对应的RJFormRowDescriptor的实例
  */
 - (RJFormRowDescriptor *)formRowWithTag:(NSString *)tag;
+
+
+/**
+ 获取RJFormRowDescriptor的位置
+
+ @param row RJFormRowDescriptor的实例
+ @return 位置
+ */
+- (NSIndexPath *)indexPathOfFormRow:(RJFormRowDescriptor *)row;
 
 @end
 
