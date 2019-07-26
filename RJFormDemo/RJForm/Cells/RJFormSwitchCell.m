@@ -83,6 +83,8 @@
 
 - (void)updateViewData:(RJFormSwitchItem *)data
 {
+    [super updateViewData:data];
+    
     self.data = data;
     
     self.textLbl.text = data.text;

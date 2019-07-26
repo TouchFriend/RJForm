@@ -8,6 +8,8 @@
 
 #import "RJFormInfoCell.h"
 #import "RJFormInfoItem.h"
+#import "RJFormDescriptor.h"
+#import "RJFormConstant.h"
 
 @interface RJFormInfoCell ()
 
@@ -67,9 +69,9 @@
 
 - (void)updateViewData:(RJFormInfoItem *)data
 {
-    self.textLbl.text = data.text;
-    self.textLbl.font = data.textFont;
-    self.textLbl.textColor = data.textColor;
+    [super updateViewData:data];
+    
+    self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
     self.detailTextLbl.text = data.detailText;
     self.detailTextLbl.font = data.detailTextFont;

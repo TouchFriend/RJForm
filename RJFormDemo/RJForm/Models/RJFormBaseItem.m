@@ -10,6 +10,17 @@
 
 @implementation RJFormBaseItem
 
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        self.selectionStyle = UITableViewCellSelectionStyleDefault;
+        self.separatorInset = UIEdgeInsetsMake(0.0, 15.0, 0.0, 0.0);
+        self.required = NO;
+    }
+    return self;
+}
+
 - (id)itemValue
 {
     return nil;

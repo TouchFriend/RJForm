@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) UITableView *tableView;
 /********* 分组数据 *********/
 @property (nonatomic, strong) NSArray<RJFormSectionDescriptor *> *formSections;
-#warning RJFormDescriptor，来个类属性来控制
-/********* 是否添加 * 到要求行的标题开头 默认为NO *********/
-@property (nonatomic, assign, getter=isAddAsteriskToRequiredRowsTitle) BOOL addAsteriskToRequiredRowsTitle;
+
+/********* 是否添加 * 到要求行的标题开头 默认为YES *********/
+@property (class, nonatomic, assign, getter=isAddAsteriskToRequiredRowsTitle) BOOL addAsteriskToRequiredRowsTitle;
 
 
 + (instancetype)formWithTableView:(UITableView *)tableView;

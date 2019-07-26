@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id)itemValue;
 
+/********* 是否必须的,就值不为空 *********/
+@property (nonatomic, assign, getter=isRequired) BOOL required;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

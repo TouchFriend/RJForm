@@ -7,6 +7,7 @@
 //
 
 #import "RJFormBaseCell.h"
+#import "RJFormBaseItem.h"
 
 @implementation RJFormBaseCell
 
@@ -24,7 +25,7 @@
     return nil;
 }
 
-- (void)updateViewData:(id)data
+- (void)updateViewData:(RJFormBaseItem *)data
 {
     
 }

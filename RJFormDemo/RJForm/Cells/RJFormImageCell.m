@@ -8,6 +8,7 @@
 
 #import "RJFormImageCell.h"
 #import "RJFormImageItem.h"
+#import "RJFormConstant.h"
 
 @interface RJFormImageCell ()
 
@@ -85,9 +86,9 @@
 
 - (void)updateViewData:(RJFormImageItem *)data
 {
-    self.textLbl.text = data.text;
-    self.textLbl.font = data.textFont;
-    self.textLbl.textColor = data.textColor;
+    [super updateViewData:data];
+    
+    self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
     self.iconImageV.image = data.iconImage;
     

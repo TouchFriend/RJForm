@@ -9,6 +9,7 @@
 #ifndef RJForm_h
 #define RJForm_h
 
+#import <UIKit/UIKit.h>
 #import "RJFormDescriptor.h"
 #import "RJFormSectionDescriptor.h"
 #import "RJFormRowDescriptor.h"

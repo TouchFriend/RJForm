@@ -86,6 +86,8 @@
 
 - (void)updateViewData:(RJFormButtonItem *)data
 {
+    [super updateViewData:data];
+    
     self.data = data;
     self.backgroundColor = data.cellBackgroudColor;
     

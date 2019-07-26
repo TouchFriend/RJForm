@@ -11,6 +11,7 @@
 #import "RJFormRowDescriptor.h"
 
 static NSMutableDictionary *_itemCellClassPairs = nil;
+static BOOL _addAsteriskToRequiredRowsTitle = YES;
 
 @implementation RJFormDescriptor
 
@@ -20,7 +21,6 @@ static NSMutableDictionary *_itemCellClassPairs = nil;
 {
     RJFormDescriptor *formDescriptor = [[self alloc] init];
     formDescriptor.tableView = tableView;
-    formDescriptor.addAsteriskToRequiredRowsTitle = NO;
     return formDescriptor;
 }
 
@@ -122,6 +122,16 @@ static NSMutableDictionary *_itemCellClassPairs = nil;
         [_itemCellClassPairs addEntriesFromDictionary:pair];
     }
     return [_itemCellClassPairs copy];
+}
+
++ (BOOL)isAddAsteriskToRequiredRowsTitle
+{
+    return _addAsteriskToRequiredRowsTitle;
+}
+
++ (void)setAddAsteriskToRequiredRowsTitle:(BOOL)addAsteriskToRequiredRowsTitle
+{
+    _addAsteriskToRequiredRowsTitle = addAsteriskToRequiredRowsTitle;
 }
 
 @end

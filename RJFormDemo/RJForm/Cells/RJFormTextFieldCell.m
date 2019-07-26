@@ -8,6 +8,7 @@
 
 #import "RJFormTextFieldCell.h"
 #import "RJFormTextFieldItem.h"
+#import "RJFormConstant.h"
 
 @interface RJFormTextFieldCell () <UITextFieldDelegate>
 
@@ -84,11 +85,11 @@
 
 - (void)updateViewData:(RJFormTextFieldItem *)data
 {
+    [super updateViewData:data];
+    
     self.data = data;
     
-    self.textLbl.text = data.text;
-    self.textLbl.font = data.textFont;
-    self.textLbl.textColor = data.textColor;
+    self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
     self.detailTextF.text = data.detailText;
     self.detailTextF.font = data.detailTextFont;

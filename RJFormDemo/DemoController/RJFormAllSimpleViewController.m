@@ -63,9 +63,9 @@
     self.tableView = tableView;
     tableView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
     tableView.showsHorizontalScrollIndicator = NO;
-    tableView.estimatedRowHeight = 0.1;
-    tableView.estimatedSectionHeaderHeight = 0.1;
-    tableView.estimatedSectionFooterHeight = 0.1;
+    tableView.estimatedRowHeight = 0.0;
+    tableView.estimatedSectionHeaderHeight = 0.0;
+    tableView.estimatedSectionFooterHeight = 0.0;
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     tableView.separatorColor = [UIColor colorWithRed:222.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
     tableView.contentInset = UIEdgeInsetsMake(0, 0, 64.0, 0);
@@ -104,6 +104,17 @@
     row.rowHeight = 90.0;
     [section.formRows addObject:row];
     
+    RJFormImageItem *right1IconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
+    right1IconItem.hiddenArror = NO;
+    right1IconItem.iconSize = CGSizeMake(60.0, 60.0);
+    right1IconItem.iconCornerRadius = 30.0;
+    right1IconItem.iconBorderWidth = 1.0;
+    right1IconItem.iconBorderColor = [UIColor redColor];
+    right1IconItem.required = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"right1IconItem" item:right1IconItem];
+    row.rowHeight = 90.0;
+    [section.formRows addObject:row];
+    
     RJFormImageItem *middleIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
     middleIconItem.hiddenArror = NO;
     row = [RJFormRowDescriptor rowWithItem:middleIconItem];
@@ -124,6 +135,13 @@
     RJFormInfoItem *infoItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
     infoItem.hiddenArror = NO;
     row = [RJFormRowDescriptor rowWithItem:infoItem];
+    [section.formRows addObject:row];
+    
+    RJFormInfoItem *info1Item = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
+    info1Item.hiddenArror = NO;
+    info1Item.required = YES;
+    row = [RJFormRowDescriptor rowWithItem:info1Item];
+    row.didSelectedSelector = @"phoneClick:";
     [section.formRows addObject:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
@@ -171,6 +189,11 @@
     
     RJFormTextFieldItem *rightAlignmentTextFieldItem = [RJFormTextFieldItem itemWithText:@"企业名称" detailText:@""];
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseName" item:rightAlignmentTextFieldItem];
+    [section.formRows addObject:row];
+    
+    RJFormTextFieldItem *rightAlignment1TextFieldItem = [RJFormTextFieldItem itemWithText:@"企业名称" detailText:@""];
+    rightAlignment1TextFieldItem.required = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"enterpriseName1" item:rightAlignment1TextFieldItem];
     [section.formRows addObject:row];
     
     RJFormTextFieldItem *leftAlignmentTextFieldItem = [RJFormTextFieldItem itemWithText:@"企业邮箱" detailText:@""];

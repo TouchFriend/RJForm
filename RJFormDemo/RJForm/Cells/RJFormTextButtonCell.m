@@ -51,6 +51,8 @@
 
 - (void)updateViewData:(RJFormTextButtonItem *)data
 {
+    [super updateViewData:data];
+    
     self.textLbl.text = data.text;
     self.textLbl.font = data.textFont;
     self.textLbl.textColor = data.textColor;
