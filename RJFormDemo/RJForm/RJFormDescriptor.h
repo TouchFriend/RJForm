@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 /********* tableView *********/
 @property (nonatomic, weak) UITableView *tableView;
 /********* 分组数据 *********/
-@property (nonatomic, strong) NSArray<RJFormSectionDescriptor *> *formSections;
+@property (nonatomic, strong, readonly) NSMutableArray<RJFormSectionDescriptor *> *formSections;
 
 /********* 是否添加 * 到要求行的标题开头 默认为YES *********/
 @property (class, nonatomic, assign, getter=isAddAsteriskToRequiredRowsTitle) BOOL addAsteriskToRequiredRowsTitle;
@@ -70,12 +70,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ 获取indexPath对应的row
+
+ @param indexPath 下标
+ @return 如果找到，返回对应的row。否则返回nil
+ */
+- (RJFormRowDescriptor *)formRowWithIndexPath:(NSIndexPath *)indexPath;
+
+/**
  获取RJFormRowDescriptor的位置
 
  @param row RJFormRowDescriptor的实例
  @return 位置
  */
 - (NSIndexPath *)indexPathOfFormRow:(RJFormRowDescriptor *)row;
+
+
+- (void)addFormSections:(RJFormSectionDescriptor *)section;
+
+
+/**
+ 注册cell
+ */
+- (void)registerAllCells;
 
 @end
 

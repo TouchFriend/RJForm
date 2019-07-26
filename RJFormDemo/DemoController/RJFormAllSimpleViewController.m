@@ -216,7 +216,11 @@
     row = [RJFormRowDescriptor rowWithTag:@"bankAccount" item:bankAccountItem];
     [section.formRows addObject:row];
 
-    form.formSections = [formSections copy];
+    
+    [form.formSections addObjectsFromArray:formSections];
+    
+    //注册cell
+    [form registerAllCells];
     
 }
 

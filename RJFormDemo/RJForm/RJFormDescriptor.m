@@ -15,6 +15,13 @@
 static NSMutableDictionary *_itemCellClassPairs = nil;
 static BOOL _addAsteriskToRequiredRowsTitle = YES;
 
+@interface RJFormDescriptor ()
+
+/********* 分组数据 *********/
+@property (nonatomic, strong) NSMutableArray<RJFormSectionDescriptor *> *formSections;
+
+@end
+
 @implementation RJFormDescriptor
 
 #pragma mark - Init Methods
@@ -32,7 +39,7 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 {
     if (self = [super init])
     {
-        
+        self.formSections = [NSMutableArray array];
     }
     return self;
 }
@@ -100,6 +107,23 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     return nil;
 }
 
+- (RJFormRowDescriptor *)formRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section >= self.formSections.count)
+    {
+        return nil;
+    }
+    
+    RJFormSectionDescriptor *section = self.formSections[indexPath.section];
+    if (indexPath.row >= section.formRows.count)
+    {
+        return nil;
+    }
+    
+    return section.formRows[indexPath.row];
+    
+}
+
 - (NSIndexPath *)indexPathOfFormRow:(RJFormRowDescriptor *)row
 {
     for (NSInteger i = 0; i < self.formSections.count; i++) {
@@ -114,13 +138,25 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     return nil;
 }
 
+- (void)addFormSections:(RJFormSectionDescriptor *)section
+{
+    [self.formSections addObject:section];
+//    [self registerCells:@[section]];
+}
+
+- (void)registerAllCells
+{
+    [self registerCells:self.formSections];
+}
+
+
 #pragma mark - Private Methods
 
 
 /**
  注册cell
  */
-- (void)registerCells
+- (void)registerCells:(NSArray<RJFormSectionDescriptor *> *)formSections
 {
     if (self.tableView == nil)
     {
@@ -129,7 +165,7 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
         @throw [NSException exceptionWithName:@"RJFormDescriptor register cell failed" reason:@"RJFormDescriptor's tableView is nil" userInfo:userInfo];
         return;
     }
-    for (RJFormSectionDescriptor *section in self.formSections) {
+    for (RJFormSectionDescriptor *section in formSections) {
         for (RJFormRowDescriptor *row in section.formRows) {
             [self.tableView registerClass:row.cellClass forCellReuseIdentifier:row.reuseIdentifier];
         }
@@ -139,11 +175,6 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 
 #pragma mark - Properties Methods
 
-- (void)setFormSections:(NSArray<RJFormSectionDescriptor *> *)formSections
-{
-    _formSections = formSections;
-    [self registerCells];
-}
 
 + (NSDictionary *)itemCellClassPairs
 {

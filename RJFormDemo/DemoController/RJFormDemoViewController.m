@@ -138,7 +138,10 @@
 //    [formSections addObjectsFromArray:formSections];
 //    [formSections addObjectsFromArray:formSections];
 //    [formSections addObjectsFromArray:formSections];
-    form.formSections = [formSections copy];
+    [form.formSections addObjectsFromArray:formSections];
+    
+    //注册cell
+    [form registerAllCells];
 }
 
 #pragma mark - UITableViewDataSource Methods

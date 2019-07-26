@@ -73,14 +73,12 @@
     RJFormSectionDescriptor *section;
     RJFormRowDescriptor *row;
     
-    NSMutableArray *formSections = [NSMutableArray array];
-    
     form = [RJFormDescriptor formWithTableView:self.tableView];
     self.form = form;
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    [form addFormSections:section];
     
     RJFormImageItem *rightIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
     rightIconItem.hiddenArror = NO;
@@ -91,7 +89,7 @@
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    [form addFormSections:section];
     
     RJFormInfoItem *infoItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
     infoItem.hiddenArror = NO;
@@ -101,7 +99,7 @@
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    [form addFormSections:section];
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
     changePwdItem.hiddenArror = NO;
@@ -114,7 +112,7 @@
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    [form addFormSections:section];
     
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
     versionUpdateItem.hiddenArror = YES;
@@ -124,13 +122,14 @@
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 15.0;
-    [formSections addObject:section];
+    [form addFormSections:section];
     
     RJFormButtonItem *signOutItem = [RJFormButtonItem itemWithText:@"退出登录" selector:@"signOutBtnClick:"];
     row = [RJFormRowDescriptor rowWithItem:signOutItem];
     [section.formRows addObject:row];
-
-    form.formSections = [formSections copy];
+    
+    //注册cell
+    [form registerAllCells];
 }
 
 #pragma mark - UITableViewDataSource Methods
