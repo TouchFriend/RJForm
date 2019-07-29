@@ -9,6 +9,8 @@
 #import "RJFormImageCell.h"
 #import "RJFormImageItem.h"
 #import "RJFormConstant.h"
+#import <UIImageView+WebCache.h>
+#import "RJFormEmptyTool.h"
 
 @interface RJFormImageCell ()
 
@@ -90,7 +92,17 @@
     
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
-    self.iconImageV.image = data.iconImage;
+    if (data.iconImage)
+    {
+        self.iconImageV.image = data.iconImage;
+    }
+    else if (![RJFormEmptyTool stringIsEmpty:data.webImageUrl])
+    {
+        [self.iconImageV sd_setImageWithURL:[NSURL URLWithString:data.webImageUrl] placeholderImage:data.placeholderImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+        }];
+    }
+    
     
     CGFloat detailTextRightMargin = data.hiddenArror ? RJFormRowLeftAndRightMargin : 0;
     switch (data.style) {
@@ -156,6 +168,7 @@
     self.iconImageV.layer.borderColor = data.iconBorderColor.CGColor;
     
     self.accessoryType = data.hiddenArror ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
+    
 }
 
 @end

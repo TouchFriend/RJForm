@@ -144,11 +144,34 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 //    [self registerCells:@[section]];
 }
 
+- (void)removeFormSectionAtIndex:(NSUInteger)index
+{
+    if (index < self.formSections.count)
+    {
+        [self.formSections removeObjectAtIndex:index];
+    }
+}
+
+- (void)removeFormSection:(RJFormSectionDescriptor *)section
+{
+    NSUInteger index = [self.formSections indexOfObject:section];
+    if (index == NSNotFound)
+    {
+        return;
+    }
+    [self removeFormSectionAtIndex:index];
+}
+
 - (void)registerAllCells
 {
     [self registerCells:self.formSections];
 }
 
+- (void)reloadData
+{
+    [self registerAllCells];
+    [self.tableView reloadData];
+}
 
 #pragma mark - Private Methods
 
@@ -186,7 +209,8 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
                                @"RJFormSwitchItem" : @"RJFormSwitchCell",
                                @"RJFormTextButtonItem" : @"RJFormTextButtonCell",
                                @"RJFormButtonItem" : @"RJFormButtonCell",
-                               @"RJFormTextFieldItem" : @"RJFormTextFieldCell"
+                               @"RJFormTextFieldItem" : @"RJFormTextFieldCell",
+                               @"RJFormTextViewItem" : @"RJFormTextViewCell"
                                };
         _itemCellClassPairs = [NSMutableDictionary dictionary];
         [_itemCellClassPairs addEntriesFromDictionary:pair];

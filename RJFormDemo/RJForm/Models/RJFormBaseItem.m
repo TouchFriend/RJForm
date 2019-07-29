@@ -15,7 +15,7 @@
     if (self = [super init])
     {
         self.selectionStyle = UITableViewCellSelectionStyleDefault;
-        self.separatorInset = UIEdgeInsetsMake(0.0, 15.0, 0.0, 0.0);
+        self.separatorInset = UIEdgeInsetsZero;
         self.required = NO;
     }
     return self;

@@ -7,6 +7,11 @@
 //
 
 #import "RJFormImageItem.h"
+#import "RJFormEmptyTool.h"
+
+@interface RJFormImageItem ()
+
+@end
 
 @implementation RJFormImageItem
 
@@ -26,6 +31,15 @@
     return imageItem;
 }
 
++ (instancetype)itemWithText:(NSString *)text webImageUrl:(NSString *)webImageUrl style:(RJFormImageCellStyle)style
+{
+    RJFormImageItem *imageItem = [[self alloc] init];
+    imageItem.text = text;
+    imageItem.webImageUrl = webImageUrl;
+    imageItem.style = style;
+    return imageItem;
+}
+
 - (instancetype)init
 {
     if (self = [super init])
@@ -40,10 +54,19 @@
 
 #pragma mark - RJFormItemValue Methods
 
-- (UIImage *)itemValue
+- (id)itemValue
 {
-#warning 还需要处理网络图片地址
-    return self.iconImage;
+    if (self.iconImage)
+    {
+        return self.iconImage;
+    }
+    
+    if (![RJFormEmptyTool stringIsEmpty:self.webImageUrl])
+    {
+        return self.webImageUrl;
+    }
+    
+    return nil;
 }
 
 - (RJFormValidationStatus *)doValidation

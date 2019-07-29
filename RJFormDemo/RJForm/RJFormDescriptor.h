@@ -88,11 +88,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addFormSections:(RJFormSectionDescriptor *)section;
 
+#warning 动态添加表单项的方法
 
 /**
- 注册cell
+ 通过下标删除分组
+
+ @param index 下标
+ */
+- (void)removeFormSectionAtIndex:(NSUInteger)index;
+
+
+/**
+ 通过section实例删除分组
+
+ @param section section实例
+ */
+- (void)removeFormSection:(RJFormSectionDescriptor *)section;
+
+/**
+ 注册cell。动态添加表单项时，有新的cell类使用，记得注册一下
  */
 - (void)registerAllCells;
+
+
+/**
+ 刷新表单数据。内部会重新注册一遍cell。
+ */
+- (void)reloadData;
 
 @end
 

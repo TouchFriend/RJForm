@@ -122,6 +122,10 @@ static NSString * const ID = @"UITableViewCell";
                          @"title" : @"设置中心",
                          @"controller" : NSStringFromClass([RJFormSettingViewController class])
                          },
+                     @{
+                         @"title" : @"企业基本信息",
+                         @"controller" : @"RJFormEnterpriseInfoViewController"
+                         }
                      ];
     }
     return _dataArr;

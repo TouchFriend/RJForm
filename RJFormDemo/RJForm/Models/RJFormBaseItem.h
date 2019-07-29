@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *selectedBackgroundColor;
 /********* cell的选中样式 默认 UITableViewCellSelectionStyleDefault *********/
 @property (nonatomic, assign) UITableViewCellSelectionStyle selectionStyle;
-/********* 分割线左右间距 默认左边15.0，右边0 *********/
+/********* 分割线左右间距 默认UIEdgeInsetsZero，即不设置。同意设置，请通过tableView的separatorInset来设置 *********/
 @property (nonatomic, assign) UIEdgeInsets separatorInset;
 /********* 是否必须的,就值不为空 默认NO *********/
 @property (nonatomic, assign, getter=isRequired) BOOL required;

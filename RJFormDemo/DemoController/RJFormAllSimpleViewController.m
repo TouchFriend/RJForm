@@ -101,16 +101,18 @@
     rightIconItem.iconCornerRadius = 30.0;
     rightIconItem.iconBorderWidth = 1.0;
     rightIconItem.iconBorderColor = [UIColor redColor];
-    row = [RJFormRowDescriptor rowWithItem:rightIconItem];
+    row = [RJFormRowDescriptor rowWithTag:@"rightIconItem" item:rightIconItem];
     row.rowHeight = 90.0;
     [section.formRows addObject:row];
     
-    RJFormImageItem *right1IconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
+    NSString *iconUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
+    RJFormImageItem *right1IconItem = [RJFormImageItem itemWithText:@"头像" webImageUrl:iconUrl style:RJFormImageCellStyleRight];
     right1IconItem.hiddenArror = NO;
     right1IconItem.iconSize = CGSizeMake(60.0, 60.0);
     right1IconItem.iconCornerRadius = 30.0;
     right1IconItem.iconBorderWidth = 1.0;
     right1IconItem.iconBorderColor = [UIColor redColor];
+    right1IconItem.placeholderImage = [UIImage imageNamed:@"placeholder"];
     right1IconItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"right1IconItem" item:right1IconItem];
     row.rowHeight = 90.0;

@@ -22,10 +22,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /********* 图片位置样式 默认左边 *********/
 @property (nonatomic, assign) RJFormImageCellStyle style;
-/********* 本地图片 *********/
+/********* 本地图片,如果同时设置了iconImage和webImageUrl，优先显示iconImage *********/
 @property (nonatomic, strong) UIImage *iconImage;
 /********* 网络图片地址 *********/
 @property (nonatomic, copy) NSString *webImageUrl;
+/********* 占位图片 *********/
+@property (nonatomic, copy) UIImage *placeholderImage;
+
 
 /********* 图片size *********/
 @property (nonatomic, assign) CGSize iconSize;
@@ -39,12 +42,20 @@ NS_ASSUME_NONNULL_BEGIN
 /********* 隐藏箭头 *********/
 @property (nonatomic, assign) BOOL hiddenArror;
 
-+ (instancetype)itemWithText:(NSString *)text iconImage:(UIImage *)iconImage style:(RJFormImageCellStyle)style;
++ (instancetype)itemWithText:(NSString *)text iconImage:(UIImage * _Nullable)iconImage style:(RJFormImageCellStyle)style;
+
++ (instancetype)itemWithText:(NSString *)text webImageUrl:(NSString * _Nullable)webImageUrl style:(RJFormImageCellStyle)style;
 
 //默认RJFormImageCellStyleLeft
-+ (instancetype)itemWithText:(NSString *)text iconImage:(UIImage *)iconImage;
++ (instancetype)itemWithText:(NSString *)text iconImage:(UIImage *_Nullable)iconImage;
 
-- (UIImage *)itemValue;
+
+/**
+ 可能返回UIImage对象，也可能是网络图片地址，需要外部自行判断下
+
+ @return UIImage对象或者网络图片地址
+ */
+- (id)itemValue;
 
 @end
 

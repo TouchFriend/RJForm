@@ -8,4 +8,6 @@ target 'RJFormDemo' do
   pod 'Masonry'  
   pod 'IQKeyboardManager'
   pod 'SVProgressHUD'
+  pod 'SDWebImage', '~> 4.4.6'
+  
 end

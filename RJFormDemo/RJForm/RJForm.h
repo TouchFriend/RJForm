@@ -21,13 +21,15 @@
 #import "RJFormSwitchCell.h"
 #import "RJFormTextButtonCell.h"
 #import "RJFormButtonCell.h"
-#import "RJFormTextFieldItem.h"
+#import "RJFormTextFieldCell.h"
+#import "RJFormTextViewCell.h"
 
 #import "RJFormInfoItem.h"
 #import "RJFormImageItem.h"
 #import "RJFormSwitchItem.h"
 #import "RJFormTextButtonItem.h"
 #import "RJFormButtonItem.h"
-#import "RJFormTextFieldCell.h"
+#import "RJFormTextFieldItem.h"
+#import "RJFormTextViewItem.h"
 
 #endif /* RJForm_h */
