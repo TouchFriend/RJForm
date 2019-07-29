@@ -38,7 +38,7 @@
 {
     if (self = [super init])
     {
-        self.textFont = [UIFont systemFontOfSize:17.0];
+        self.textFont = [UIFont systemFontOfSize:16.0];
         self.textColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
         
         self.detailTextFont = [UIFont systemFontOfSize:15.0];

@@ -14,16 +14,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /********* 文本 *********/
 @property (nonatomic, copy) NSString *text;
-/********* 文本字体 默认17.0 *********/
+/********* 文本字体 默认16.0 *********/
 @property (nonatomic, strong) UIFont *textFont;
 /********* 文本颜色 默认黑色51 *********/
 @property (nonatomic, strong) UIColor *textColor;
 
 /********* 详情文本 *********/
 @property (nonatomic, copy) NSString *detailText;
-/********* 详情文本字体 默认14.0 *********/
+/********* 详情文本字体 默认15.0 *********/
 @property (nonatomic, strong) UIFont *detailTextFont;
-/********* 详情文本颜色 默认黑色181 *********/
+/********* 详情文本颜色 默认黑色93 *********/
 @property (nonatomic, strong) UIColor *detailTextColor;
 
 /********* 隐藏箭头 *********/

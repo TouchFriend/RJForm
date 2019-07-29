@@ -11,7 +11,45 @@
 
 @implementation RJFormSectionDescriptor
 
+#pragma mark - Init Methods
 
++ (instancetype)sectionWithSectionHeaderHeight:(CGFloat)sectionHeaderHeight sectionFooterHeight:(CGFloat)sectionFooterHeight
+{
+    RJFormSectionDescriptor *sectionDescriptor = [[self alloc] init];
+    sectionDescriptor.sectionHeaderHeight = sectionHeaderHeight;
+    sectionDescriptor.sectionFooterHeight = sectionFooterHeight;
+    return sectionDescriptor;
+}
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        
+    }
+    return self;
+}
+
+#pragma mark - Public Methods
+
+- (void)addFormRow:(RJFormRowDescriptor *)row
+{
+    if (row == nil)
+    {
+        return;
+    }
+    
+    [self.formRows addObject:row];
+}
+
+- (void)removeFormRow:(RJFormRowDescriptor *)row
+{
+    if (row == nil)
+    {
+        return;
+    }
+    [self.formRows removeObject:row];
+}
 
 #pragma mark - Properties Methods
 

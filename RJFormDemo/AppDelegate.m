@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RJFormMainViewController.h"
+#import "RJFormEnterpriseInfoViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,8 +21,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    RJFormMainViewController *mainVC = [[RJFormMainViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+//    RJFormMainViewController *mainVC = [[RJFormMainViewController alloc] init];
+    RJFormEnterpriseInfoViewController *enterpriseInfoVC = [[RJFormEnterpriseInfoViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:enterpriseInfoVC];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     

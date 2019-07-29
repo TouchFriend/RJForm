@@ -26,7 +26,6 @@ NS_ASSUME_NONNULL_BEGIN
 /********* 选中cell时，执行的方法 *********/
 @property (nonatomic, copy) NSString *didSelectedSelector;
 
-
 /**
  设置cell数据
 
@@ -54,6 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
  @return 实例对象
  */
 + (instancetype)rowWithItem:(id<RJFormItemValue>)item;
+
+
 
 @end
 

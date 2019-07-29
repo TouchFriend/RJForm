@@ -27,6 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
 /********* 行数据 *********/
 @property (nonatomic, strong) NSMutableArray<RJFormRowDescriptor *> *formRows;
 
+- (void)addFormRow:(RJFormRowDescriptor *)row;
+
+- (void)removeFormRow:(RJFormRowDescriptor *)row;
+
+
++ (instancetype)sectionWithSectionHeaderHeight:(CGFloat)sectionHeaderHeight sectionFooterHeight:(CGFloat)sectionFooterHeight;
 
 @end
 

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /********* 文本 *********/
 @property (nonatomic, copy) NSString *text;
-/********* 文本字体 默认17.0 *********/
+/********* 文本字体 默认16.0 *********/
 @property (nonatomic, strong) UIFont *textFont;
 /********* 文本颜色 默认黑色51 *********/
 @property (nonatomic, strong) UIColor *textColor;
@@ -45,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)itemWithText:(NSString *)text iconImage:(UIImage * _Nullable)iconImage style:(RJFormImageCellStyle)style;
 
 + (instancetype)itemWithText:(NSString *)text webImageUrl:(NSString * _Nullable)webImageUrl style:(RJFormImageCellStyle)style;
+
++ (instancetype)itemWithText:(NSString *)text webImageUrl:(NSString * _Nullable)webImageUrl placeholderImage:(UIImage *_Nullable)placeholderImage style:(RJFormImageCellStyle)style;
 
 //默认RJFormImageCellStyleLeft
 + (instancetype)itemWithText:(NSString *)text iconImage:(UIImage *_Nullable)iconImage;
