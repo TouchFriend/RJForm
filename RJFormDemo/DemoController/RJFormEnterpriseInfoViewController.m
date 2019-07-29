@@ -46,6 +46,7 @@
 
 - (void)setupNaviBar
 {
+    self.navigationItem.title = @"企业基本信息";
     UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(saveBtnClick)];
     self.navigationItem.rightBarButtonItems = @[saveItem];
 }
@@ -190,6 +191,51 @@
     RJFormInfoItem *industryClassifyItem = [RJFormInfoItem itemWithText:@"所属行业分类" detailText:@""];
     industryClassifyItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"industryClassify" item:industryClassifyItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *mainBusinessItem = [RJFormTextFieldItem itemWithText:@"主营业务" detailText:@"" detailPlaceholder:@"请填写"];
+    mainBusinessItem.required = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"mainBusiness" item:mainBusinessItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *bankAccountItem = [RJFormTextFieldItem itemWithText:@"银行账号" detailText:@"" detailPlaceholder:@"请填写"];
+    row = [RJFormRowDescriptor rowWithTag:@"bankAccount" item:bankAccountItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *accountNameItem = [RJFormTextFieldItem itemWithText:@"开户名" detailText:@"" detailPlaceholder:@"请填写"];
+    row = [RJFormRowDescriptor rowWithTag:@"accountName" item:accountNameItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *enterpriseEmailItem = [RJFormTextFieldItem itemWithText:@"企业邮箱" detailText:@"" detailPlaceholder:@"请填写"];
+    enterpriseEmailItem.required = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"enterpriseEmail" item:enterpriseEmailItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *enterpriseURLItem = [RJFormTextFieldItem itemWithText:@"企业网址" detailText:@"" detailPlaceholder:@"请填写"];
+    row = [RJFormRowDescriptor rowWithTag:@"enterpriseURL" item:enterpriseURLItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *actualBusinessAddressItem = [RJFormTextFieldItem itemWithText:@"实际经营地址" detailText:@"福建省福州市鼓楼区啦啦啦啦啦啦啦啦福建省福州市鼓" detailPlaceholder:@"请填写"];
+    actualBusinessAddressItem.required = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"actualBusinessAddress" item:actualBusinessAddressItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *registerAddressItem = [RJFormTextFieldItem itemWithText:@"注册地址" detailText:@"" detailPlaceholder:@"请填写"];
+    registerAddressItem.required = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"registerAddress" item:registerAddressItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *contactNumberItem = [RJFormTextFieldItem itemWithText:@"联系电话" detailText:@"" detailPlaceholder:@"请填写"];
+    contactNumberItem.required = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"contactNumber" item:contactNumberItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *floorAreaItem = [RJFormTextFieldItem itemWithText:@"占地面积（平方米）" detailText:@"" detailPlaceholder:@"请填写"];
+    row = [RJFormRowDescriptor rowWithTag:@"floorArea" item:floorAreaItem];
+    [section addFormRow:row];
+    
+    RJFormTextFieldItem *constructionPhoneItem = [RJFormTextFieldItem itemWithText:@"建筑电话（平方米）" detailText:@"" detailPlaceholder:@"请填写"];
+    row = [RJFormRowDescriptor rowWithTag:@"constructionPhone" item:constructionPhoneItem];
     [section addFormRow:row];
     
     //第三分组

@@ -9,6 +9,7 @@
 #import "RJFormTextFieldCell.h"
 #import "RJFormTextFieldItem.h"
 #import "RJFormConstant.h"
+#import "RJFormEmptyTool.h"
 
 @interface RJFormTextFieldCell () <UITextFieldDelegate>
 
@@ -50,6 +51,7 @@
     [self.contentView addSubview:textLbl];
     [textLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(RJFormRowLeftAndRightMargin);
+        make.width.mas_equalTo(65.0);
         make.centerY.mas_equalTo(self.contentView);
     }];
     self.textLbl = textLbl;
@@ -89,7 +91,14 @@
     
     self.data = data;
     
+    data.text = data.text == nil ? @"" : data.text;
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
+    CGSize textSize = [self.textLbl.attributedText.string sizeWithAttributes:@{
+                                    NSFontAttributeName : data.textFont
+                                    }];
+    [self.textLbl mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(textSize.width + 1.0);
+    }];
     
     self.detailTextF.text = data.detailText;
     self.detailTextF.font = data.detailTextFont;
