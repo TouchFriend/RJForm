@@ -7,6 +7,15 @@
 //
 
 #import "RJFormBaseItem.h"
+#import "RJFormValidatorProtocol.h"
+
+@interface RJFormBaseItem ()
+
+/********* 正则表达式 *********/
+@property (readwrite, nonatomic, strong) NSMutableArray<id<RJFormValidatorProtocol>> *regexValidators;
+
+
+@end
 
 @implementation RJFormBaseItem
 
@@ -17,6 +26,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleDefault;
         self.separatorInset = UIEdgeInsetsZero;
         self.required = NO;
+        self.regexValidators = [NSMutableArray array];
     }
     return self;
 }
@@ -31,6 +41,39 @@
     return nil;
 }
 
+- (void)addValidator:(id<RJFormValidatorProtocol>)validator
+{
+    if (!validator || ![validator conformsToProtocol:@protocol(RJFormValidatorProtocol)])
+    {
+        return;
+    }
+    
+    if ([self.regexValidators containsObject:validator])
+    {
+        return;
+    }
+    
+    [self.regexValidators addObject:validator];
+}
 
+- (void)removeValidator:(id<RJFormValidatorProtocol>)validator
+{
+    if (!validator || ![validator conformsToProtocol:@protocol(RJFormValidatorProtocol)])
+    {
+        return;
+    }
+    
+    if (![self.regexValidators containsObject:validator])
+    {
+        return;
+    }
+    
+    [self.regexValidators removeObject:validator];
+}
+
+- (void)removeAllValidators
+{
+    [self.regexValidators removeAllObjects];
+}
 
 @end

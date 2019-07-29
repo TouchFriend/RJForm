@@ -202,6 +202,8 @@
     RJFormTextFieldItem *leftAlignmentTextFieldItem = [RJFormTextFieldItem itemWithText:@"企业邮箱" detailText:@""];
     leftAlignmentTextFieldItem.detailTextAlignment = NSTextAlignmentLeft;
     leftAlignmentTextFieldItem.detailKeyboardType = UIKeyboardTypeEmailAddress;
+    leftAlignmentTextFieldItem.required = YES;
+    [leftAlignmentTextFieldItem addValidator:[RJFormValidator emailValidatorLong]];
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseEmail" item:leftAlignmentTextFieldItem];
     [section.formRows addObject:row];
     

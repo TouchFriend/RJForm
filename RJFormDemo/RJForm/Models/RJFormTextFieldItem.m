@@ -9,6 +9,7 @@
 #import "RJFormTextFieldItem.h"
 #import "RJFormEmptyTool.h"
 #import "RJFormValidationStatus.h"
+#import "RJFormValidatorProtocol.h"
 
 @implementation RJFormTextFieldItem
 
@@ -84,6 +85,22 @@
         {
             status.msg = [NSString stringWithFormat:@"%@不能为空", self.tag];
             return status;
+        }
+    }
+    
+#warning 自定义的正则表达式
+    
+    id itemValue = [self itemValue];
+    for (id<RJFormValidatorProtocol>validator in self.regexValidators) {
+        if (![validator conformsToProtocol:@protocol(RJFormValidatorProtocol)])
+        {
+            continue;
+        }
+        
+        RJFormValidationStatus *validateStatus = [validator doValidation:itemValue];
+        if (validateStatus && !validateStatus.validate)
+        {
+            return validateStatus;
         }
     }
     

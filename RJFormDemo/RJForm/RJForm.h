@@ -15,6 +15,9 @@
 #import "RJFormRowDescriptor.h"
 #import "RJFormConstant.h"
 #import "RJFormValidationStatus.h"
+#import "RJFormValidator.h"
+#import "RJFormRegexValidator.h"
+#import "RJFormValidatorProtocol.h"
 
 #import "RJFormInfoCell.h"
 #import "RJFormImageCell.h"

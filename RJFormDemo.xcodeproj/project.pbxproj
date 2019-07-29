@@ -13,6 +13,8 @@
 		BF116E5A22EE91A800954453 /* RJFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF116E5922EE91A800954453 /* RJFormTextViewCell.m */; };
 		BF116E5D22EE91B800954453 /* RJFormTextViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF116E5C22EE91B800954453 /* RJFormTextViewItem.m */; };
 		BF116E6022EE96B900954453 /* RJFormEnterpriseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF116E5F22EE96B900954453 /* RJFormEnterpriseInfoViewController.m */; };
+		BF17280922EEF01800C93002 /* RJFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17280822EEF01800C93002 /* RJFormValidator.m */; };
+		BF17280C22EEF0B500C93002 /* RJFormRegexValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17280B22EEF0B500C93002 /* RJFormRegexValidator.m */; };
 		BF24752222E6A37B0060AC12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF24752122E6A37B0060AC12 /* AppDelegate.m */; };
 		BF24752822E6A37B0060AC12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF24752622E6A37B0060AC12 /* Main.storyboard */; };
 		BF24752A22E6A37C0060AC12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF24752922E6A37C0060AC12 /* Assets.xcassets */; };
@@ -55,6 +57,11 @@
 		BF116E5C22EE91B800954453 /* RJFormTextViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormTextViewItem.m; sourceTree = "<group>"; };
 		BF116E5E22EE96B900954453 /* RJFormEnterpriseInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormEnterpriseInfoViewController.h; sourceTree = "<group>"; };
 		BF116E5F22EE96B900954453 /* RJFormEnterpriseInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormEnterpriseInfoViewController.m; sourceTree = "<group>"; };
+		BF17280622EEEFD100C93002 /* RJFormValidatorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormValidatorProtocol.h; sourceTree = "<group>"; };
+		BF17280722EEF01800C93002 /* RJFormValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormValidator.h; sourceTree = "<group>"; };
+		BF17280822EEF01800C93002 /* RJFormValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormValidator.m; sourceTree = "<group>"; };
+		BF17280A22EEF0B500C93002 /* RJFormRegexValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormRegexValidator.h; sourceTree = "<group>"; };
+		BF17280B22EEF0B500C93002 /* RJFormRegexValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormRegexValidator.m; sourceTree = "<group>"; };
 		BF24751D22E6A37B0060AC12 /* RJFormDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RJFormDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF24752022E6A37B0060AC12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF24752122E6A37B0060AC12 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -248,6 +255,11 @@
 			children = (
 				BFE1342A22EAE32200B0CC0B /* RJFormValidationStatus.h */,
 				BFE1342B22EAE32200B0CC0B /* RJFormValidationStatus.m */,
+				BF17280622EEEFD100C93002 /* RJFormValidatorProtocol.h */,
+				BF17280722EEF01800C93002 /* RJFormValidator.h */,
+				BF17280822EEF01800C93002 /* RJFormValidator.m */,
+				BF17280A22EEF0B500C93002 /* RJFormRegexValidator.h */,
+				BF17280B22EEF0B500C93002 /* RJFormRegexValidator.m */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -398,6 +410,7 @@
 			files = (
 				BF24755422E6E2690060AC12 /* RJFormSwitchItem.m in Sources */,
 				BF6D9C2922E836EF0039FBB7 /* RJFormTextButtonCell.m in Sources */,
+				BF17280C22EEF0B500C93002 /* RJFormRegexValidator.m in Sources */,
 				BF24753F22E6AA260060AC12 /* RJFormSectionDescriptor.m in Sources */,
 				BF6D9C3222E83FD60039FBB7 /* RJFormBaseItem.m in Sources */,
 				BF24754222E6AA410060AC12 /* RJFormRowDescriptor.m in Sources */,
@@ -406,6 +419,7 @@
 				BFE1342F22EAE85000B0CC0B /* RJFormEmptyTool.m in Sources */,
 				BF24755D22E6F0EE0060AC12 /* RJFormDescriptor.m in Sources */,
 				BF6D9C2F22E839A50039FBB7 /* RJFormButtonCell.m in Sources */,
+				BF17280922EEF01800C93002 /* RJFormValidator.m in Sources */,
 				BF116E5D22EE91B800954453 /* RJFormTextViewItem.m in Sources */,
 				BFE1342C22EAE32200B0CC0B /* RJFormValidationStatus.m in Sources */,
 				BF24754522E6E1980060AC12 /* RJFormImageCell.m in Sources */,

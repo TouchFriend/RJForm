@@ -21,9 +21,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-//    RJFormMainViewController *mainVC = [[RJFormMainViewController alloc] init];
-    RJFormEnterpriseInfoViewController *enterpriseInfoVC = [[RJFormEnterpriseInfoViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:enterpriseInfoVC];
+    RJFormMainViewController *mainVC = [[RJFormMainViewController alloc] init];
+//    RJFormEnterpriseInfoViewController *enterpriseInfoVC = [[RJFormEnterpriseInfoViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainVC];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RJFormItemValue.h"
 
+@protocol RJFormValidatorProtocol;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RJFormBaseItem : NSObject <RJFormItemValue>
@@ -22,10 +23,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) UITableViewCellSelectionStyle selectionStyle;
 /********* 分割线左右间距 默认UIEdgeInsetsZero，即不设置。同意设置，请通过tableView的separatorInset来设置 *********/
 @property (nonatomic, assign) UIEdgeInsets separatorInset;
+
 /********* 是否必须的,就值不为空 默认NO *********/
 @property (nonatomic, assign, getter=isRequired) BOOL required;
 /********* 值为空时，显示的提示 *********/
 @property (nonatomic, copy) NSString *requireMsg;
+
+/********* 正则表达式 *********/
+@property (readonly, nonatomic, strong) NSMutableArray<id<RJFormValidatorProtocol>> *regexValidators;
+/**
+ 添加正则表达式
+
+ @param validator 正则表达式
+ */
+- (void)addValidator:(id<RJFormValidatorProtocol >)validator;
+
+/**
+ 删除正则表达式
+
+ @param validator 正则表达式
+ */
+- (void)removeValidator:(id<RJFormValidatorProtocol >)validator;
+
+
+/**
+ 删除所有正则表达式
+ */
+- (void)removeAllValidators;
+
 /********* tag(标签) *********/
 @property (nonatomic, copy) NSString *tag;
 
