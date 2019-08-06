@@ -26,6 +26,7 @@
 #import "RJFormButtonCell.h"
 #import "RJFormTextFieldCell.h"
 #import "RJFormTextViewCell.h"
+#import "RJFormSelectorItem.h"
 
 #import "RJFormInfoItem.h"
 #import "RJFormImageItem.h"
@@ -34,5 +35,8 @@
 #import "RJFormButtonItem.h"
 #import "RJFormTextFieldItem.h"
 #import "RJFormTextViewItem.h"
+#import "RJFormSelectorItem.h"
+
+#import "RJFormOptionItem.h"
 
 #endif /* RJForm_h */

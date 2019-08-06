@@ -210,7 +210,8 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
                                @"RJFormTextButtonItem" : @"RJFormTextButtonCell",
                                @"RJFormButtonItem" : @"RJFormButtonCell",
                                @"RJFormTextFieldItem" : @"RJFormTextFieldCell",
-                               @"RJFormTextViewItem" : @"RJFormTextViewCell"
+                               @"RJFormTextViewItem" : @"RJFormTextViewCell",
+                               @"RJFormSelectorItem" : @"RJFormSelectorCell"
                                };
         _itemCellClassPairs = [NSMutableDictionary dictionary];
         [_itemCellClassPairs addEntriesFromDictionary:pair];

@@ -1,18 +1,19 @@
 //
-//  RJFormInfoCell.m
+//  RJFormSelectorCell.m
 //  RJFormDemo
 //
-//  Created by TouchWorld on 2019/7/23.
+//  Created by TouchWorld on 2019/8/6.
 //  Copyright © 2019 RJSoft. All rights reserved.
 //
 
-#import "RJFormInfoCell.h"
-#import "RJFormInfoItem.h"
+#import "RJFormSelectorCell.h"
+#import "RJFormSelectorItem.h"
 #import "RJFormDescriptor.h"
 #import "RJFormConstant.h"
+#import "RJFormEmptyTool.h"
+#import "RJFormOptionItem.h"
 
-
-@interface RJFormInfoCell ()
+@interface RJFormSelectorCell ()
 
 /********* text *********/
 @property (nonatomic, weak) UILabel *textLbl;
@@ -21,7 +22,7 @@
 
 @end
 
-@implementation RJFormInfoCell
+@implementation RJFormSelectorCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -68,16 +69,17 @@
 
 #pragma mark - RJFormCellDataUpdate Methods
 
-- (void)updateViewData:(RJFormInfoItem *)data
+- (void)updateViewData:(RJFormSelectorItem *)data
 {
     [super updateViewData:data];
     
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
-    self.detailTextLbl.text = data.detailText;
-    self.detailTextLbl.font = data.detailTextFont;
-    self.detailTextLbl.textColor = data.detailTextColor;
+    BOOL isEmpty = data.selectedOption == nil || [RJFormEmptyTool stringIsEmpty:data.selectedOption.optionText];
     
+    self.detailTextLbl.text = isEmpty ? data.noDetailTextPlaceholder : data.selectedOption.optionText;
+    self.detailTextLbl.font = data.detailTextFont;
+    self.detailTextLbl.textColor = isEmpty ? data.noDetailTextColor : data.detailTextColor;
     
     CGFloat detailTextRightMargin = data.hiddenArror ? RJFormRowLeftAndRightMargin : 0;
     [self.detailTextLbl mas_updateConstraints:^(MASConstraintMaker *make) {

@@ -219,6 +219,21 @@
     bankAccountItem.detailKeyboardType = UIKeyboardTypeDefault;
     row = [RJFormRowDescriptor rowWithTag:@"bankAccount" item:bankAccountItem];
     [section.formRows addObject:row];
+    
+    section = [[RJFormSectionDescriptor alloc] init];
+    section.sectionHeaderHeight = 15.0;
+    section.sectionHeaderTitle = @"选择器";
+    [formSections addObject:section];
+    
+    RJFormSelectorItem *enterpriseTypeItem = [RJFormSelectorItem itemWithText:@"企业类型" selectedOption:[RJFormOptionItem itemWithOptionText:@"企业类型1" optionValue:@(0)]];
+    enterpriseTypeItem.selectorOptions = @[
+                                           [RJFormOptionItem itemWithOptionText:@"企业类型1" optionValue:@(0)],
+                                           [RJFormOptionItem itemWithOptionText:@"企业类型2" optionValue:@(1)],
+                                           [RJFormOptionItem itemWithOptionText:@"企业类型3" optionValue:@(2)],
+                                           [RJFormOptionItem itemWithOptionText:@"企业类型4" optionValue:@(3)],
+                                           ];
+    row = [RJFormRowDescriptor rowWithTag:@"enterpriseType" item:enterpriseTypeItem];
+    [section.formRows addObject:row];
 
     
     [form.formSections addObjectsFromArray:formSections];
@@ -257,6 +272,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[indexPath.section];
+    RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
+    if (!rowDescriptor.didSelectedSelector || rowDescriptor.didSelectedSelector.length == 0)
+    {
+        return;
+    }
+    
+    SEL selector = NSSelectorFromString(rowDescriptor.didSelectedSelector);
+    if (![self respondsToSelector:selector])
+    {
+        return;
+    }
+    
+    //内存泄露警告,因为编译器不知道selector是哪个方法id，需要在runtime才知道
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self performSelector:selector withObject:rowDescriptor];
+#pragma clang diagnostic pop
     
 }
 

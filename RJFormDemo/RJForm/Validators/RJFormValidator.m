@@ -25,6 +25,9 @@
     return [RJFormRegexValidator validatorWithErrorMsg:@"邮箱格式不正确" regex:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,11}"];
 }
 
+#warning 添加手机号的正则表达式
+
+
 #pragma mark - RJFormValidatorProtocol Methods
 
 - (RJFormValidationStatus *)doValidation:(id)value

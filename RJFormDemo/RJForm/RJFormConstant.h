@@ -17,6 +17,14 @@ typedef NS_ENUM(NSUInteger, RJFormImageCellStyle)
     
 };
 
+typedef NS_ENUM(NSUInteger, RJFormSelectorStyle)
+{
+    RJFormSelectorStylePicker = 0, //选择器
+    RJFormSelectorStyleAlert, //警告框
+    RJFormSelectorStyleActionSheet , //底部警告框
+    RJFormSelectorStylePush , //push
+};
+
 typedef NS_ENUM(NSUInteger, RJFormErrorCode)
 {
     RJFormErrorCodeValidation = -1000, //验证错误
