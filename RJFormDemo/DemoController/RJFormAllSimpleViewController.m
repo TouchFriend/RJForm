@@ -251,6 +251,11 @@
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseType" item:enterpriseTypeItem];
     [section.formRows addObject:row];
     
+    RJFormSelectorItem *countryTypeItem = [RJFormSelectorItem itemWithText:@"国别（选择器 无数据）" selectedOption:nil];
+    countryTypeItem.selectorTitle = @"国别";
+    row = [RJFormRowDescriptor rowWithTag:@"countryType" item:countryTypeItem];
+    [section.formRows addObject:row];
+    
     RJFormSelectorItem *enterpriseNatureItem = [RJFormSelectorItem itemWithSelectorStyle:RJFormSelectorStyleActionSheet text:@"企业性质（actionSheet警告框）" selectedOption:[RJFormOptionItem itemWithOptionText:@"企业性质1" optionValue:@(0)]];
     enterpriseNatureItem.selectorTitle = @"企业性质";
     enterpriseNatureItem.selectorOptions = @[

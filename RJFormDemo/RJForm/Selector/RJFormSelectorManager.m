@@ -156,10 +156,11 @@ static RJFormSelectorManager *manager = nil;
  */
 - (NSInteger)selectedIndex
 {
-    if (self.item == nil)
+    if (self.item == nil || self.item.selectorOptions == nil || self.item.selectorOptions.count == 0)
     {
         return -1;
     }
+    
     
     NSUInteger index = [self.item.selectorOptions indexOfObject:self.item.selectedOption];
     if (index != NSNotFound)

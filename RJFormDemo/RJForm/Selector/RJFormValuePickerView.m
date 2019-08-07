@@ -212,6 +212,11 @@
 
 - (void)confirmBtnClick
 {
+    if (self.titleDataArr == nil || self.titleDataArr.count == 0)
+    {
+        [self dismiss:YES];
+        return;
+    }
     NSInteger selectedIndex = [self.pickerView selectedRowInComponent:0];
     NSString * title = self.titleDataArr[selectedIndex];
     if(self.completedBlock != nil)
