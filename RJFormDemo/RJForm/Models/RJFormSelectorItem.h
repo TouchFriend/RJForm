@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /********* 隐藏箭头 *********/
 @property (nonatomic, assign) BOOL hiddenArror;
 
-/********* 选择器标题 *********/
+/********* 选择器标题 为空，默认使用text属性 *********/
 @property (nonatomic, copy) NSString *selectorTitle;
 /********* 选择器选项 *********/
 @property (nonatomic, strong) NSArray<RJFormOptionItem *> *selectorOptions;

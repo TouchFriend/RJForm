@@ -116,6 +116,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)reloadData;
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath formController:(UIViewController *)formController;
+
 @end
 
 NS_ASSUME_NONNULL_END

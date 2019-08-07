@@ -11,6 +11,8 @@
 #import "RJFormRowDescriptor.h"
 #import "RJFormValidationStatus.h"
 #import "RJFormConstant.h"
+#import "RJFormSelectorItem.h"
+#import "RJFormSelectorManager.h"
 
 static NSMutableDictionary *_itemCellClassPairs = nil;
 static BOOL _addAsteriskToRequiredRowsTitle = YES;
@@ -171,6 +173,24 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 {
     [self registerAllCells];
     [self.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath formController:(UIViewController *)formController
+{
+    NSAssert(tableView, @"tableView不能为空");
+    NSAssert(formController, @"formController不能为空");
+    
+    RJFormSectionDescriptor *sectionDescriptor = self.formSections[indexPath.section];
+    RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
+    if (![rowDescriptor.item isKindOfClass:[RJFormSelectorItem class]])
+    {
+        return;
+    }
+    
+    RJFormSelectorItem *selectorItem = rowDescriptor.item;
+    
+    [[RJFormSelectorManager shareInstance] showSelectorViewWithTableView:tableView item:selectorItem formController:formController];
+    
 }
 
 #pragma mark - Private Methods

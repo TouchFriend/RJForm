@@ -43,6 +43,8 @@
 		BFBB7BE022F970A100D4CDF9 /* RJFormSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB7BDF22F970A100D4CDF9 /* RJFormSelectorCell.m */; };
 		BFBB7BE322F970AF00D4CDF9 /* RJFormSelectorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB7BE222F970AF00D4CDF9 /* RJFormSelectorItem.m */; };
 		BFBB7BE722F9747C00D4CDF9 /* RJFormOptionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB7BE622F9747C00D4CDF9 /* RJFormOptionItem.m */; };
+		BFD30F4022FA63ED00F60284 /* RJFormValuePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD30F3F22FA63ED00F60284 /* RJFormValuePickerView.m */; };
+		BFD30F4322FA647B00F60284 /* RJFormSelectorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD30F4222FA647B00F60284 /* RJFormSelectorManager.m */; };
 		BFE1342C22EAE32200B0CC0B /* RJFormValidationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE1342B22EAE32200B0CC0B /* RJFormValidationStatus.m */; };
 		BFE1342F22EAE85000B0CC0B /* RJFormEmptyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE1342E22EAE85000B0CC0B /* RJFormEmptyTool.m */; };
 /* End PBXBuildFile section */
@@ -124,6 +126,10 @@
 		BFBB7BE222F970AF00D4CDF9 /* RJFormSelectorItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormSelectorItem.m; sourceTree = "<group>"; };
 		BFBB7BE522F9747C00D4CDF9 /* RJFormOptionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormOptionItem.h; sourceTree = "<group>"; };
 		BFBB7BE622F9747C00D4CDF9 /* RJFormOptionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormOptionItem.m; sourceTree = "<group>"; };
+		BFD30F3E22FA63ED00F60284 /* RJFormValuePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJFormValuePickerView.h; sourceTree = "<group>"; };
+		BFD30F3F22FA63ED00F60284 /* RJFormValuePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJFormValuePickerView.m; sourceTree = "<group>"; };
+		BFD30F4122FA647B00F60284 /* RJFormSelectorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSelectorManager.h; sourceTree = "<group>"; };
+		BFD30F4222FA647B00F60284 /* RJFormSelectorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormSelectorManager.m; sourceTree = "<group>"; };
 		BFE1342A22EAE32200B0CC0B /* RJFormValidationStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormValidationStatus.h; sourceTree = "<group>"; };
 		BFE1342B22EAE32200B0CC0B /* RJFormValidationStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormValidationStatus.m; sourceTree = "<group>"; };
 		BFE1342D22EAE85000B0CC0B /* RJFormEmptyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormEmptyTool.h; sourceTree = "<group>"; };
@@ -310,8 +316,12 @@
 		BFBB7BE422F9746100D4CDF9 /* Selector */ = {
 			isa = PBXGroup;
 			children = (
+				BFD30F4122FA647B00F60284 /* RJFormSelectorManager.h */,
+				BFD30F4222FA647B00F60284 /* RJFormSelectorManager.m */,
 				BFBB7BE522F9747C00D4CDF9 /* RJFormOptionItem.h */,
 				BFBB7BE622F9747C00D4CDF9 /* RJFormOptionItem.m */,
+				BFD30F3E22FA63ED00F60284 /* RJFormValuePickerView.h */,
+				BFD30F3F22FA63ED00F60284 /* RJFormValuePickerView.m */,
 			);
 			path = Selector;
 			sourceTree = "<group>";
@@ -457,6 +467,8 @@
 				BF01AC7622E958DA00CAB41C /* RJFormTextFieldItem.m in Sources */,
 				BF6D9C2622E836D40039FBB7 /* RJFormTextButtonItem.m in Sources */,
 				BF6D9C2322E802400039FBB7 /* RJFormSettingViewController.m in Sources */,
+				BFD30F4322FA647B00F60284 /* RJFormSelectorManager.m in Sources */,
+				BFD30F4022FA63ED00F60284 /* RJFormValuePickerView.m in Sources */,
 				BFBB7BE322F970AF00D4CDF9 /* RJFormSelectorItem.m in Sources */,
 				BF24753822E6A3B40060AC12 /* RJFormDemoViewController.m in Sources */,
 				BF6D9C1F22E801FF0039FBB7 /* RJFormAllSimpleViewController.m in Sources */,
