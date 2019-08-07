@@ -9,6 +9,12 @@
 #import "RJFormSettingViewController.h"
 #import "RJForm.h"
 
+static NSString * const RJUserIconTag = @"RJUserIconTag";
+static NSString * const RJPhoneNumberTag = @"RJPhoneNumberTag";
+static NSString * const RJChangePwdTag = @"RJChangePwdTag";
+static NSString * const RJNotificationTag = @"RJNotificationTag";
+static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
+
 @interface RJFormSettingViewController () <UITableViewDataSource, UITableViewDelegate>
 
 /********* tableView *********/
@@ -80,9 +86,9 @@
     section.sectionHeaderHeight = 10.0;
     [form addFormSections:section];
     
-    RJFormImageItem *rightIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
-    rightIconItem.hiddenArror = NO;
-    row = [RJFormRowDescriptor rowWithItem:rightIconItem];
+    RJFormImageItem *userIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
+    userIconItem.hiddenArror = NO;
+    row = [RJFormRowDescriptor rowWithTag:RJUserIconTag item:userIconItem];
     row.rowHeight = 90.0;
     row.didSelectedSelector = @"iconClick:";
     [section.formRows addObject:row];
@@ -91,9 +97,10 @@
     section.sectionHeaderHeight = 10.0;
     [form addFormSections:section];
     
-    RJFormInfoItem *infoItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
-    infoItem.hiddenArror = NO;
-    row = [RJFormRowDescriptor rowWithItem:infoItem];
+    RJFormInfoItem *phoneNumberItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
+    phoneNumberItem.hiddenArror = NO;
+    phoneNumberItem.detailTextColor = [UIColor colorWithRed:181.0/255.0 green:181.0/255.0 blue:181.0/255.0 alpha:1.0];
+    row = [RJFormRowDescriptor rowWithTag:RJPhoneNumberTag item:phoneNumberItem];
     row.didSelectedSelector = @"phoneClick:";
     [section.formRows addObject:row];
     
@@ -103,11 +110,12 @@
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
     changePwdItem.hiddenArror = NO;
-    row = [RJFormRowDescriptor rowWithItem:changePwdItem];
+    row = [RJFormRowDescriptor rowWithTag:RJChangePwdTag item:changePwdItem];
     row.didSelectedSelector = @"changePwdClick:";
     [section.formRows addObject:row];
+    
     RJFormSwitchItem *notificationItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES switchSelector:@"notificationSwitchChange:"];
-    row = [RJFormRowDescriptor rowWithItem:notificationItem];
+    row = [RJFormRowDescriptor rowWithTag:RJNotificationTag item:notificationItem];
     [section.formRows addObject:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
@@ -116,7 +124,8 @@
     
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
     versionUpdateItem.hiddenArror = YES;
-    row = [RJFormRowDescriptor rowWithItem:versionUpdateItem];
+    versionUpdateItem.detailTextColor = [UIColor colorWithRed:181.0/255.0 green:181.0/255.0 blue:181.0/255.0 alpha:1.0];
+    row = [RJFormRowDescriptor rowWithTag:RJVersionUpdateTag item:versionUpdateItem];
     row.didSelectedSelector = @"versionUpdateClick:";
     [section.formRows addObject:row];
     

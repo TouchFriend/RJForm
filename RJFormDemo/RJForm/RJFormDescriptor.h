@@ -116,6 +116,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)reloadData;
 
+
+/**
+ 处理选择器cell点击是，显示选择器
+
+ @param tableView tableView
+ @param indexPath indexPath
+ @param formController formController
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath formController:(UIViewController *)formController;
 
 @end

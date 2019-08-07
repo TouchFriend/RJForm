@@ -25,7 +25,8 @@
 {
     if (self = [super init])
     {
-        
+        self.sectionHeaderHeight = 0.1;
+        self.sectionFooterHeight = 0.1;
     }
     return self;
 }
