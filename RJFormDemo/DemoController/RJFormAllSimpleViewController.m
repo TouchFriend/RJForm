@@ -90,20 +90,20 @@
     form = [RJFormDescriptor formWithTableView:self.tableView];
     self.form = form;
     
-    section = [[RJFormSectionDescriptor alloc] init];
-    section.sectionHeaderHeight = 50.0;
-    section.sectionHeaderTitle = @"图片示例";
-    [formSections addObject:section];
-    RJFormSelectorItem *areaType1Item = [RJFormSelectorItem itemWithSelectorStyle:RJFormSelectorStylePicker text:@"区域分类（alert警告框）" selectedOption:[RJFormOptionItem itemWithOptionText:@"区域分类1" optionValue:@(0)]];
-    areaType1Item.selectorTitle = @"区域分类";
-    areaType1Item.selectorOptions = @[
-                                     [RJFormOptionItem itemWithOptionText:@"区域分类1" optionValue:@(0)],
-                                     [RJFormOptionItem itemWithOptionText:@"区域分类2" optionValue:@(1)],
-                                     [RJFormOptionItem itemWithOptionText:@"区域分类3" optionValue:@(2)],
-                                     [RJFormOptionItem itemWithOptionText:@"区域分类4" optionValue:@(3)],
-                                     ];
-    row = [RJFormRowDescriptor rowWithTag:@"areaType" item:areaType1Item];
-    [section.formRows addObject:row];
+//    section = [[RJFormSectionDescriptor alloc] init];
+//    section.sectionHeaderHeight = 50.0;
+//    section.sectionHeaderTitle = @"图片示例";
+//    [formSections addObject:section];
+//    RJFormSelectorItem *areaType1Item = [RJFormSelectorItem itemWithSelectorStyle:RJFormSelectorStylePicker text:@"区域分类（alert警告框）" selectedOption:[RJFormOptionItem itemWithOptionText:@"区域分类1" optionValue:@(0)]];
+//    areaType1Item.selectorTitle = @"区域分类";
+//    areaType1Item.selectorOptions = @[
+//                                     [RJFormOptionItem itemWithOptionText:@"区域分类1" optionValue:@(0)],
+//                                     [RJFormOptionItem itemWithOptionText:@"区域分类2" optionValue:@(1)],
+//                                     [RJFormOptionItem itemWithOptionText:@"区域分类3" optionValue:@(2)],
+//                                     [RJFormOptionItem itemWithOptionText:@"区域分类4" optionValue:@(3)],
+//                                     ];
+//    row = [RJFormRowDescriptor rowWithTag:@"areaType" item:areaType1Item];
+//    [section.formRows addObject:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 50.0;
@@ -236,11 +236,12 @@
     [section.formRows addObject:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
-    section.sectionHeaderHeight = 15.0;
+    section.sectionHeaderHeight = 50.0;
     section.sectionHeaderTitle = @"选择器";
     [formSections addObject:section];
     
     RJFormSelectorItem *enterpriseTypeItem = [RJFormSelectorItem itemWithText:@"企业类型（选择器）" selectedOption:nil];
+    enterpriseTypeItem.required = YES;
     enterpriseTypeItem.selectorTitle = @"企业类型";
     enterpriseTypeItem.selectorOptions = @[
                                            [RJFormOptionItem itemWithOptionText:@"企业类型1" optionValue:@(0)],
@@ -385,6 +386,7 @@
         RJFormRowDescriptor *row = status.rowDescriptor;
         NSIndexPath *indexPath = [self.form indexPathOfFormRow:row];
         [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
         return;
     }
     
