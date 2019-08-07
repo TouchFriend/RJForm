@@ -113,18 +113,18 @@
     socialCreditCodeItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"socialCreditCode" item:socialCreditCodeItem];
     [section addFormRow:row];
-    
-    RJFormInfoItem *typeItem = [RJFormInfoItem itemWithText:@"类型" detailText:@"有限责任公司（法人独资）"];
+
+    RJFormSelectorItem *typeItem = [RJFormSelectorItem itemWithText:@"类型" selectedOption:nil];
     typeItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"type" item:typeItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *enterpriseTypeItem = [RJFormInfoItem itemWithText:@"企业类型" detailText:@"实体型"];
+    RJFormSelectorItem *enterpriseTypeItem = [RJFormSelectorItem itemWithText:@"企业类型" selectedOption:nil];
     enterpriseTypeItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseType" item:enterpriseTypeItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *enterpriseNatureItem = [RJFormInfoItem itemWithText:@"企业性质" detailText:@"私营"];
+    RJFormSelectorItem *enterpriseNatureItem = [RJFormSelectorItem itemWithText:@"企业性质" selectedOption:nil];
     enterpriseNatureItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseNature" item:enterpriseNatureItem];
     [section addFormRow:row];
@@ -137,27 +137,27 @@
     row = [RJFormRowDescriptor rowWithTag:@"landClassify" item:landClassifyItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *regionClassifyItem = [RJFormInfoItem itemWithText:@"区域分类" detailText:@""];
+    RJFormSelectorItem *regionClassifyItem = [RJFormSelectorItem itemWithText:@"区域分类" selectedOption:nil];
     regionClassifyItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"regionClassify" item:regionClassifyItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *manageAuthorityItem = [RJFormInfoItem itemWithText:@"管理权限" detailText:@""];
+    RJFormSelectorItem *manageAuthorityItem = [RJFormSelectorItem itemWithText:@"管理权限" selectedOption:nil];
     manageAuthorityItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"manageAuthority" item:manageAuthorityItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *countryItem = [RJFormInfoItem itemWithText:@"国别" detailText:@"中国"];
+    RJFormSelectorItem *countryItem = [RJFormSelectorItem itemWithText:@"国别" selectedOption:nil];
     countryItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"country" item:countryItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *moneyTypeItem = [RJFormInfoItem itemWithText:@"币种" detailText:@""];
+    RJFormSelectorItem *moneyTypeItem = [RJFormSelectorItem itemWithText:@"币种" selectedOption:nil];
     moneyTypeItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"moneyType" item:moneyTypeItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *manageStateItem = [RJFormInfoItem itemWithText:@"管理状态" detailText:@""];
+    RJFormSelectorItem *manageStateItem = [RJFormSelectorItem itemWithText:@"管理状态" selectedOption:nil];
     manageStateItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"manageState" item:manageStateItem];
     [section addFormRow:row];
@@ -179,7 +179,7 @@
     row = [RJFormRowDescriptor rowWithTag:@"getMoney" item:getMoneyItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *investorClassifyItem = [RJFormInfoItem itemWithText:@"投资方分类" detailText:@""];
+    RJFormSelectorItem *investorClassifyItem = [RJFormSelectorItem itemWithText:@"投资方分类" selectedOption:nil];
     investorClassifyItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"investorClassify" item:investorClassifyItem];
     [section addFormRow:row];
@@ -188,7 +188,7 @@
     row = [RJFormRowDescriptor rowWithTag:@"registerAuthority" item:registerAuthorityItem];
     [section addFormRow:row];
     
-    RJFormInfoItem *industryClassifyItem = [RJFormInfoItem itemWithText:@"所属行业分类" detailText:@""];
+    RJFormSelectorItem *industryClassifyItem = [RJFormSelectorItem itemWithText:@"所属行业分类" selectedOption:nil];
     industryClassifyItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"industryClassify" item:industryClassifyItem];
     [section addFormRow:row];
@@ -275,6 +275,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[indexPath.section];
+    RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
+    if (rowDescriptor.didSelectedSelector && rowDescriptor.didSelectedSelector.length > 0 && [self respondsToSelector:NSSelectorFromString(rowDescriptor.didSelectedSelector)])
+    {
+        SEL selector = NSSelectorFromString(rowDescriptor.didSelectedSelector);
+        
+        //内存泄露警告,因为编译器不知道selector是哪个方法id，需要在runtime才知道
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self performSelector:selector withObject:rowDescriptor];
+#pragma clang diagnostic pop
+        
+        return;
+    }
+    
+    [self.form tableView:tableView didSelectRowAtIndexPath:indexPath formController:self];
     
 }
 
@@ -317,22 +333,23 @@
     [self.view endEditing:YES];
     
     //表单验证
-//    NSArray<NSError *> * errors = [self.form formValidationErrors];
-//    if (errors && errors.count > 0)
-//    {
-//        NSError *error = errors.firstObject;
-//        NSString *errorMsg = error.localizedDescription;
-//        //        NSLog(@"表单验证错误：%@", errorMsg);
-//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-//        [SVProgressHUD showErrorWithStatus:errorMsg];
-//        [SVProgressHUD dismissWithDelay:1.2];
-//
-//        RJFormValidationStatus *status = error.userInfo[RJFormValidationErrorKey];
-//        RJFormRowDescriptor *row = status.rowDescriptor;
-//        NSIndexPath *indexPath = [self.form indexPathOfFormRow:row];
-//        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-//        return;
-//    }
+    NSArray<NSError *> * errors = [self.form formValidationErrors];
+    if (errors && errors.count > 0)
+    {
+        NSError *error = errors.firstObject;
+        NSString *errorMsg = error.localizedDescription;
+        //        NSLog(@"表单验证错误：%@", errorMsg);
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showErrorWithStatus:errorMsg];
+        [SVProgressHUD dismissWithDelay:1.2];
+        
+        RJFormValidationStatus *status = error.userInfo[RJFormValidationErrorKey];
+        RJFormRowDescriptor *row = status.rowDescriptor;
+        NSIndexPath *indexPath = [self.form indexPathOfFormRow:row];
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+        return;
+    }
     
     NSDictionary *valueDic = [self.form formValue];
     NSLog(@"表单的值：%@", valueDic);

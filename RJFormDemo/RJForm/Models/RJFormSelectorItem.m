@@ -50,7 +50,7 @@
 
 - (RJFormOptionItem *)itemValue
 {
-    return self.selectedOption;
+    return self.selectedOption.optionValue;
 }
 
 - (RJFormValidationStatus *)doValidation
