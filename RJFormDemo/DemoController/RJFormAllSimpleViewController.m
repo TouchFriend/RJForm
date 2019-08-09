@@ -299,6 +299,16 @@
     marryDayItem.dateFormat = @"yyyy.MM.dd";
     row = [RJFormRowDescriptor rowWithTag:@"marryDay" item:marryDayItem];
     [section.formRows addObject:row];
+    
+    section = [[RJFormSectionDescriptor alloc] init];
+    section.sectionHeaderHeight = 44.0;
+    section.sectionHeaderTitle = @"图片选择器";
+    [formSections addObject:section];
+    
+    RJFormImagePickerItem *publicizeImageItem = [[RJFormImagePickerItem alloc] init];
+    row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
+    row.rowHeight = 298.0;
+    [section.formRows addObject:row];
 
     [form.formSections addObjectsFromArray:formSections];
     

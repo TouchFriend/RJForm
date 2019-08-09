@@ -28,6 +28,7 @@
 #import "RJFormTextViewCell.h"
 #import "RJFormSelectorCell.h"
 #import "RJFormDatePickerCell.h"
+#import "RJFormImagePickerCell.h"
 
 #import "RJFormInfoItem.h"
 #import "RJFormImageItem.h"
@@ -38,6 +39,7 @@
 #import "RJFormTextViewItem.h"
 #import "RJFormSelectorItem.h"
 #import "RJFormDatePickerItem.h"
+#import "RJFormImagePickerItem.h"
 
 #import "RJFormOptionItem.h"
 

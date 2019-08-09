@@ -9,5 +9,5 @@ target 'RJFormDemo' do
   pod 'IQKeyboardManager'
   pod 'SVProgressHUD'
   pod 'SDWebImage', '~> 4.4.6'
-  
+  pod 'TZImagePickerController'
 end
