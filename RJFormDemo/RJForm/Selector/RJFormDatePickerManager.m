@@ -61,9 +61,10 @@ static RJFormDatePickerManager *manager = nil;
 {
     if (self.item == nil)
     {
-        [self.datePickerView reloadData];
+        [self.datePickerView setDate:[NSDate date] animated:NO];
         return;
     }
+    
     BOOL flag = self.item.selectorTitle == nil || self.item.selectorTitle.length == 0;
     self.datePickerView.titleLabel.text = flag ? self.item.text : self.item.selectorTitle;
     
