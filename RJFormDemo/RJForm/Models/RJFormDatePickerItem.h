@@ -1,18 +1,16 @@
 //
-//  RJFormSelectorItem.h
+//  RJFormDatePickerItem.h
 //  RJFormDemo
 //
-//  Created by TouchWorld on 2019/8/6.
+//  Created by TouchWorld on 2019/8/9.
 //  Copyright © 2019 RJSoft. All rights reserved.
 //
 
 #import "RJFormBaseItem.h"
-#import "RJFormConstant.h"
 
-@class RJFormOptionItem;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RJFormSelectorItem : RJFormBaseItem
+@interface RJFormDatePickerItem : RJFormBaseItem
 
 /********* 文本 *********/
 @property (nonatomic, copy) NSString *text;
@@ -21,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 /********* 文本颜色 默认黑色51 *********/
 @property (nonatomic, strong) UIColor *textColor;
 
+/********* 详情文本 也是日期 *********/
+@property (nonatomic, copy) NSString *detailText;
 /********* 详情文本字体 默认15.0 *********/
 @property (nonatomic, strong) UIFont *detailTextFont;
 /********* 详情文本颜色 默认黑色93 *********/
@@ -36,20 +36,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /********* 选择器标题 为空，默认使用text属性 *********/
 @property (nonatomic, copy) NSString *selectorTitle;
-/********* 选择器选项 *********/
-@property (nonatomic, strong) NSArray<RJFormOptionItem *> *selectorOptions;
-/********* 选中的选项 *********/
-@property (nonatomic, strong) RJFormOptionItem *selectedOption;
-/********* 选择器类型 默认RJFormSelectorStylePicker *********/
-@property (nonatomic, assign) RJFormSelectorStyle selectorStyle;
+/********* 日期格式 默认yyyy-MM-dd *********/
+@property (nonatomic, copy) NSString *dateFormat;
 
+/********* 可以选的最小日期 默认为nil *********/
+@property (nullable, nonatomic, strong) NSDate *minimumDate;
+/********* 可以选的最大日期 默认为nil *********/
+@property (nullable, nonatomic, strong) NSDate *maximumDate;
 
-+ (instancetype)itemWithText:(NSString *)text selectedOption:(RJFormOptionItem * _Nullable)selectedOption;
++ (instancetype)itemWithText:(NSString *)text detailText:(NSString *)detailText;
 
-+ (instancetype)itemWithSelectorStyle:(RJFormSelectorStyle)selectorStyle text:(NSString *)text selectedOption:(RJFormOptionItem * _Nullable)selectedOption;
-
-
-- (RJFormOptionItem *)itemValue;
+- (NSString *)itemValue;
 
 @end
 

@@ -278,6 +278,27 @@
                                              ];
     row = [RJFormRowDescriptor rowWithTag:@"areaType" item:areaTypeItem];
     [section.formRows addObject:row];
+    
+    section = [[RJFormSectionDescriptor alloc] init];
+    section.sectionHeaderHeight = 44.0;
+    section.sectionHeaderTitle = @"日期选择器";
+    [formSections addObject:section];
+    
+    RJFormDatePickerItem *createTimeItem = [RJFormDatePickerItem itemWithText:@"创建时间(无数据)" detailText:@""];
+    createTimeItem.required = YES;
+    createTimeItem.maximumDate = [NSDate date];
+    row = [RJFormRowDescriptor rowWithTag:@"createTime" item:createTimeItem];
+    [section.formRows addObject:row];
+    
+    RJFormDatePickerItem *birthdayItem = [RJFormDatePickerItem itemWithText:@"出生年月" detailText:@"2012-12-12"];
+    birthdayItem.maximumDate = [NSDate date];
+    row = [RJFormRowDescriptor rowWithTag:@"birthday" item:birthdayItem];
+    [section.formRows addObject:row];
+    
+    RJFormDatePickerItem *marryDayItem = [RJFormDatePickerItem itemWithText:@"电影开场日期(自定义转换格式)" detailText:@"2012.12.12"];
+    marryDayItem.dateFormat = @"yyyy.MM.dd";
+    row = [RJFormRowDescriptor rowWithTag:@"marryDay" item:marryDayItem];
+    [section.formRows addObject:row];
 
     [form.formSections addObjectsFromArray:formSections];
     

@@ -13,6 +13,8 @@
 #import "RJFormConstant.h"
 #import "RJFormSelectorItem.h"
 #import "RJFormSelectorManager.h"
+#import "RJFormDatePickerManager.h"
+#import "RJFormDatePickerItem.h"
 
 static NSMutableDictionary *_itemCellClassPairs = nil;
 static BOOL _addAsteriskToRequiredRowsTitle = YES;
@@ -182,14 +184,21 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     
     RJFormSectionDescriptor *sectionDescriptor = self.formSections[indexPath.section];
     RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
-    if (![rowDescriptor.item isKindOfClass:[RJFormSelectorItem class]])
+    if ([rowDescriptor.item isKindOfClass:[RJFormSelectorItem class]])
     {
+        RJFormSelectorItem *selectorItem = rowDescriptor.item;
+        
+        [[RJFormSelectorManager shareInstance] showSelectorViewWithTableView:tableView item:selectorItem formController:formController];
         return;
     }
     
-    RJFormSelectorItem *selectorItem = rowDescriptor.item;
+    if ([rowDescriptor.item isKindOfClass:[RJFormDatePickerItem class]])
+    {
+        RJFormDatePickerItem *datePickerItem = rowDescriptor.item;
+        [[RJFormDatePickerManager shareInstance] showSelectorViewWithTableView:tableView item:datePickerItem formController:formController];
+    }
     
-    [[RJFormSelectorManager shareInstance] showSelectorViewWithTableView:tableView item:selectorItem formController:formController];
+    
     
 }
 
@@ -231,7 +240,8 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
                                @"RJFormButtonItem" : @"RJFormButtonCell",
                                @"RJFormTextFieldItem" : @"RJFormTextFieldCell",
                                @"RJFormTextViewItem" : @"RJFormTextViewCell",
-                               @"RJFormSelectorItem" : @"RJFormSelectorCell"
+                               @"RJFormSelectorItem" : @"RJFormSelectorCell",
+                               @"RJFormDatePickerItem" : @"RJFormDatePickerCell"
                                };
         _itemCellClassPairs = [NSMutableDictionary dictionary];
         [_itemCellClassPairs addEntriesFromDictionary:pair];
