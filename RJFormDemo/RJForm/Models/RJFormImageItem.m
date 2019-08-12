@@ -8,6 +8,7 @@
 
 #import "RJFormImageItem.h"
 #import "RJFormEmptyTool.h"
+#import "RJFormValidationStatus.h"
 
 @interface RJFormImageItem ()
 
@@ -78,12 +79,31 @@
 
 - (RJFormValidationStatus *)doValidation
 {
-#warning 还需要处理网络图片地址
-    if (!self.iconImage)
+
+    RJFormValidationStatus *status = nil;
+    if (self.required && [self itemValue] == nil)
     {
-        return nil;
+        status = [RJFormValidationStatus validationStatusWithMsg:@"" validate:NO];
+        if (![RJFormEmptyTool stringIsEmpty:self.requireMsg])
+        {
+            status.msg = self.requireMsg;
+            return status;
+        }
+        
+        if (![RJFormEmptyTool stringIsEmpty:self.text])
+        {
+            status.msg = [NSString stringWithFormat:@"%@不能为空", self.text];
+            return status;
+        }
+        
+        if (![RJFormEmptyTool stringIsEmpty:self.tag])
+        {
+            status.msg = [NSString stringWithFormat:@"%@不能为空", self.tag];
+            return status;
+        }
     }
-    return nil;
+    
+    return status;
 }
 
 @end
