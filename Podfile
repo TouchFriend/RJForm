@@ -10,4 +10,7 @@ target 'RJFormDemo' do
   pod 'SVProgressHUD'
   pod 'SDWebImage', '~> 4.4.6'
   pod 'TZImagePickerController'
+  pod 'PhotoBrowser'
+  
+  
 end

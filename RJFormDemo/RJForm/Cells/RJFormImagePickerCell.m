@@ -8,6 +8,8 @@
 
 #import "RJFormImagePickerCell.h"
 #import "RJFormImagePickerContentView.h"
+#import "RJFormImagePickerItem.h"
+#import "RJFormConstant.h"
 
 @interface RJFormImagePickerCell ()
 
@@ -15,6 +17,9 @@
 @property (nonatomic, weak) UILabel *textLbl;
 /********* 图片选择view *********/
 @property (nonatomic, weak) RJFormImagePickerContentView *imagePickerContentView;
+/********* 数据 *********/
+@property (nonatomic, strong) RJFormImagePickerItem *data;
+
 
 @end
 
@@ -29,6 +34,11 @@
     return self;
 }
 
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+}
+
 #pragma mark - Setup Init
 
 - (void)setupInit
@@ -41,8 +51,8 @@
     [self.contentView addSubview:textLbl];
     [textLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_offset(16.0);
-        make.top.mas_equalTo(self.contentView);
-        make.height.mas_equalTo(56.0);
+        make.top.mas_equalTo(self.contentView).mas_offset(20.0);
+        make.height.mas_equalTo(17.0);
     }];
     self.textLbl = textLbl;
     textLbl.text = @"企业宣传图";
@@ -56,8 +66,21 @@
         make.left.right.bottom.mas_equalTo(self.contentView);
     }];
     self.imagePickerContentView = imagePickerContentView;
+    [imagePickerContentView changeImages:nil];
     
 }
 
+#pragma mark - RJFormCellDataUpdate Methods
+
+- (void)updateViewData:(RJFormImagePickerItem *)data
+{
+    [super updateViewData:data];
+    self.data = data;
+    
+    self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
+    
+    
+    [self.imagePickerContentView changeImages:[data getContentArrMWithAddButton]];
+}
 
 @end

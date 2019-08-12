@@ -105,6 +105,16 @@
 //    row = [RJFormRowDescriptor rowWithTag:@"areaType" item:areaType1Item];
 //    [section.formRows addObject:row];
     
+//    section = [[RJFormSectionDescriptor alloc] init];
+//    section.sectionHeaderHeight = 44.0;
+//    section.sectionHeaderTitle = @"图片选择器";
+//    [formSections addObject:section];
+//    
+//    RJFormImagePickerItem *publicizeImage1Item = [RJFormImagePickerItem itemWithText:@"企业宣传图1" imageArr:nil];
+//    row = [RJFormRowDescriptor rowWithTag:@"publicizeImage1" item:publicizeImage1Item];
+//    row.rowHeight = publicizeImage1Item.rowHeight;
+//    [section.formRows addObject:row];
+    
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 50.0;
     section.sectionHeaderTitle = @"图片示例";
@@ -305,9 +315,9 @@
     section.sectionHeaderTitle = @"图片选择器";
     [formSections addObject:section];
     
-    RJFormImagePickerItem *publicizeImageItem = [[RJFormImagePickerItem alloc] init];
+    RJFormImagePickerItem *publicizeImageItem = [RJFormImagePickerItem itemWithText:@"企业宣传图" imageArr:nil];
     row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
-    row.rowHeight = 298.0;
+    row.rowHeight = publicizeImageItem.rowHeight;
     [section.formRows addObject:row];
 
     [form.formSections addObjectsFromArray:formSections];

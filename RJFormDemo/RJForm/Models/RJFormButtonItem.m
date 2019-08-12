@@ -22,6 +22,7 @@
 {
     if (self = [super init])
     {
+        self.text = @"";
         self.textFont = [UIFont systemFontOfSize:18.0];
         self.textColor = [UIColor whiteColor];
         self.insets = UIEdgeInsetsMake(0.0, 15.0, 0.0, 15.0);

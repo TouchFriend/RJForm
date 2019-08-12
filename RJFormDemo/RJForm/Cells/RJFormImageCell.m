@@ -11,13 +11,16 @@
 #import "RJFormConstant.h"
 #import <UIImageView+WebCache.h>
 #import "RJFormEmptyTool.h"
+#import <TZImagePickerController/TZImagePickerController.h>
 
-@interface RJFormImageCell ()
+@interface RJFormImageCell () <TZImagePickerControllerDelegate>
 
 /********* text *********/
 @property (nonatomic, weak) UILabel *textLbl;
 /********* icon *********/
 @property (nonatomic, weak) UIImageView *iconImageV;
+/********* 数据 *********/
+@property (nonatomic, weak) RJFormImageItem *data;
 
 @end
 
@@ -61,6 +64,8 @@
     }];
     self.iconImageV = iconImageV;
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentViewClick:)];
+    [self.contentView addGestureRecognizer:tapGesture];
 }
 
 #pragma mark - Override Methods
@@ -89,6 +94,8 @@
 - (void)updateViewData:(RJFormImageItem *)data
 {
     [super updateViewData:data];
+    
+    self.data = data;
     
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
@@ -170,5 +177,27 @@
     self.accessoryType = data.hiddenArror ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
     
 }
+
+#pragma mark - Target Methods
+
+- (void)contentViewClick:(UITapGestureRecognizer *)tapGesture
+{
+    //选择图片
+    TZImagePickerController * imagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+    imagePickerController.allowPickingVideo = NO;
+    imagePickerController.allowPickingMultipleVideo = NO;
+    imagePickerController.allowPickingOriginalPhoto = NO;
+    
+    [[self viewController] presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark - TZImagePickerControllerDelegate Methods
+
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto
+{
+    self.data.iconImage = photos.lastObject;
+    self.iconImageV.image = self.data.iconImage;
+}
+
 
 @end

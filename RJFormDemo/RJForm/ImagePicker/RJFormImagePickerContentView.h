@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class RJFormImagePickerContentItem;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RJFormImagePickerContentView : UIView
+
+- (void)changeImages:(NSMutableArray<RJFormImagePickerContentItem *> * _Nullable)imagesM;
+
 
 @end
 

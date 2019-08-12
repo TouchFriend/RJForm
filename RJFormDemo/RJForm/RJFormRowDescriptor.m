@@ -9,6 +9,7 @@
 #import "RJFormRowDescriptor.h"
 #import "RJFormCellDataUpdate.h"
 #import "RJFormDescriptor.h"
+#import "RJFormImagePickerItem.h"
 
 @interface RJFormRowDescriptor ()
 
@@ -86,6 +87,27 @@
     {
         [(id<RJFormCellDataUpdate>)cell updateViewData:self.item];
     }
+}
+
+- (void)calculateRowHeight
+{
+    if (!self.item)
+    {
+        return;
+    }
+    
+    if(![self.item isKindOfClass:[RJFormImagePickerItem class]])
+    {
+        return;
+    }
+    
+    RJFormImagePickerItem *item = (RJFormImagePickerItem *)self.item;
+    
+    //重新计算高度
+    [item calculateRowHeight];
+    
+    self.rowHeight = item.rowHeight;
+    
 }
 
 #pragma mark - Properties Methods

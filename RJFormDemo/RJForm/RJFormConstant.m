@@ -11,3 +11,5 @@ CGFloat const RJFormRowLeftAndRightMargin = 15.0;
 
 NSString * const RJFormErrorDomain = @"RJFormErrorDomain";
 NSString * const RJFormValidationErrorKey = @"RJFormValidationErrorKey";
+
+NSString * const RJFormRefreshNotificationName = @"RJFormRefreshNotificationName";

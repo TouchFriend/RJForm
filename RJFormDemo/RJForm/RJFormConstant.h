@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RJFormDescriptor.h"
 
+#define RJFormScreenWidth [UIScreen mainScreen].bounds.size.width
+#define RJFormScreenHeight [UIScreen mainScreen].bounds.size.height
+
 typedef NS_ENUM(NSUInteger, RJFormImageCellStyle)
 {
     RJFormImageCellStyleLeft = 0, //图片在左边
@@ -38,6 +41,9 @@ UIKIT_EXTERN CGFloat const RJFormRowLeftAndRightMargin;
 
 FOUNDATION_EXTERN NSString * const RJFormErrorDomain;
 FOUNDATION_EXTERN NSString * const RJFormValidationErrorKey;
+
+//刷新界面的通知
+FOUNDATION_EXTERN NSString * const RJFormRefreshNotificationName;
 
 /**
  如果需要添加*号，返回添加*号后的富文本

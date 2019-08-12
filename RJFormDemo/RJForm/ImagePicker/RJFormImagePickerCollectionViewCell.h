@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RJFormImagePickerContentItem;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RJFormImagePickerCollectionViewCell : UICollectionViewCell
+
+/********* 模型 *********/
+@property (nonatomic, strong) RJFormImagePickerContentItem *contentItem;
+/********* 删除回调 *********/
+@property (nonatomic, copy) void (^deleteBlock)(RJFormImagePickerContentItem *contentItem);
+
 
 @end
 

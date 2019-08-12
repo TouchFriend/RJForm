@@ -55,6 +55,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)rowWithItem:(id<RJFormItemValue>)item;
 
 
+/**
+ 计算图片选择cell的高度
+ */
+- (void)calculateRowHeight;
 
 @end
 

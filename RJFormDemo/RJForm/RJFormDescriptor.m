@@ -15,6 +15,7 @@
 #import "RJFormSelectorManager.h"
 #import "RJFormDatePickerManager.h"
 #import "RJFormDatePickerItem.h"
+#import "RJFormImagePickerItem.h"
 
 static NSMutableDictionary *_itemCellClassPairs = nil;
 static BOOL _addAsteriskToRequiredRowsTitle = YES;
@@ -44,8 +45,14 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     if (self = [super init])
     {
         self.formSections = [NSMutableArray array];
+        [self addObserveNotifications];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [self removeObserveNotifications];
 }
 
 #pragma mark - Public Methods
@@ -224,6 +231,40 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     }
 }
 
+
+/**
+ 添加监听通知
+ */
+- (void)addObserveNotifications
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(refreshForm:) name:RJFormRefreshNotificationName object:nil];
+}
+
+
+/**
+ 移除监听通知
+ */
+- (void)removeObserveNotifications
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self];
+}
+
+#pragma mark - Target Methods
+
+//刷新表单
+- (void)refreshForm:(NSNotification *)notification
+{
+    for (RJFormSectionDescriptor *section in self.formSections) {
+        for (RJFormRowDescriptor *row in section.formRows) {
+            //计算图片选择cell的高度
+            [row calculateRowHeight];
+        }
+    }
+    
+    [self.tableView reloadData];
+}
 
 #pragma mark - Properties Methods
 

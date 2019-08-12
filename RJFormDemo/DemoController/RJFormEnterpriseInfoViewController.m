@@ -95,6 +95,7 @@
     NSString *iconUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
     RJFormImageItem *businessLicenseItem = [RJFormImageItem itemWithText:@"营业执照" webImageUrl:iconUrl placeholderImage:[UIImage imageNamed:@"placeholder"] style:RJFormImageCellStyleRight];
     businessLicenseItem.iconSize = CGSizeMake(50.0, 50.0);
+    businessLicenseItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"businessLicense" item:businessLicenseItem];
     row.rowHeight = 80.0;
     [section addFormRow:row];
