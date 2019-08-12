@@ -109,7 +109,10 @@
             
         }];
     }
-    
+    else
+    {
+        self.iconImageV.image = data.placeholderImage;
+    }
     
     CGFloat detailTextRightMargin = data.hiddenArror ? RJFormRowLeftAndRightMargin : 0;
     switch (data.style) {
