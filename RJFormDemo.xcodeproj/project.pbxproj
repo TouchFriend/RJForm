@@ -56,6 +56,8 @@
 		BFD30F4322FA647B00F60284 /* RJFormSelectorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD30F4222FA647B00F60284 /* RJFormSelectorManager.m */; };
 		BFE1342C22EAE32200B0CC0B /* RJFormValidationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE1342B22EAE32200B0CC0B /* RJFormValidationStatus.m */; };
 		BFE1342F22EAE85000B0CC0B /* RJFormEmptyTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE1342E22EAE85000B0CC0B /* RJFormEmptyTool.m */; };
+		BFE3394623016ACC00460F71 /* NSBundle+RJFormBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE3394523016ACC00460F71 /* NSBundle+RJFormBundle.m */; };
+		BFE3394C23016B3F00460F71 /* UIImage+RJFormImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE3394B23016B3F00460F71 /* UIImage+RJFormImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +163,10 @@
 		BFE1342B22EAE32200B0CC0B /* RJFormValidationStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormValidationStatus.m; sourceTree = "<group>"; };
 		BFE1342D22EAE85000B0CC0B /* RJFormEmptyTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormEmptyTool.h; sourceTree = "<group>"; };
 		BFE1342E22EAE85000B0CC0B /* RJFormEmptyTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormEmptyTool.m; sourceTree = "<group>"; };
+		BFE3394423016ACC00460F71 /* NSBundle+RJFormBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+RJFormBundle.h"; sourceTree = "<group>"; };
+		BFE3394523016ACC00460F71 /* NSBundle+RJFormBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+RJFormBundle.m"; sourceTree = "<group>"; };
+		BFE3394A23016B3F00460F71 /* UIImage+RJFormImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+RJFormImage.h"; sourceTree = "<group>"; };
+		BFE3394B23016B3F00460F71 /* UIImage+RJFormImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RJFormImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +243,7 @@
 				BF6D9C1822E7F7B60039FBB7 /* RJFormConstant.m */,
 				BFE1342D22EAE85000B0CC0B /* RJFormEmptyTool.h */,
 				BFE1342E22EAE85000B0CC0B /* RJFormEmptyTool.m */,
+				BFE3394323016AA500460F71 /* Categorys */,
 				BFC7D78022FD6E2E0068C407 /* ImagePicker */,
 				BFBB7BE422F9746100D4CDF9 /* Selector */,
 				BF24753C22E6A9FC0060AC12 /* Validators */,
@@ -379,6 +386,17 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
+		BFE3394323016AA500460F71 /* Categorys */ = {
+			isa = PBXGroup;
+			children = (
+				BFE3394423016ACC00460F71 /* NSBundle+RJFormBundle.h */,
+				BFE3394523016ACC00460F71 /* NSBundle+RJFormBundle.m */,
+				BFE3394A23016B3F00460F71 /* UIImage+RJFormImage.h */,
+				BFE3394B23016B3F00460F71 /* UIImage+RJFormImage.m */,
+			);
+			path = Categorys;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,6 +522,7 @@
 				BF24753F22E6AA260060AC12 /* RJFormSectionDescriptor.m in Sources */,
 				BF6D9C3222E83FD60039FBB7 /* RJFormBaseItem.m in Sources */,
 				BF24754222E6AA410060AC12 /* RJFormRowDescriptor.m in Sources */,
+				BFE3394623016ACC00460F71 /* NSBundle+RJFormBundle.m in Sources */,
 				BF01AC7322E958C700CAB41C /* RJFormTextFieldCell.m in Sources */,
 				BF24753022E6A37C0060AC12 /* main.m in Sources */,
 				BFE1342F22EAE85000B0CC0B /* RJFormEmptyTool.m in Sources */,
@@ -511,6 +530,7 @@
 				BF24755D22E6F0EE0060AC12 /* RJFormDescriptor.m in Sources */,
 				BF6D9C2F22E839A50039FBB7 /* RJFormButtonCell.m in Sources */,
 				BF17280922EEF01800C93002 /* RJFormValidator.m in Sources */,
+				BFE3394C23016B3F00460F71 /* UIImage+RJFormImage.m in Sources */,
 				BF116E5D22EE91B800954453 /* RJFormTextViewItem.m in Sources */,
 				BFE1342C22EAE32200B0CC0B /* RJFormValidationStatus.m in Sources */,
 				BF4FC4CA22FD097900DB028D /* RJFormDatePickerCell.m in Sources */,

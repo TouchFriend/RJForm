@@ -13,6 +13,7 @@
 #import <PhotoBrowser/PhotoBrowser.h>
 #import <UIImageView+WebCache.h>
 #import "RJFormConstant.h"
+#import "UIImage+RJFormImage.h"
 
 static NSString * const ID = @"RJFormImagePickerCollectionViewCell";
 static NSInteger const RJFormImageTotalCount = 6;
@@ -170,7 +171,7 @@ static NSInteger const RJFormImageTotalCount = 6;
         return;
     }
     
-    [imageView sd_setImageWithURL:[NSURL URLWithString:item.imageUrl] placeholderImage:[UIImage imageNamed:@"rjform_placeholder"]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:item.imageUrl] placeholderImage:[UIImage rj_imageNamedFromMyBundle:@"rjform_placeholder"]];
 }
 
 #pragma mark - Target Methods

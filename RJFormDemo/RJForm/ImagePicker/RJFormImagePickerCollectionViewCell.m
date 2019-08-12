@@ -9,6 +9,7 @@
 #import "RJFormImagePickerCollectionViewCell.h"
 #import "RJFormImagePickerContentItem.h"
 #import <UIImageView+WebCache.h>
+#import "UIImage+RJFormImage.h"
 
 @interface RJFormImagePickerCollectionViewCell ()
 
@@ -61,7 +62,7 @@
         make.centerY.mas_equalTo(self.contentView.mas_top).mas_offset(7.0);
     }];
     self.closeBtn = closeBtn;
-    [closeBtn setImage:[UIImage imageNamed:@"rjform_close"] forState:UIControlStateNormal];
+    [closeBtn setImage:[UIImage rj_imageNamedFromMyBundle:@"rjform_close"] forState:UIControlStateNormal];
     [closeBtn addTarget:self action:@selector(closeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
 }
@@ -89,7 +90,7 @@
     _contentItem = pickerItem;
     if (pickerItem.isAdd)
     {
-        self.iconImageV.image = [UIImage imageNamed:@"rjform_icon_add"];
+        self.iconImageV.image = [UIImage rj_imageNamedFromMyBundle:@"rjform_icon_add"];
         self.closeBtn.hidden = YES;
         return;
     }

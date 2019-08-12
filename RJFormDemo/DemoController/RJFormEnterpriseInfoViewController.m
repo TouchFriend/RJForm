@@ -239,6 +239,11 @@
     row = [RJFormRowDescriptor rowWithTag:@"constructionPhone" item:constructionPhoneItem];
     [section addFormRow:row];
     
+    RJFormImagePickerItem *publicizeImageItem = [RJFormImagePickerItem itemWithText:@"企业宣传图" imageArr:nil];
+    row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
+    row.rowHeight = publicizeImageItem.rowHeight;
+    [section.formRows addObject:row];
+    
     //第三分组
     
     //第四分组
