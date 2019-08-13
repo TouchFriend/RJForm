@@ -199,7 +199,9 @@
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto
 {
     self.data.iconImage = photos.lastObject;
+    self.data.webImageUrl = @"";
     self.iconImageV.image = self.data.iconImage;
+    
 }
 
 

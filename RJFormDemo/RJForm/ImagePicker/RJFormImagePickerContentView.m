@@ -132,6 +132,7 @@ static NSInteger const RJFormImageTotalCount = 6;
         {
             RJFormImagePickerContentItem * item = [[RJFormImagePickerContentItem alloc] init];
             item.localImage = originalImage;
+            item.imageUrl = @"";
             item.isAdd = NO;
             [self.contentItemArrM insertObject:item atIndex:self.contentItemArrM.count - 1];
         }
@@ -139,6 +140,7 @@ static NSInteger const RJFormImageTotalCount = 6;
         {
             RJFormImagePickerContentItem * addItem = self.contentItemArrM[self.contentItemArrM.count - 1];
             addItem.localImage = originalImage;
+            addItem.imageUrl = @"";
             addItem.isAdd = NO;
             break;
         }
