@@ -316,12 +316,12 @@
     [formSections addObject:section];
     
     RJFormTextViewItem *investmentDescriptionItem = [RJFormTextViewItem itemWithText:@"固定资产投资计划说明" detailText:@""];
-    investmentDescriptionItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"investmentDescription" item:investmentDescriptionItem];
     row.rowHeight = 150.0;
     [section.formRows addObject:row];
     
     RJFormTextViewItem *limitCharNumItem = [RJFormTextViewItem itemWithText:@"限制字数10" detailText:@""];
+    limitCharNumItem.required = YES;
     limitCharNumItem.detailMaxNumberOfCharacters = @(10);
     row = [RJFormRowDescriptor rowWithTag:@"limitCharNum" item:limitCharNumItem];
     row.rowHeight = 150.0;

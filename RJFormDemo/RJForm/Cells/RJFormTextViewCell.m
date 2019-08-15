@@ -72,6 +72,16 @@
 
 #pragma mark - UITextViewDelegate Methods
 
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.data.detailText = textView.text;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.data.detailText = textView.text;
+}
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if (self.data.detailMaxNumberOfCharacters != nil)
