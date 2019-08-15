@@ -29,6 +29,27 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 
 @implementation RJFormDescriptor
 
++ (void)load
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSDictionary *pair = @{
+                               @"RJFormInfoItem" : @"RJFormInfoCell",
+                               @"RJFormImageItem" : @"RJFormImageCell",
+                               @"RJFormSwitchItem" : @"RJFormSwitchCell",
+                               @"RJFormTextButtonItem" : @"RJFormTextButtonCell",
+                               @"RJFormButtonItem" : @"RJFormButtonCell",
+                               @"RJFormTextFieldItem" : @"RJFormTextFieldCell",
+                               @"RJFormTextViewItem" : @"RJFormTextViewCell",
+                               @"RJFormSelectorItem" : @"RJFormSelectorCell",
+                               @"RJFormDatePickerItem" : @"RJFormDatePickerCell",
+                               @"RJFormImagePickerItem" : @"RJFormImagePickerCell"
+                               };
+        _itemCellClassPairs = [NSMutableDictionary dictionary];
+        [_itemCellClassPairs addEntriesFromDictionary:pair];
+    });
+}
+
 #pragma mark - Init Methods
 
 + (instancetype)formWithTableView:(UITableView *)tableView
@@ -271,23 +292,6 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 
 + (NSDictionary *)itemCellClassPairs
 {
-    if (_itemCellClassPairs == nil)
-    {
-        NSDictionary *pair = @{
-                               @"RJFormInfoItem" : @"RJFormInfoCell",
-                               @"RJFormImageItem" : @"RJFormImageCell",
-                               @"RJFormSwitchItem" : @"RJFormSwitchCell",
-                               @"RJFormTextButtonItem" : @"RJFormTextButtonCell",
-                               @"RJFormButtonItem" : @"RJFormButtonCell",
-                               @"RJFormTextFieldItem" : @"RJFormTextFieldCell",
-                               @"RJFormTextViewItem" : @"RJFormTextViewCell",
-                               @"RJFormSelectorItem" : @"RJFormSelectorCell",
-                               @"RJFormDatePickerItem" : @"RJFormDatePickerCell",
-                               @"RJFormImagePickerItem" : @"RJFormImagePickerCell"
-                               };
-        _itemCellClassPairs = [NSMutableDictionary dictionary];
-        [_itemCellClassPairs addEntriesFromDictionary:pair];
-    }
     return [_itemCellClassPairs copy];
 }
 
