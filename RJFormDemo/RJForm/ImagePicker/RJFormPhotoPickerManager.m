@@ -70,7 +70,7 @@ static RJFormPhotoPickerManager * manager;
     if(!flag)
     {
         NSLog(@"%@", errorMsg);
-        NSError * error = [NSError errorWithDomain:NSPOSIXErrorDomain code:500 userInfo:@{
+        NSError * error = [NSError errorWithDomain:NSCocoaErrorDomain code:500 userInfo:@{
                                                                                           NSLocalizedDescriptionKey : errorMsg
                                                                                           }];
         completed(nil, error);

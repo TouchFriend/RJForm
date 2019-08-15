@@ -50,13 +50,13 @@
     UILabel *textLbl = [[UILabel alloc] init];
     [self.contentView addSubview:textLbl];
     [textLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_offset(16.0);
+        make.left.mas_offset(RJFormRowLeftAndRightMargin);
         make.top.mas_equalTo(self.contentView).mas_offset(20.0);
-        make.height.mas_equalTo(17.0);
+        make.height.mas_equalTo(16.0);
     }];
     self.textLbl = textLbl;
     textLbl.text = @"企业宣传图";
-    textLbl.font = [UIFont systemFontOfSize:17.0];
+    textLbl.font = [UIFont systemFontOfSize:16.0];
     textLbl.textColor = [UIColor colorWithRed:51.0 / 255.0 green:51.0 / 255.0 blue:51.0 / 255.0 alpha:1.0];
     
     RJFormImagePickerContentView *imagePickerContentView = [[RJFormImagePickerContentView alloc] init];

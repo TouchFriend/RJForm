@@ -241,6 +241,11 @@ static NSInteger const RJFormImageTotalCount = 6;
 {
     __weak typeof(self) weakSelf = self;
     [[RJFormPhotoPickerManager shareInstance] presentPicker:RJFormPhotoPickerTypeCamera target:[self viewController] completed:^(UIImage * _Nullable image, NSError * _Nullable error) {
+        if (error)
+        {
+            NSLog(@"选择图片错误：%@", error);
+            return ;
+        }
         [weakSelf pickedImages:@[image]];
     }];
 }

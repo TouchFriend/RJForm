@@ -42,5 +42,6 @@
 #import "RJFormImagePickerItem.h"
 
 #import "RJFormOptionItem.h"
+#import "RJFormImagePickerContentItem.h"
 
 #endif /* RJForm_h */

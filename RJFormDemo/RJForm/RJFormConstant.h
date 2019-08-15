@@ -56,6 +56,7 @@ FOUNDATION_EXTERN NSString * const RJFormRefreshNotificationName;
  */
 static inline NSAttributedString * RJFormAsteriskTextRequired(BOOL required, NSString *text, UIColor *textColor, UIFont *textFont)
 {
+    text = text == nil ? @"" : text;
     BOOL flag = required && text && text.length > 0 && [RJFormDescriptor isAddAsteriskToRequiredRowsTitle];
     NSString *newText = flag ? [NSString stringWithFormat:@"*%@", text] : text;
     NSDictionary *normalDic = @{

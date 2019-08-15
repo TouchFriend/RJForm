@@ -312,6 +312,17 @@
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 44.0;
+    section.sectionHeaderTitle = @"TextView";
+    [formSections addObject:section];
+    
+    RJFormTextViewItem *investmentDescriptionItem = [RJFormTextViewItem itemWithText:@"固定资产投资计划说明" detailText:@""];
+    investmentDescriptionItem.required = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"investmentDescription" item:investmentDescriptionItem];
+    row.rowHeight = 150.0;
+    [section.formRows addObject:row];
+    
+    section = [[RJFormSectionDescriptor alloc] init];
+    section.sectionHeaderHeight = 44.0;
     section.sectionHeaderTitle = @"图片选择器";
     [formSections addObject:section];
     
@@ -319,6 +330,7 @@
     row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
     row.rowHeight = publicizeImageItem.rowHeight;
     [section.formRows addObject:row];
+    
 
     [form.formSections addObjectsFromArray:formSections];
     
