@@ -321,6 +321,12 @@
     row.rowHeight = 150.0;
     [section.formRows addObject:row];
     
+    RJFormTextViewItem *limitCharNumItem = [RJFormTextViewItem itemWithText:@"限制字数10" detailText:@""];
+    limitCharNumItem.detailMaxNumberOfCharacters = @(10);
+    row = [RJFormRowDescriptor rowWithTag:@"limitCharNum" item:limitCharNumItem];
+    row.rowHeight = 150.0;
+    [section.formRows addObject:row];
+    
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 44.0;
     section.sectionHeaderTitle = @"图片选择器";

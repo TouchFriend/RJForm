@@ -12,8 +12,10 @@
 #import "RJFormTextViewItem.h"
 #import "UITextView+RJFormPlaceholder.h"
 
-@interface RJFormTextViewCell ()
+@interface RJFormTextViewCell () <UITextViewDelegate>
 
+/********* data *********/
+@property (nonatomic, weak) RJFormTextViewItem *data;
 /********* text *********/
 @property (nonatomic, weak) UILabel *textLbl;
 /********* textView *********/
@@ -65,6 +67,24 @@
     textView.showsHorizontalScrollIndicator = NO;
     textView.textContainerInset = UIEdgeInsetsZero;
     textView.textContainer.lineFragmentPadding = 0.0;
+    textView.delegate = self;
+}
+
+#pragma mark - UITextViewDelegate Methods
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if (self.data.detailMaxNumberOfCharacters != nil)
+    {
+        NSString *newString = [textView.text stringByReplacingCharactersInRange:range withString:text];
+        if (newString.length > self.data.detailMaxNumberOfCharacters.integerValue)
+        {
+            textView.text = [newString substringToIndex:self.data.detailMaxNumberOfCharacters.integerValue];
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 #pragma mark - RJFormCellDataUpdate Methods
@@ -72,6 +92,8 @@
 - (void)updateViewData:(RJFormTextViewItem *)data
 {
     [super updateViewData:data];
+    
+    self.data = data;
     
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
