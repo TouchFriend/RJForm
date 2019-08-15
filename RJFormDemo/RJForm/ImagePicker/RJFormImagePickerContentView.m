@@ -14,6 +14,7 @@
 #import <UIImageView+WebCache.h>
 #import "RJFormConstant.h"
 #import "UIImage+RJFormImage.h"
+#import "RJFormPhotoPickerManager.h"
 
 static NSString * const ID = @"RJFormImagePickerCollectionViewCell";
 static NSInteger const RJFormImageTotalCount = 6;
@@ -110,14 +111,11 @@ static NSInteger const RJFormImageTotalCount = 6;
         return;
     }
     
-    //选择图片
-    TZImagePickerController * imagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:RJFormImageTotalCount + 1 - self.contentItemArrM.count delegate:self];
-    imagePickerController.allowPickingVideo = NO;
-    imagePickerController.allowPickingMultipleVideo = NO;
-    imagePickerController.allowPickingOriginalPhoto = NO;
+    [self showPickTypes];
     
-    [[self viewController] presentViewController:imagePickerController animated:YES completion:nil];
 }
+
+
 
 
 #pragma mark - TZImagePickerControllerDelegate Methods
@@ -125,31 +123,12 @@ static NSInteger const RJFormImageTotalCount = 6;
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto
 {
     // 你可以通过一个asset获得原图，通过这个方法：[[TZImageManager manager] getOriginalPhotoWithAsset:completion:]
-    NSInteger count = self.contentItemArrM.count;
-    for (NSInteger i = 0; i < photos.count; i++) {
-        UIImage * originalImage = photos[i];
-        if(count + i < RJFormImageTotalCount)//未达到最大图片数
-        {
-            RJFormImagePickerContentItem * item = [[RJFormImagePickerContentItem alloc] init];
-            item.localImage = originalImage;
-            item.imageUrl = @"";
-            item.isAdd = NO;
-            [self.contentItemArrM insertObject:item atIndex:self.contentItemArrM.count - 1];
-        }
-        else//达到最大图片数，替换添加按钮
-        {
-            RJFormImagePickerContentItem * addItem = self.contentItemArrM[self.contentItemArrM.count - 1];
-            addItem.localImage = originalImage;
-            addItem.imageUrl = @"";
-            addItem.isAdd = NO;
-            break;
-        }
-    }
+    [self pickedImages:photos];
     
-    [self.collectionView reloadData];
     
-    [self postRefreshFormNotification];
 }
+
+
 
 #pragma mark - PBViewControllerDataSource Methods
 
@@ -226,6 +205,93 @@ static NSInteger const RJFormImageTotalCount = 6;
 - (void)postRefreshFormNotification
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:RJFormRefreshNotificationName object:nil];
+}
+
+
+/**
+ 显示选择选项
+ */
+- (void)showPickTypes
+{
+    __weak typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf pickImageFromCamera];
+    }];
+    UIAlertAction *settingAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf pickImageFromAlbum];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertController addAction:confirmAction];
+    [alertController addAction:settingAction];
+    [alertController addAction:cancelAction];
+    
+    [[self viewController] presentViewController:alertController animated:YES completion:nil];
+}
+
+
+/**
+ 从相机选择图片
+ */
+- (void)pickImageFromCamera
+{
+    __weak typeof(self) weakSelf = self;
+    [[RJFormPhotoPickerManager shareInstance] presentPicker:RJFormPhotoPickerTypeCamera target:[self viewController] completed:^(UIImage * _Nullable image, NSError * _Nullable error) {
+        [weakSelf pickedImages:@[image]];
+    }];
+}
+
+
+/**
+ 从相册选择图片
+ */
+- (void)pickImageFromAlbum
+{
+    //选择图片
+    TZImagePickerController * imagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:RJFormImageTotalCount + 1 - self.contentItemArrM.count delegate:self];
+    imagePickerController.allowPickingVideo = NO;
+    imagePickerController.allowPickingMultipleVideo = NO;
+    imagePickerController.allowPickingOriginalPhoto = NO;
+    
+    [[self viewController] presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+
+/**
+ 选中了图片
+
+ @param photos 图片
+ */
+- (void)pickedImages:(NSArray<UIImage *> *)photos
+{
+    NSInteger count = self.contentItemArrM.count;
+    for (NSInteger i = 0; i < photos.count; i++) {
+        UIImage * originalImage = photos[i];
+        if(count + i < RJFormImageTotalCount)//未达到最大图片数
+        {
+            RJFormImagePickerContentItem * item = [[RJFormImagePickerContentItem alloc] init];
+            item.localImage = originalImage;
+            item.imageUrl = @"";
+            item.isAdd = NO;
+            [self.contentItemArrM insertObject:item atIndex:self.contentItemArrM.count - 1];
+        }
+        else//达到最大图片数，替换添加按钮
+        {
+            RJFormImagePickerContentItem * addItem = self.contentItemArrM[self.contentItemArrM.count - 1];
+            addItem.localImage = originalImage;
+            addItem.imageUrl = @"";
+            addItem.isAdd = NO;
+            break;
+        }
+    }
+    
+    [self.collectionView reloadData];
+    
+    [self postRefreshFormNotification];
 }
 
 #pragma mark - Properties Methods

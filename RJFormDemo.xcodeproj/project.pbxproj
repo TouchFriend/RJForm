@@ -32,6 +32,7 @@
 		BF24755D22E6F0EE0060AC12 /* RJFormDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BF24755C22E6F0EE0060AC12 /* RJFormDescriptor.m */; };
 		BF24756022E6FB4D0060AC12 /* RJFormBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF24755F22E6FB4D0060AC12 /* RJFormBaseCell.m */; };
 		BF2C7A5D2301135E00F4DC55 /* RJFormImagePickerContentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2C7A5C2301135E00F4DC55 /* RJFormImagePickerContentItem.m */; };
+		BF3270262304F10C00CD06BA /* RJFormPhotoPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3270252304F10C00CD06BA /* RJFormPhotoPickerManager.m */; };
 		BF4FC4CA22FD097900DB028D /* RJFormDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FC4C922FD097900DB028D /* RJFormDatePickerCell.m */; };
 		BF4FC4CD22FD098B00DB028D /* RJFormDatePickerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FC4CC22FD098B00DB028D /* RJFormDatePickerItem.m */; };
 		BF4FC4D022FD0DDB00DB028D /* RJFormDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4FC4CF22FD0DDB00DB028D /* RJFormDatePickerView.m */; };
@@ -113,6 +114,8 @@
 		BF24755F22E6FB4D0060AC12 /* RJFormBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormBaseCell.m; sourceTree = "<group>"; };
 		BF2C7A5B2301135E00F4DC55 /* RJFormImagePickerContentItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormImagePickerContentItem.h; sourceTree = "<group>"; };
 		BF2C7A5C2301135E00F4DC55 /* RJFormImagePickerContentItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormImagePickerContentItem.m; sourceTree = "<group>"; };
+		BF3270202304ECCE00CD06BA /* RJFormPhotoPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJFormPhotoPickerManager.h; sourceTree = "<group>"; };
+		BF3270252304F10C00CD06BA /* RJFormPhotoPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJFormPhotoPickerManager.m; sourceTree = "<group>"; };
 		BF4FC4C822FD097900DB028D /* RJFormDatePickerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormDatePickerCell.h; sourceTree = "<group>"; };
 		BF4FC4C922FD097900DB028D /* RJFormDatePickerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormDatePickerCell.m; sourceTree = "<group>"; };
 		BF4FC4CB22FD098B00DB028D /* RJFormDatePickerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormDatePickerItem.h; sourceTree = "<group>"; };
@@ -382,6 +385,8 @@
 				BF2C7A5C2301135E00F4DC55 /* RJFormImagePickerContentItem.m */,
 				BFC7D78422FD74040068C407 /* RJFormImagePickerCollectionViewCell.h */,
 				BFC7D78522FD74040068C407 /* RJFormImagePickerCollectionViewCell.m */,
+				BF3270202304ECCE00CD06BA /* RJFormPhotoPickerManager.h */,
+				BF3270252304F10C00CD06BA /* RJFormPhotoPickerManager.m */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				BFBB7BE322F970AF00D4CDF9 /* RJFormSelectorItem.m in Sources */,
 				BF24753822E6A3B40060AC12 /* RJFormDemoViewController.m in Sources */,
 				BFC7D77C22FD6A1F0068C407 /* RJFormImagePickerItem.m in Sources */,
+				BF3270262304F10C00CD06BA /* RJFormPhotoPickerManager.m in Sources */,
 				BF6D9C1F22E801FF0039FBB7 /* RJFormAllSimpleViewController.m in Sources */,
 				BF24754822E6E1BB0060AC12 /* RJFormSwitchCell.m in Sources */,
 				BF4FC4D322FD136B00DB028D /* RJFormDatePickerManager.m in Sources */,

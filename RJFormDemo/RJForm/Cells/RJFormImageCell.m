@@ -11,9 +11,9 @@
 #import "RJFormConstant.h"
 #import <UIImageView+WebCache.h>
 #import "RJFormEmptyTool.h"
-#import <TZImagePickerController/TZImagePickerController.h>
+#import "RJFormPhotoPickerManager.h"
 
-@interface RJFormImageCell () <TZImagePickerControllerDelegate>
+@interface RJFormImageCell ()
 
 /********* text *********/
 @property (nonatomic, weak) UILabel *textLbl;
@@ -185,24 +185,45 @@
 
 - (void)contentViewClick:(UITapGestureRecognizer *)tapGesture
 {
-    //选择图片
-    TZImagePickerController * imagePickerController = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
-    imagePickerController.allowPickingVideo = NO;
-    imagePickerController.allowPickingMultipleVideo = NO;
-    imagePickerController.allowPickingOriginalPhoto = NO;
+    __weak typeof(self) weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [[self viewController] presentViewController:imagePickerController animated:YES completion:nil];
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf pickerImageWithType:RJFormPhotoPickerTypeCamera];
+    }];
+    UIAlertAction *settingAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf pickerImageWithType:RJFormPhotoPickerTypePhotoLibrary];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertController addAction:confirmAction];
+    [alertController addAction:settingAction];
+    [alertController addAction:cancelAction];
+    
+    [[self viewController] presentViewController:alertController animated:YES completion:nil];
+    
+    
 }
 
-#pragma mark - TZImagePickerControllerDelegate Methods
+#pragma mark - Private Methods
 
-- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto
+//选择照片
+- (void)pickerImageWithType:(RJFormPhotoPickerType)type
 {
-    self.data.iconImage = photos.lastObject;
+    __weak typeof(self) weakSelf = self;
+    [[RJFormPhotoPickerManager shareInstance] presentPicker:type target:[self viewController] completed:^(UIImage * _Nullable image, NSError * _Nullable error) {
+        [weakSelf pickedImage:image];
+    }];
+}
+
+//选中图片
+- (void)pickedImage:(UIImage *)image
+{
+    self.data.iconImage = image;
     self.data.webImageUrl = @"";
     self.iconImageV.image = self.data.iconImage;
-    
 }
-
 
 @end
