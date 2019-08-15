@@ -323,6 +323,7 @@
     RJFormTextViewItem *limitCharNumItem = [RJFormTextViewItem itemWithText:@"限制字数10" detailText:@""];
     limitCharNumItem.required = YES;
     limitCharNumItem.detailMaxNumberOfCharacters = @(10);
+    limitCharNumItem.detailText = @"限制字数测试";
     row = [RJFormRowDescriptor rowWithTag:@"limitCharNum" item:limitCharNumItem];
     row.rowHeight = 150.0;
     [section.formRows addObject:row];

@@ -239,10 +239,17 @@
     row = [RJFormRowDescriptor rowWithTag:@"constructionPhone" item:constructionPhoneItem];
     [section addFormRow:row];
     
+    RJFormTextViewItem *investmentDescriptionItem = [RJFormTextViewItem itemWithText:@"固定资产投资计划说明" detailText:@""];
+    row = [RJFormRowDescriptor rowWithTag:@"investmentDescription" item:investmentDescriptionItem];
+    row.rowHeight = 150.0;
+    [section.formRows addObject:row];
+    
     RJFormImagePickerItem *publicizeImageItem = [RJFormImagePickerItem itemWithText:@"企业宣传图" imageArr:nil];
     row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
     row.rowHeight = publicizeImageItem.rowHeight;
     [section.formRows addObject:row];
+    
+    
     
     //第三分组
     

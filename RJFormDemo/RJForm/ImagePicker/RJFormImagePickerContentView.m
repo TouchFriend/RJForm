@@ -155,6 +155,18 @@ static NSInteger const RJFormImageTotalCount = 6;
     [imageView sd_setImageWithURL:[NSURL URLWithString:item.imageUrl] placeholderImage:[UIImage rj_imageNamedFromMyBundle:@"rjform_placeholder"]];
 }
 
+#pragma mark - PBViewControllerDelegate Methods
+
+- (void)viewController:(PBViewController *)viewController didSingleTapedPageAtIndex:(NSInteger)index presentedImage:(__kindof UIImage *)presentedImage
+{
+    [[self viewController] dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)viewController:(PBViewController *)viewController didLongPressedPageAtIndex:(NSInteger)index presentedImage:(__kindof UIImage *)presentedImage
+{
+    
+}
+
 #pragma mark - Target Methods
 
 //点击cell的删除按钮
