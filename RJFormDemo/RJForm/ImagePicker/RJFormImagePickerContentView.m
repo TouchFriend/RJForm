@@ -15,6 +15,7 @@
 #import "RJFormConstant.h"
 #import "UIImage+RJFormImage.h"
 #import "RJFormPhotoPickerManager.h"
+#import "RJFormEmptyTool.h"
 
 static NSString * const ID = @"RJFormImagePickerCollectionViewCell";
 static NSInteger const RJFormImageTotalCount = 6;
@@ -100,18 +101,39 @@ static NSInteger const RJFormImageTotalCount = 6;
 {
     RJFormImagePickerContentItem *item = self.contentItemArrM[indexPath.row];
     
-    if (!item.isAdd)//预览图片
+    //添加图片
+    if (item.isAdd)
     {
-        PBViewController *pbVC = [[PBViewController alloc] init];
-        pbVC.pb_dataSource = self;
-        pbVC.pb_delegate = self;
-        pbVC.pb_startPage = indexPath.row;
-        
-        [[self viewController] presentViewController:pbVC animated:YES completion:nil];
+        [self showPickTypes];
         return;
     }
     
-    [self showPickTypes];
+    //外部处理图片
+    if (![RJFormEmptyTool stringIsEmpty:self.didTapImageSelector])
+    {
+        SEL selector = NSSelectorFromString(self.didTapImageSelector);
+        if ([[self viewController] respondsToSelector:selector])
+        {
+            //内存泄露警告,因为编译器不知道selector是哪个方法id，需要在runtime才知道
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            [[self viewController] performSelector:selector withObject:@(indexPath.row) withObject:self.contentItemArrM];
+#pragma clang diagnostic pop
+            
+            return;
+        }
+    }
+    
+    //预览图片
+    PBViewController *pbVC = [[PBViewController alloc] init];
+    pbVC.pb_dataSource = self;
+    pbVC.pb_delegate = self;
+    pbVC.pb_startPage = indexPath.row;
+    
+    [[self viewController] presentViewController:pbVC animated:YES completion:nil];
+    
+    
+    
     
 }
 
@@ -146,6 +168,18 @@ static NSInteger const RJFormImageTotalCount = 6;
 - (void)viewController:(PBViewController *)viewController presentImageView:(__kindof UIImageView *)imageView forPageAtIndex:(NSInteger)index progressHandler:(void (^)(NSInteger, NSInteger))progressHandler
 {
     RJFormImagePickerContentItem * item = self.contentItemArrM[index];
+    if (item.localLargeImage != nil)
+    {
+        imageView.image = item.localLargeImage;
+        return;
+    }
+    
+    if (![RJFormEmptyTool stringIsEmpty:item.webLargeImageUrl])
+    {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:item.webLargeImageUrl] placeholderImage:[UIImage rj_imageNamedFromMyBundle:@"rjform_placeholder"]];
+        return ;
+    }
+    
     if(item.localImage != nil)
     {
         imageView.image = item.localImage;
@@ -294,6 +328,8 @@ static NSInteger const RJFormImageTotalCount = 6;
             item.localImage = originalImage;
             item.imageUrl = @"";
             item.isAdd = NO;
+            item.localLargeImage = nil;
+            item.webLargeImageUrl = @"";
             [self.contentItemArrM insertObject:item atIndex:self.contentItemArrM.count - 1];
         }
         else//达到最大图片数，替换添加按钮
@@ -302,6 +338,8 @@ static NSInteger const RJFormImageTotalCount = 6;
             addItem.localImage = originalImage;
             addItem.imageUrl = @"";
             addItem.isAdd = NO;
+            addItem.localLargeImage = nil;
+            addItem.webLargeImageUrl = @"";
             break;
         }
     }

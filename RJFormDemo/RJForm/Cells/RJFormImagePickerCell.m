@@ -81,6 +81,7 @@
     
     
     [self.imagePickerContentView changeImages:[data getContentArrMWithAddButton]];
+    self.imagePickerContentView.didTapImageSelector = data.didTapImageSelector;
 }
 
 @end

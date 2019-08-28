@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 /********* 是否是添加图片 *********/
 @property (nonatomic, assign) BOOL isAdd;
 
+/********* 本地大图 点击头像优先显示本地大图->网络大图->本地图片->网络图片 *********/
+@property (nonatomic, strong) UIImage *_Nullable localLargeImage;
+/********* 网络大图 *********/
+@property (nonatomic, copy) NSString *webLargeImageUrl;
 
 @end
 

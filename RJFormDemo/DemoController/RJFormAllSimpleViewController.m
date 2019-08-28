@@ -337,7 +337,12 @@
     section.sectionHeaderTitle = @"图片选择器";
     [formSections addObject:section];
     
-    RJFormImagePickerItem *publicizeImageItem = [RJFormImagePickerItem itemWithText:@"企业宣传图" imageArr:nil];
+    RJFormImagePickerContentItem *pickerContentItem = [[RJFormImagePickerContentItem alloc] init];
+    pickerContentItem.localImage = [UIImage imageNamed:@"zhanweijian"];
+    pickerContentItem.localLargeImage = [UIImage imageNamed:@"rjform_icon_add"];
+//    pickerContentItem.webLargeImageUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
+    RJFormImagePickerItem *publicizeImageItem = [RJFormImagePickerItem itemWithText:@"企业宣传图" imageArr:@[pickerContentItem]];
+    publicizeImageItem.didTapImageSelector = @"didTapImage:imageDataArr:";
     row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
     row.rowHeight = publicizeImageItem.rowHeight;
     [section.formRows addObject:row];
@@ -467,6 +472,11 @@
 - (void)changeUserIcon:(RJFormRowDescriptor *)rowDescriptor
 {
     NSLog(@"更改用户头像");
+}
+
+- (void)didTapImage:(NSNumber *)index imageDataArr:(NSArray *)imageDataArr
+{
+    NSLog(@"点击显示大图");
 }
 
 #pragma mark - Properties Methods
