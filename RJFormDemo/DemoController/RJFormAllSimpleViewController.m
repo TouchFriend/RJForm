@@ -126,6 +126,8 @@
     rightIconItem.iconCornerRadius = 30.0;
     rightIconItem.iconBorderWidth = 1.0;
     rightIconItem.iconBorderColor = [UIColor redColor];
+//    rightIconItem.localLargeImage = [UIImage imageNamed:@"rjform_icon_add"];
+    rightIconItem.webLargeImageUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
     row = [RJFormRowDescriptor rowWithTag:@"rightIconItem" item:rightIconItem];
     row.rowHeight = 90.0;
     [section.formRows addObject:row];
@@ -139,8 +141,10 @@
     right1IconItem.iconBorderColor = [UIColor redColor];
     right1IconItem.placeholderImage = [UIImage imageNamed:@"placeholder"];
     right1IconItem.required = YES;
+    right1IconItem.useDidSelectedSelector = YES;
     row = [RJFormRowDescriptor rowWithTag:@"right1IconItem" item:right1IconItem];
     row.rowHeight = 90.0;
+    row.didSelectedSelector = @"changeUserIcon:";
     [section.formRows addObject:row];
     
     RJFormImageItem *middleIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
@@ -457,6 +461,12 @@
 - (void)signOutBtnClick:(UIButton *)btn
 {
     NSLog(@"点击了退出登录按钮");
+}
+
+//更改用户头像
+- (void)changeUserIcon:(RJFormRowDescriptor *)rowDescriptor
+{
+    NSLog(@"更改用户头像");
 }
 
 #pragma mark - Properties Methods

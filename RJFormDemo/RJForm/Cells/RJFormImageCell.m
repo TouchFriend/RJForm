@@ -12,8 +12,11 @@
 #import <UIImageView+WebCache.h>
 #import "RJFormEmptyTool.h"
 #import "RJFormPhotoPickerManager.h"
+#import <PhotoBrowser/PhotoBrowser.h>
+#import "UIImage+RJFormImage.h"
+#import "RJFormEmptyTool.h"
 
-@interface RJFormImageCell ()
+@interface RJFormImageCell () <PBViewControllerDataSource, PBViewControllerDelegate>
 
 /********* text *********/
 @property (nonatomic, weak) UILabel *textLbl;
@@ -21,6 +24,8 @@
 @property (nonatomic, weak) UIImageView *iconImageV;
 /********* 数据 *********/
 @property (nonatomic, weak) RJFormImageItem *data;
+/********* 点击手势 *********/
+@property (nonatomic, weak) UITapGestureRecognizer *tapContentViewGesture;
 
 @end
 
@@ -63,9 +68,13 @@
         make.right.mas_equalTo(self.contentView);
     }];
     self.iconImageV = iconImageV;
+    iconImageV.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapIconImageViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconImageViewClick)];
+    [iconImageV addGestureRecognizer:tapIconImageViewGesture];
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentViewClick:)];
-    [self.contentView addGestureRecognizer:tapGesture];
+    UITapGestureRecognizer *tapContentViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentViewClick:)];
+    [self.contentView addGestureRecognizer:tapContentViewGesture];
+    self.tapContentViewGesture = tapContentViewGesture;
 }
 
 #pragma mark - Override Methods
@@ -96,6 +105,7 @@
     [super updateViewData:data];
     
     self.data = data;
+    self.tapContentViewGesture.enabled = !data.useDidSelectedSelector;
     
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
@@ -181,6 +191,48 @@
     
 }
 
+#pragma mark - PBViewControllerDataSource Methods
+
+- (NSInteger)numberOfPagesInViewController:(PBViewController *)viewController
+{
+    return 1;
+}
+
+- (void)viewController:(PBViewController *)viewController presentImageView:(__kindof UIImageView *)imageView forPageAtIndex:(NSInteger)index progressHandler:(void (^)(NSInteger, NSInteger))progressHandler
+{
+    if(self.data.localLargeImage != nil)
+    {
+        imageView.image = self.data.localLargeImage;
+        return;
+    }
+    
+    if (![RJFormEmptyTool stringIsEmpty:self.data.webLargeImageUrl])
+    {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.data.webLargeImageUrl] placeholderImage:[UIImage rj_imageNamedFromMyBundle:@"rjform_placeholder"]];
+        return;
+    }
+    
+    if(self.data.iconImage != nil)
+    {
+        imageView.image = self.data.iconImage;
+        return;
+    }
+    
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.data.webImageUrl] placeholderImage:[UIImage rj_imageNamedFromMyBundle:@"rjform_placeholder"]];
+}
+
+#pragma mark - PBViewControllerDelegate Methods
+
+- (void)viewController:(PBViewController *)viewController didSingleTapedPageAtIndex:(NSInteger)index presentedImage:(__kindof UIImage *)presentedImage
+{
+    [[self viewController] dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)viewController:(PBViewController *)viewController didLongPressedPageAtIndex:(NSInteger)index presentedImage:(__kindof UIImage *)presentedImage
+{
+    
+}
+
 #pragma mark - Target Methods
 
 - (void)contentViewClick:(UITapGestureRecognizer *)tapGesture
@@ -207,6 +259,17 @@
     
 }
 
+//点击头像
+- (void)iconImageViewClick
+{
+    PBViewController *pbVC = [[PBViewController alloc] init];
+    pbVC.pb_dataSource = self;
+    pbVC.pb_delegate = self;
+    pbVC.pb_startPage = 0;
+    
+    [[self viewController] presentViewController:pbVC animated:YES completion:nil];
+}
+
 #pragma mark - Private Methods
 
 //选择照片
@@ -228,6 +291,8 @@
 {
     self.data.iconImage = image;
     self.data.webImageUrl = @"";
+    self.data.localLargeImage = nil;
+    self.data.webLargeImageUrl = @"";
     self.iconImageV.image = self.data.iconImage;
 }
 

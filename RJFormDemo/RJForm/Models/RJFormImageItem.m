@@ -51,6 +51,7 @@
 {
     if (self = [super init])
     {
+        self.useDidSelectedSelector = NO;
         self.text = @"";
         self.textFont = [UIFont systemFontOfSize:16.0];
         self.textColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];

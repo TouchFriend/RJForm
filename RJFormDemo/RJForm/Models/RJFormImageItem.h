@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RJFormImageItem : RJFormBaseItem
 
+/********* 是否使用选中cell选中方法。默认为NO *********/
+@property (nonatomic, assign, getter=isUsedidSelectedSelector) BOOL useDidSelectedSelector;
+
+
 /********* 文本 *********/
 @property (nonatomic, copy) NSString *text;
 /********* 文本字体 默认16.0 *********/
@@ -28,6 +32,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *webImageUrl;
 /********* 占位图片 *********/
 @property (nonatomic, copy) UIImage *placeholderImage;
+
+/********* 本地大图 点击头像优先显示本地大图->网络大图->本地图片->网络图片 *********/
+@property (nonatomic, strong) UIImage *_Nullable localLargeImage;
+/********* 网络大图 *********/
+@property (nonatomic, copy) NSString *webLargeImageUrl;
+
 
 
 /********* 图片size *********/
