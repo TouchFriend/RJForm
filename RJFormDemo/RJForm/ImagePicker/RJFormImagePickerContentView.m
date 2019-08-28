@@ -16,6 +16,7 @@
 #import "UIImage+RJFormImage.h"
 #import "RJFormPhotoPickerManager.h"
 #import "RJFormEmptyTool.h"
+#import "RJFormImageTapProtocol.h"
 
 static NSString * const ID = @"RJFormImagePickerCollectionViewCell";
 static NSInteger const RJFormImageTotalCount = 6;
@@ -109,19 +110,11 @@ static NSInteger const RJFormImageTotalCount = 6;
     }
     
     //外部处理图片
-    if (![RJFormEmptyTool stringIsEmpty:self.didTapImageSelector])
+    UIViewController *vc = [self viewController];
+    if ([vc conformsToProtocol:@protocol(RJFormImageTapProtocol)] && [vc respondsToSelector:@selector(multipleImageTapWithTag:index:images:)])
     {
-        SEL selector = NSSelectorFromString(self.didTapImageSelector);
-        if ([[self viewController] respondsToSelector:selector])
-        {
-            //内存泄露警告,因为编译器不知道selector是哪个方法id，需要在runtime才知道
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-            [[self viewController] performSelector:selector withObject:@(indexPath.row) withObject:self.contentItemArrM];
-#pragma clang diagnostic pop
-            
-            return;
-        }
+        [(id<RJFormImageTapProtocol>)vc multipleImageTapWithTag:self.itemTag index:indexPath.row images:[self.contentItemArrM copy]];
+        return;
     }
     
     //预览图片

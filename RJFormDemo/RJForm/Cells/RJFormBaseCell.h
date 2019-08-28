@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIViewController *)viewController;
 
+/********* 模型标签 *********/
+@property (nonatomic, copy) NSString *itemTag;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -18,6 +18,7 @@
 #import "RJFormValidator.h"
 #import "RJFormRegexValidator.h"
 #import "RJFormValidatorProtocol.h"
+#import "RJFormImageTapProtocol.h"
 
 #import "RJFormInfoCell.h"
 #import "RJFormImageCell.h"

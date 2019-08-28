@@ -49,9 +49,9 @@
 
 #pragma mark - RJFormCellDataUpdate Methods
 
-- (void)updateViewData:(RJFormTextButtonItem *)data
+- (void)updateViewData:(RJFormTextButtonItem *)data tag:(nonnull NSString *)tag
 {
-    [super updateViewData:data];
+    [super updateViewData:data tag:tag];
     
     self.textLbl.text = data.text;
     self.textLbl.font = data.textFont;

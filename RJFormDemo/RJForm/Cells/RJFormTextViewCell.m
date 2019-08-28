@@ -99,9 +99,9 @@
 
 #pragma mark - RJFormCellDataUpdate Methods
 
-- (void)updateViewData:(RJFormTextViewItem *)data
+- (void)updateViewData:(RJFormTextViewItem *)data tag:(nonnull NSString *)tag
 {
-    [super updateViewData:data];
+    [super updateViewData:data tag:tag];
     
     self.data = data;
     

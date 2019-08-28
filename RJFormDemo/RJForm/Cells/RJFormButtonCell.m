@@ -84,9 +84,9 @@
 
 #pragma mark - RJFormCellDataUpdate Methods
 
-- (void)updateViewData:(RJFormButtonItem *)data
+- (void)updateViewData:(RJFormButtonItem *)data tag:(nonnull NSString *)tag
 {
-    [super updateViewData:data];
+    [super updateViewData:data tag:tag];
     
     self.data = data;
     self.backgroundColor = data.cellBackgroudColor;

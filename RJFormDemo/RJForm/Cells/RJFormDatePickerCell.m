@@ -77,9 +77,9 @@
 
 #pragma mark - RJFormCellDataUpdate Methods
 
-- (void)updateViewData:(RJFormDatePickerItem *)data
+- (void)updateViewData:(RJFormDatePickerItem *)data tag:(nonnull NSString *)tag
 {
-    [super updateViewData:data];
+    [super updateViewData:data tag:tag];
     
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     

@@ -14,7 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @required
 
-- (void)updateViewData:(id)data;
+/**
+ 更新cell的数据
+
+ @param data 数据
+ @param tag 标签
+ */
+- (void)updateViewData:(id)data tag:(NSString *)tag;
 
 @end
 

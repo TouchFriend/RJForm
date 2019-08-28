@@ -15,6 +15,7 @@
 #import <PhotoBrowser/PhotoBrowser.h>
 #import "UIImage+RJFormImage.h"
 #import "RJFormEmptyTool.h"
+#import "RJFormImageTapProtocol.h"
 
 @interface RJFormImageCell () <PBViewControllerDataSource, PBViewControllerDelegate>
 
@@ -100,12 +101,11 @@
 
 #pragma mark - RJFormCellDataUpdate Methods
 
-- (void)updateViewData:(RJFormImageItem *)data
+- (void)updateViewData:(RJFormImageItem *)data tag:(nonnull NSString *)tag
 {
-    [super updateViewData:data];
+    [super updateViewData:data tag:tag];
     
     self.data = data;
-    self.tapContentViewGesture.enabled = !data.useDidSelectedSelector;
     
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
@@ -262,6 +262,13 @@
 //点击头像
 - (void)iconImageViewClick
 {
+    UIViewController *vc = [self viewController];
+    if ([vc conformsToProtocol:@protocol(RJFormImageTapProtocol)] && [vc respondsToSelector:@selector(singleImageTapWithTag:data:)])
+    {
+        [(id<RJFormImageTapProtocol>)vc singleImageTapWithTag:self.itemTag data:self.data];
+        return;
+    }
+    
     PBViewController *pbVC = [[PBViewController alloc] init];
     pbVC.pb_dataSource = self;
     pbVC.pb_delegate = self;

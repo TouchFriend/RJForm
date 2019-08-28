@@ -25,9 +25,9 @@
     return nil;
 }
 
-- (void)updateViewData:(RJFormBaseItem *)data
+- (void)updateViewData:(id)data tag:(NSString *)tag
 {
-    
+    self.itemTag = tag;
 }
 
 @end

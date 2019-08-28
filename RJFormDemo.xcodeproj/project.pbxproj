@@ -75,6 +75,7 @@
 		BF116E5C22EE91B800954453 /* RJFormTextViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormTextViewItem.m; sourceTree = "<group>"; };
 		BF116E5E22EE96B900954453 /* RJFormEnterpriseInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormEnterpriseInfoViewController.h; sourceTree = "<group>"; };
 		BF116E5F22EE96B900954453 /* RJFormEnterpriseInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormEnterpriseInfoViewController.m; sourceTree = "<group>"; };
+		BF15E2EF231628FA00607F26 /* RJFormImageTapProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormImageTapProtocol.h; sourceTree = "<group>"; };
 		BF17280622EEEFD100C93002 /* RJFormValidatorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormValidatorProtocol.h; sourceTree = "<group>"; };
 		BF17280722EEF01800C93002 /* RJFormValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormValidator.h; sourceTree = "<group>"; };
 		BF17280822EEF01800C93002 /* RJFormValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormValidator.m; sourceTree = "<group>"; };
@@ -251,6 +252,7 @@
 				BF6D9C1822E7F7B60039FBB7 /* RJFormConstant.m */,
 				BFE1342D22EAE85000B0CC0B /* RJFormEmptyTool.h */,
 				BFE1342E22EAE85000B0CC0B /* RJFormEmptyTool.m */,
+				BF15E2EF231628FA00607F26 /* RJFormImageTapProtocol.h */,
 				BFE3394323016AA500460F71 /* Categorys */,
 				BFC7D78022FD6E2E0068C407 /* ImagePicker */,
 				BFBB7BE422F9746100D4CDF9 /* Selector */,

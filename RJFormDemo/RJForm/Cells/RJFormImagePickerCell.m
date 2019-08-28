@@ -72,16 +72,16 @@
 
 #pragma mark - RJFormCellDataUpdate Methods
 
-- (void)updateViewData:(RJFormImagePickerItem *)data
+- (void)updateViewData:(RJFormImagePickerItem *)data tag:(nonnull NSString *)tag
 {
-    [super updateViewData:data];
+    [super updateViewData:data tag:tag];
     self.data = data;
     
     self.textLbl.attributedText = RJFormAsteriskTextRequired(data.required, data.text, data.textColor, data.textFont);
     
     
     [self.imagePickerContentView changeImages:[data getContentArrMWithAddButton]];
-    self.imagePickerContentView.didTapImageSelector = data.didTapImageSelector;
+    self.imagePickerContentView.itemTag = tag;
 }
 
 @end

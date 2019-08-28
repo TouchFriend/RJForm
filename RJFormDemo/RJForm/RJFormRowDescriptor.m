@@ -83,9 +83,10 @@
 
 - (void)updateCell:(UITableViewCell *)cell
 {
-    if ([cell respondsToSelector:@selector(updateViewData:)])
+    if ([cell respondsToSelector:@selector(updateViewData:tag:)])
     {
-        [(id<RJFormCellDataUpdate>)cell updateViewData:self.item];
+        [(id<RJFormCellDataUpdate>)cell updateViewData:self.item tag:self.tag];
+        return;
     }
 }
 

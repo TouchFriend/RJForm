@@ -10,7 +10,7 @@
 #import "RJForm.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
-@interface RJFormAllSimpleViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface RJFormAllSimpleViewController () <UITableViewDataSource, UITableViewDelegate, RJFormImageTapProtocol>
 
 /********* tableView *********/
 @property (nonatomic, weak) UITableView *tableView;
@@ -141,10 +141,8 @@
     right1IconItem.iconBorderColor = [UIColor redColor];
     right1IconItem.placeholderImage = [UIImage imageNamed:@"placeholder"];
     right1IconItem.required = YES;
-    right1IconItem.useDidSelectedSelector = YES;
     row = [RJFormRowDescriptor rowWithTag:@"right1IconItem" item:right1IconItem];
     row.rowHeight = 90.0;
-    row.didSelectedSelector = @"changeUserIcon:";
     [section.formRows addObject:row];
     
     RJFormImageItem *middleIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
@@ -342,7 +340,6 @@
     pickerContentItem.localLargeImage = [UIImage imageNamed:@"rjform_icon_add"];
 //    pickerContentItem.webLargeImageUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
     RJFormImagePickerItem *publicizeImageItem = [RJFormImagePickerItem itemWithText:@"企业宣传图" imageArr:@[pickerContentItem]];
-    publicizeImageItem.didTapImageSelector = @"didTapImage:imageDataArr:";
     row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
     row.rowHeight = publicizeImageItem.rowHeight;
     [section.formRows addObject:row];
@@ -428,6 +425,19 @@
     return sectionDescriptor.sectionHeaderTitle;
 }
 
+#pragma mark - RJFormImageTapProtocol Methods
+
+//- (void)singleImageTapWithTag:(NSString *)tag data:(RJFormImageItem *)item
+//{
+//    NSLog(@"点击用户头像");
+//}
+
+
+//- (void)multipleImageTapWithTag:(NSString *)tag index:(NSUInteger)index images:(NSArray<RJFormImagePickerContentItem *> *)images
+//{
+//    NSLog(@"点击显示大图");
+//}
+
 #pragma mark - Override Methods
 
 #pragma mark - Public Methods
@@ -466,17 +476,6 @@
 - (void)signOutBtnClick:(UIButton *)btn
 {
     NSLog(@"点击了退出登录按钮");
-}
-
-//更改用户头像
-- (void)changeUserIcon:(RJFormRowDescriptor *)rowDescriptor
-{
-    NSLog(@"更改用户头像");
-}
-
-- (void)didTapImage:(NSNumber *)index imageDataArr:(NSArray *)imageDataArr
-{
-    NSLog(@"点击显示大图");
 }
 
 #pragma mark - Properties Methods

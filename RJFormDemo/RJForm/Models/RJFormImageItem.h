@@ -13,10 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RJFormImageItem : RJFormBaseItem
 
-/********* 是否使用选中cell选中方法。默认为NO *********/
-@property (nonatomic, assign, getter=isUsedidSelectedSelector) BOOL useDidSelectedSelector;
-
-
 /********* 文本 *********/
 @property (nonatomic, copy) NSString *text;
 /********* 文本字体 默认16.0 *********/
