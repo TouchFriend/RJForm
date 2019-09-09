@@ -17,7 +17,7 @@
 /********* 底部分割线 *********/
 @property (nonatomic, weak) UIView *bottomSeparatorView;
 /********* 数据 *********/
-@property (nonatomic, weak) RJFormBaseItem *baseData;
+@property (nonatomic, strong) RJFormBaseItem *baseData;
 
 @end
 
