@@ -23,6 +23,8 @@
 {
     if (self = [super init])
     {
+        self.topSeparatorViewHidden = NO;
+        self.bottomSeparatorViewHidden = NO;
         self.selectionStyle = UITableViewCellSelectionStyleDefault;
         self.separatorInset = UIEdgeInsetsZero;
         self.required = NO;

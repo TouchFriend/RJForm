@@ -74,13 +74,14 @@
     
     tableView.dataSource = self;
     tableView.delegate = self;
-    
 }
 
 #pragma mark - Init Form
 
 - (void)initializeForm
 {
+#warning 添加另一种textField类型。以处理标题太长的问题。上下结构
+    
     RJFormDescriptor *form;
     RJFormSectionDescriptor *section;
     RJFormRowDescriptor *row;
@@ -342,6 +343,23 @@
     RJFormImagePickerItem *publicizeImageItem = [RJFormImagePickerItem itemWithText:@"企业宣传图" imageArr:@[pickerContentItem]];
     row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
     row.rowHeight = publicizeImageItem.rowHeight;
+    [section.formRows addObject:row];
+    
+    section = [[RJFormSectionDescriptor alloc] init];
+    section.sectionHeaderHeight = 44.0;
+    section.sectionHeaderTitle = @"隐藏分割线";
+    [formSections addObject:section];
+    
+    RJFormTextFieldItem *hideSeparatorView1Item = [RJFormTextFieldItem itemWithText:@"隐藏分割线1" detailText:@""];
+    hideSeparatorView1Item.topSeparatorViewHidden = YES;
+    hideSeparatorView1Item.bottomSeparatorViewHidden = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"hideSeparatorView1" item:hideSeparatorView1Item];
+    [section.formRows addObject:row];
+    
+    RJFormTextFieldItem *hideSeparatorView2Item = [RJFormTextFieldItem itemWithText:@"隐藏分割线2" detailText:@""];
+    hideSeparatorView2Item.required = YES;
+    hideSeparatorView2Item.bottomSeparatorViewHidden = YES;
+    row = [RJFormRowDescriptor rowWithTag:@"hideSeparatorView2" item:hideSeparatorView2Item];
     [section.formRows addObject:row];
     
 
