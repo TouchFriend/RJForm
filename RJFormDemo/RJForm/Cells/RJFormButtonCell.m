@@ -105,8 +105,8 @@
         make.edges.mas_equalTo(self.contentView).insets(data.insets);
     }];
     
-    
-    
+    //是否可用
+    self.btn.enabled = data.enabled;
 }
 
 @end

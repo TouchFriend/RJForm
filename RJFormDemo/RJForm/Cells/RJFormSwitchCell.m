@@ -94,6 +94,8 @@
     
     self.openSwitch.on = data.open;
     
+    //是否可用
+    self.openSwitch.enabled = data.enabled;
 }
 
 @end

@@ -118,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 处理选择器cell点击是，显示选择器
+ 处理选择器cell点击，显示选择器
 
  @param tableView tableView
  @param indexPath indexPath

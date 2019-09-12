@@ -111,6 +111,9 @@
     self.textView.textColor = data.detailTextColor;
     self.textView.font = data.detailTextFont;
     self.textView.attributedPlaceholder = data.detailAttributedPlaceholder;
+    
+    //是否可用
+    self.textView.editable = data.enabled;
 }
 
 @end

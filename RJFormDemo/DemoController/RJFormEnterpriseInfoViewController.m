@@ -290,6 +290,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[indexPath.section];
     RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
+    
+    //是否可编辑
+    if ([rowDescriptor.item isKindOfClass:[RJFormBaseItem class]] && ![(RJFormBaseItem *)rowDescriptor.item enabled])
+    {
+        return ;
+    }
+    
     if (rowDescriptor.didSelectedSelector && rowDescriptor.didSelectedSelector.length > 0 && [self respondsToSelector:NSSelectorFromString(rowDescriptor.didSelectedSelector)])
     {
         SEL selector = NSSelectorFromString(rowDescriptor.didSelectedSelector);

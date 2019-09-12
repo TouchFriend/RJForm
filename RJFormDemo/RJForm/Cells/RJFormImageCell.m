@@ -189,6 +189,8 @@
     
     self.accessoryType = data.hiddenArror ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
     
+    //是否可用
+    self.tapContentViewGesture.enabled = data.enabled;
 }
 
 #pragma mark - PBViewControllerDataSource Methods

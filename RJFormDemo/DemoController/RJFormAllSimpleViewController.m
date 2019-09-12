@@ -362,6 +362,58 @@
     row = [RJFormRowDescriptor rowWithTag:@"hideSeparatorView2" item:hideSeparatorView2Item];
     [section.formRows addObject:row];
     
+    
+    section = [[RJFormSectionDescriptor alloc] init];
+    section.sectionHeaderHeight = 44.0;
+    section.sectionHeaderTitle = @"不可使用";
+    [formSections addObject:section];
+    
+    RJFormImageItem *imageDisabledItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
+    imageDisabledItem.hiddenArror = YES;
+    imageDisabledItem.enabled = NO;
+    row = [RJFormRowDescriptor rowWithTag:@"imageDisabled" item:imageDisabledItem];
+    row.rowHeight = 90.0;
+    [section.formRows addObject:row];
+    
+    RJFormTextFieldItem *textFieldDiabledItem = [RJFormTextFieldItem itemWithText:@"企业名称" detailText:@"不可编辑"];
+    textFieldDiabledItem.enabled = NO;
+    row = [RJFormRowDescriptor rowWithTag:@"textFieldDiabled" item:textFieldDiabledItem];
+    [section.formRows addObject:row];
+    
+    RJFormSwitchItem *switchDisabledItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES];
+    switchDisabledItem.enabled = NO;
+    row = [RJFormRowDescriptor rowWithTag:@"switchDisabled" item:switchDisabledItem];
+    [section.formRows addObject:row];
+    
+    RJFormTextViewItem *textViewDisabledItem = [RJFormTextViewItem itemWithText:@"固定资产投资计划说明" detailText:@"sdfs"];
+    textViewDisabledItem.enabled = NO;
+    row = [RJFormRowDescriptor rowWithTag:@"textViewDisabled" item:textViewDisabledItem];
+    row.rowHeight = 150.0;
+    [section.formRows addObject:row];
+    
+    RJFormTextButtonItem *textButtonDisabledItem = [RJFormTextButtonItem itemWithText:@"切换账号"];
+    textButtonDisabledItem.enabled = NO;
+    row = [RJFormRowDescriptor rowWithItem:textButtonDisabledItem];
+    row.didSelectedSelector = @"textButtonClick:";
+    [section.formRows addObject:row];
+    
+    RJFormButtonItem *buttonDisabledItem = [RJFormButtonItem itemWithText:@"退出登录" selector:@"signOutBtnClick:"];
+    buttonDisabledItem.enabled = NO;
+    row = [RJFormRowDescriptor rowWithItem:buttonDisabledItem];
+    [section.formRows addObject:row];
+    
+    RJFormDatePickerItem *datePickerDisabledItem = [RJFormDatePickerItem itemWithText:@"出生年月" detailText:@"2012-12-12"];
+    datePickerDisabledItem.maximumDate = [NSDate date];
+    datePickerDisabledItem.enabled = NO;
+    row = [RJFormRowDescriptor rowWithTag:@"datePickerDisabled" item:datePickerDisabledItem];
+    [section.formRows addObject:row];
+    
+    RJFormSelectorItem *selectorDisabledItem = [RJFormSelectorItem itemWithText:@"国别（选择器 无数据）" selectedOption:nil];
+    selectorDisabledItem.selectorTitle = @"国别";
+    selectorDisabledItem.enabled = NO;
+    row = [RJFormRowDescriptor rowWithTag:@"selectorDisabled" item:selectorDisabledItem];
+    [section.formRows addObject:row];
+    
 
     [form.formSections addObjectsFromArray:formSections];
     
@@ -401,6 +453,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[indexPath.section];
     RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
+    
+    //是否可编辑
+    if ([rowDescriptor.item isKindOfClass:[RJFormBaseItem class]] && ![(RJFormBaseItem *)rowDescriptor.item enabled])
+    {
+        return ;
+    }
+    
     if (rowDescriptor.didSelectedSelector && rowDescriptor.didSelectedSelector.length > 0 && [self respondsToSelector:NSSelectorFromString(rowDescriptor.didSelectedSelector)])
     {
         SEL selector = NSSelectorFromString(rowDescriptor.didSelectedSelector);
@@ -494,6 +553,11 @@
 - (void)signOutBtnClick:(UIButton *)btn
 {
     NSLog(@"点击了退出登录按钮");
+}
+
+- (void)textButtonClick:(RJFormRowDescriptor *)rowDescriptor
+{
+    NSLog(@"点击了textButton");
 }
 
 #pragma mark - Properties Methods

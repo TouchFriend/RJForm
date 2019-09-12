@@ -40,6 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
 /********* 值为空时，显示的提示 *********/
 @property (nonatomic, copy) NSString *requireMsg;
 
+/********* 是否可用 默认YES *********/
+@property (nonatomic, assign) BOOL enabled;
+
+
 /********* 正则表达式 *********/
 @property (readonly, nonatomic, strong) NSMutableArray<id<RJFormValidatorProtocol>> *regexValidators;
 /**

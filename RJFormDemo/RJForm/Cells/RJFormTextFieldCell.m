@@ -115,6 +115,9 @@
        make.left.mas_equalTo(self.textLbl.mas_right).mas_offset(detailTextFLeftMargin);
     }];
     
+    //是否可用
+    self.detailTextF.enabled = data.enabled;
+    
 }
 
 #pragma mark - UITextFieldDelegate Methods

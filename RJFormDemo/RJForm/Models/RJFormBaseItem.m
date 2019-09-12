@@ -29,6 +29,7 @@
         self.separatorInset = UIEdgeInsetsZero;
         self.required = NO;
         self.regexValidators = [NSMutableArray array];
+        self.enabled = YES;
     }
     return self;
 }
