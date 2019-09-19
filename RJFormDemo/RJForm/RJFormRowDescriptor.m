@@ -10,6 +10,7 @@
 #import "RJFormCellDataUpdate.h"
 #import "RJFormDescriptor.h"
 #import "RJFormImagePickerItem.h"
+#import "RJFormCalculateRowHeightProtocol.h"
 
 @interface RJFormRowDescriptor ()
 
@@ -97,17 +98,13 @@
         return;
     }
     
-    if(![self.item isKindOfClass:[RJFormImagePickerItem class]])
+    if(![self.item conformsToProtocol:@protocol(RJFormCalculateRowHeightProtocol)] || ![self.item respondsToSelector:@selector(calculateRowHeight)])
     {
         return;
     }
     
-    RJFormImagePickerItem *item = (RJFormImagePickerItem *)self.item;
-    
     //重新计算高度
-    [item calculateRowHeight];
-    
-    self.rowHeight = item.rowHeight;
+    self.rowHeight = [(id<RJFormCalculateRowHeightProtocol>)self.item calculateRowHeight];
     
 }
 

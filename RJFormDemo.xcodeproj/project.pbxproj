@@ -150,6 +150,7 @@
 		BF6D9C3122E83FD60039FBB7 /* RJFormBaseItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormBaseItem.m; sourceTree = "<group>"; };
 		BF6D9C3322E840790039FBB7 /* RJFormItemValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormItemValue.h; sourceTree = "<group>"; };
 		BF8FED0F83E320004828BD8A /* Pods-RJFormDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJFormDemo.debug.xcconfig"; path = "Target Support Files/Pods-RJFormDemo/Pods-RJFormDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		BFA6542823335553006DDC96 /* RJFormCalculateRowHeightProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormCalculateRowHeightProtocol.h; sourceTree = "<group>"; };
 		BFBB7BDE22F970A100D4CDF9 /* RJFormSelectorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSelectorCell.h; sourceTree = "<group>"; };
 		BFBB7BDF22F970A100D4CDF9 /* RJFormSelectorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormSelectorCell.m; sourceTree = "<group>"; };
 		BFBB7BE122F970AF00D4CDF9 /* RJFormSelectorItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSelectorItem.h; sourceTree = "<group>"; };
@@ -253,6 +254,7 @@
 				BFE1342D22EAE85000B0CC0B /* RJFormEmptyTool.h */,
 				BFE1342E22EAE85000B0CC0B /* RJFormEmptyTool.m */,
 				BF15E2EF231628FA00607F26 /* RJFormImageTapProtocol.h */,
+				BFA6542823335553006DDC96 /* RJFormCalculateRowHeightProtocol.h */,
 				BFE3394323016AA500460F71 /* Categorys */,
 				BFC7D78022FD6E2E0068C407 /* ImagePicker */,
 				BFBB7BE422F9746100D4CDF9 /* Selector */,

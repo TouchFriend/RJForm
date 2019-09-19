@@ -7,11 +7,12 @@
 //
 
 #import "RJFormBaseItem.h"
+#import "RJFormCalculateRowHeightProtocol.h"
 
 @class RJFormImagePickerContentItem;
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RJFormImagePickerItem : RJFormBaseItem
+@interface RJFormImagePickerItem : RJFormBaseItem <RJFormCalculateRowHeightProtocol>
 
 /********* 文本 *********/
 @property (nonatomic, copy) NSString *text;
