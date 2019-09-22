@@ -442,7 +442,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = RJForm;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = RJSoft;
 				TargetAttributes = {
 					BF24751C22E6A37B0060AC12 = {
