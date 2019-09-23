@@ -1,12 +1,12 @@
 PODS:
-  - IQKeyboardManager (6.4.0)
+  - IQKeyboardManager (6.4.2)
   - Masonry (1.1.0)
   - PhotoBrowser (0.8.1)
   - SDWebImage (4.4.7):
     - SDWebImage/Core (= 4.4.7)
   - SDWebImage/Core (4.4.7)
   - SVProgressHUD (2.2.5)
-  - TZImagePickerController (3.2.1)
+  - TZImagePickerController (3.2.4)
 
 DEPENDENCIES:
   - IQKeyboardManager
@@ -26,12 +26,12 @@ SPEC REPOS:
     - TZImagePickerController
 
 SPEC CHECKSUMS:
-  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
+  IQKeyboardManager: b41e0a4943fbac4c11a239d31a688667675f962e
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   PhotoBrowser: afab1abad5dfc58609460d66fb27a166cafadf0d
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TZImagePickerController: bf4c57b98d8707fce41ea6be872414a71c7a8c9d
+  TZImagePickerController: d259369c5c2cc96299e53da868ae5be1b24353cd
 
 PODFILE CHECKSUM: d5ac3f96a92ff8736dd5ca9bdbfcf51fed2a6241
 
