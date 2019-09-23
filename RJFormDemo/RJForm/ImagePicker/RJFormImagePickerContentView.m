@@ -122,7 +122,7 @@ static NSInteger const RJFormImageTotalCount = 6;
     pbVC.pb_dataSource = self;
     pbVC.pb_delegate = self;
     pbVC.pb_startPage = indexPath.row;
-    
+    pbVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [[self viewController] presentViewController:pbVC animated:YES completion:nil];
     
     
@@ -268,7 +268,7 @@ static NSInteger const RJFormImageTotalCount = 6;
     [alertController addAction:confirmAction];
     [alertController addAction:settingAction];
     [alertController addAction:cancelAction];
-    
+    alertController.modalPresentationStyle = UIModalPresentationFullScreen;
     [[self viewController] presentViewController:alertController animated:YES completion:nil];
 }
 
@@ -300,7 +300,7 @@ static NSInteger const RJFormImageTotalCount = 6;
     imagePickerController.allowPickingVideo = NO;
     imagePickerController.allowPickingMultipleVideo = NO;
     imagePickerController.allowPickingOriginalPhoto = NO;
-    
+    imagePickerController.modalPresentationStyle = UIModalPresentationFullScreen;
     [[self viewController] presentViewController:imagePickerController animated:YES completion:nil];
 }
 
