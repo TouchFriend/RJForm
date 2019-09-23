@@ -145,7 +145,7 @@ static RJFormSelectorManager *manager = nil;
     }
     
     [alertController addAction:cancelAction];
-    alertController.modalPresentationStyle = UIModalPresentationFullScreen;
+    alertController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.formController presentViewController:alertController animated:YES completion:nil];
 }
 

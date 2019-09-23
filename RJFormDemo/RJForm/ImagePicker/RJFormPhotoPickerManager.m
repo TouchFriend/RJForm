@@ -81,7 +81,7 @@ static RJFormPhotoPickerManager * manager;
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = NO;
     imagePickerVC.sourceType = sourceType;
-    imagePickerVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    imagePickerVC.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [vc presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
@@ -167,7 +167,7 @@ static RJFormPhotoPickerManager * manager;
     
     [alertController addAction:confirmAction];
     [alertController addAction:settingAction];
-    alertController.modalPresentationStyle = UIModalPresentationFullScreen;
+    alertController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self.vc presentViewController:alertController animated:YES completion:nil];
 }
 

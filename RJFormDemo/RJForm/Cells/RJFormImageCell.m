@@ -255,7 +255,7 @@
     [alertController addAction:confirmAction];
     [alertController addAction:settingAction];
     [alertController addAction:cancelAction];
-    alertController.modalPresentationStyle = UIModalPresentationFullScreen;
+    alertController.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [[self viewController] presentViewController:alertController animated:YES completion:nil];
     
     
@@ -275,7 +275,7 @@
     pbVC.pb_dataSource = self;
     pbVC.pb_delegate = self;
     pbVC.pb_startPage = 0;
-    pbVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    pbVC.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [[self viewController] presentViewController:pbVC animated:YES completion:nil];
 }
 
