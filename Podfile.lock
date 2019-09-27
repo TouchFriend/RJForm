@@ -1,5 +1,5 @@
 PODS:
-  - IQKeyboardManager (6.4.2)
+  - IQKeyboardManager (6.5.0)
   - Masonry (1.1.0)
   - PhotoBrowser (0.8.1)
   - SDWebImage (4.4.7):
@@ -26,7 +26,7 @@ SPEC REPOS:
     - TZImagePickerController
 
 SPEC CHECKSUMS:
-  IQKeyboardManager: b41e0a4943fbac4c11a239d31a688667675f962e
+  IQKeyboardManager: 700e5155d6a292383b54e8678aec769e14fc78fc
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   PhotoBrowser: afab1abad5dfc58609460d66fb27a166cafadf0d
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d

@@ -232,7 +232,7 @@
 
 - (void)show:(BOOL)animated
 {
-    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    [[UIApplication sharedApplication].windows[0] addSubview:self];
     
     //动画开始前，强制刷新
     [self layoutIfNeeded];
