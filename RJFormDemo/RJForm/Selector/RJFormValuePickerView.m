@@ -120,7 +120,7 @@
     UIButton * cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [toolView addSubview:cancelBtn];
     [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(44);
+        make.width.mas_equalTo(60);
         make.top.left.bottom.mas_equalTo(toolView);
     }];
     self.cancelBtn = cancelBtn;
@@ -132,7 +132,7 @@
     UIButton * confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [toolView addSubview:confirmBtn];
     [confirmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(44);
+        make.width.mas_equalTo(60);
         make.top.right.bottom.mas_equalTo(toolView);
     }];
     self.confirmBtn = confirmBtn;
