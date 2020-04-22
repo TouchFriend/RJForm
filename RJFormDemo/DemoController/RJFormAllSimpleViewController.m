@@ -105,7 +105,7 @@
 //                                     [RJFormOptionItem itemWithOptionText:@"区域分类4" optionValue:@(3)],
 //                                     ];
 //    row = [RJFormRowDescriptor rowWithTag:@"areaType" item:areaType1Item];
-//    [section.formRows addObject:row];
+//    [section addFormRow:row];
     
 //    section = [[RJFormSectionDescriptor alloc] init];
 //    section.sectionHeaderHeight = 44.0;
@@ -115,7 +115,7 @@
 //    RJFormImagePickerItem *publicizeImage1Item = [RJFormImagePickerItem itemWithText:@"企业宣传图1" imageArr:nil];
 //    row = [RJFormRowDescriptor rowWithTag:@"publicizeImage1" item:publicizeImage1Item];
 //    row.rowHeight = publicizeImage1Item.rowHeight;
-//    [section.formRows addObject:row];
+//    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 50.0;
@@ -132,7 +132,7 @@
     rightIconItem.webLargeImageUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
     row = [RJFormRowDescriptor rowWithTag:@"rightIconItem" item:rightIconItem];
     row.rowHeight = 90.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     NSString *iconUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
     RJFormImageItem *right1IconItem = [RJFormImageItem itemWithText:@"头像" webImageUrl:iconUrl style:RJFormImageCellStyleRight];
@@ -145,20 +145,20 @@
     right1IconItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"right1IconItem" item:right1IconItem];
     row.rowHeight = 90.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormImageItem *middleIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
     middleIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:middleIconItem];
     row.rowHeight = 90.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormImageItem *leftIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleLeft];
     leftIconItem.hiddenArrow = NO;
     leftIconItem.iconSize = CGSizeMake(22.5, 22.5);
     row = [RJFormRowDescriptor rowWithItem:leftIconItem];
     row.rowHeight = 90.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -167,14 +167,14 @@
     RJFormInfoItem *infoItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
     infoItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:infoItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormInfoItem *info1Item = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
     info1Item.hiddenArrow = NO;
     info1Item.required = YES;
     row = [RJFormRowDescriptor rowWithItem:info1Item];
     row.didSelectedSelector = @"phoneClick:";
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -183,10 +183,10 @@
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
     changePwdItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:changePwdItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     RJFormSwitchItem *notificationItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES];
     row = [RJFormRowDescriptor rowWithTag:@"notification" item:notificationItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -195,7 +195,7 @@
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
     versionUpdateItem.hiddenArrow = YES;
     row = [RJFormRowDescriptor rowWithItem:versionUpdateItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 44.0;
@@ -204,7 +204,7 @@
     
     RJFormTextButtonItem *changeAccountItem = [RJFormTextButtonItem itemWithText:@"切换账号"];
     row = [RJFormRowDescriptor rowWithItem:changeAccountItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 15.0;
@@ -212,7 +212,7 @@
     
     RJFormButtonItem *signOutItem = [RJFormButtonItem itemWithText:@"退出登录" selector:@"signOutBtnClick:"];
     row = [RJFormRowDescriptor rowWithItem:signOutItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 44.0;
@@ -221,12 +221,12 @@
     
     RJFormTextFieldItem *rightAlignmentTextFieldItem = [RJFormTextFieldItem itemWithText:@"企业名称" detailText:@""];
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseName" item:rightAlignmentTextFieldItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextFieldItem *rightAlignment1TextFieldItem = [RJFormTextFieldItem itemWithText:@"企业名称" detailText:@""];
     rightAlignment1TextFieldItem.required = YES;
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseName1" item:rightAlignment1TextFieldItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextFieldItem *leftAlignmentTextFieldItem = [RJFormTextFieldItem itemWithText:@"企业邮箱" detailText:@""];
     leftAlignmentTextFieldItem.detailTextAlignment = NSTextAlignmentLeft;
@@ -234,20 +234,20 @@
     leftAlignmentTextFieldItem.required = YES;
     [leftAlignmentTextFieldItem addValidator:[RJFormValidator emailValidatorLong]];
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseEmail" item:leftAlignmentTextFieldItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextFieldItem *phoneTextFieldItem = [RJFormTextFieldItem itemWithText:@"电话" detailText:@"" detailPlaceholder:@"请输入电话号码"];
     phoneTextFieldItem.detailTextAlignment = NSTextAlignmentRight;
     phoneTextFieldItem.detailKeyboardType = UIKeyboardTypePhonePad;
     phoneTextFieldItem.detailMaxNumberOfCharacters = @(11);
     row = [RJFormRowDescriptor rowWithTag:@"enterprisePhone" item:phoneTextFieldItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextFieldItem *bankAccountItem = [RJFormTextFieldItem itemWithText:@"" detailText:@""];
     bankAccountItem.detailTextAlignment = NSTextAlignmentLeft;
     bankAccountItem.detailKeyboardType = UIKeyboardTypeDefault;
     row = [RJFormRowDescriptor rowWithTag:@"bankAccount" item:bankAccountItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 50.0;
@@ -264,12 +264,12 @@
                                            [RJFormOptionItem itemWithOptionText:@"企业类型4" optionValue:@(3)],
                                            ];
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseType" item:enterpriseTypeItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormSelectorItem *countryTypeItem = [RJFormSelectorItem itemWithText:@"国别（选择器 无数据）" selectedOption:nil];
     countryTypeItem.selectorTitle = @"国别";
     row = [RJFormRowDescriptor rowWithTag:@"countryType" item:countryTypeItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormSelectorItem *enterpriseNatureItem = [RJFormSelectorItem itemWithSelectorStyle:RJFormSelectorStyleActionSheet text:@"企业性质（actionSheet警告框）" selectedOption:[RJFormOptionItem itemWithOptionText:@"企业性质1" optionValue:@(0)]];
     enterpriseNatureItem.selectorTitle = @"企业性质";
@@ -280,7 +280,7 @@
                                            [RJFormOptionItem itemWithOptionText:@"企业性质4" optionValue:@(3)],
                                            ];
     row = [RJFormRowDescriptor rowWithTag:@"enterpriseNature" item:enterpriseNatureItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
 
     RJFormSelectorItem *areaTypeItem = [RJFormSelectorItem itemWithSelectorStyle:RJFormSelectorStyleAlert text:@"区域分类（alert警告框）" selectedOption:[RJFormOptionItem itemWithOptionText:@"区域分类1" optionValue:@(0)]];
     areaTypeItem.selectorTitle = @"区域分类";
@@ -291,7 +291,7 @@
                                              [RJFormOptionItem itemWithOptionText:@"区域分类4" optionValue:@(3)],
                                              ];
     row = [RJFormRowDescriptor rowWithTag:@"areaType" item:areaTypeItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 44.0;
@@ -302,17 +302,17 @@
     createTimeItem.required = YES;
     createTimeItem.maximumDate = [NSDate date];
     row = [RJFormRowDescriptor rowWithTag:@"createTime" item:createTimeItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormDatePickerItem *birthdayItem = [RJFormDatePickerItem itemWithText:@"出生年月" detailText:@"2012-12-12"];
     birthdayItem.maximumDate = [NSDate date];
     row = [RJFormRowDescriptor rowWithTag:@"birthday" item:birthdayItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormDatePickerItem *marryDayItem = [RJFormDatePickerItem itemWithText:@"电影开场日期(自定义转换格式)" detailText:@"2012.12.12"];
     marryDayItem.dateFormat = @"yyyy.MM.dd";
     row = [RJFormRowDescriptor rowWithTag:@"marryDay" item:marryDayItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 44.0;
@@ -322,7 +322,7 @@
     RJFormTextViewItem *investmentDescriptionItem = [RJFormTextViewItem itemWithText:@"固定资产投资计划说明" detailText:@""];
     row = [RJFormRowDescriptor rowWithTag:@"investmentDescription" item:investmentDescriptionItem];
     row.rowHeight = 150.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextViewItem *limitCharNumItem = [RJFormTextViewItem itemWithText:@"限制字数10" detailText:@""];
     limitCharNumItem.required = YES;
@@ -330,7 +330,7 @@
     limitCharNumItem.detailText = @"限制字数测试";
     row = [RJFormRowDescriptor rowWithTag:@"limitCharNum" item:limitCharNumItem];
     row.rowHeight = 150.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 44.0;
@@ -344,7 +344,7 @@
     RJFormImagePickerItem *publicizeImageItem = [RJFormImagePickerItem itemWithText:@"企业宣传图" imageArr:@[pickerContentItem]];
     row = [RJFormRowDescriptor rowWithTag:@"publicizeImage" item:publicizeImageItem];
     row.rowHeight = publicizeImageItem.rowHeight;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 44.0;
@@ -355,13 +355,13 @@
     hideSeparatorView1Item.topSeparatorViewHidden = YES;
     hideSeparatorView1Item.bottomSeparatorViewHidden = YES;
     row = [RJFormRowDescriptor rowWithTag:@"hideSeparatorView1" item:hideSeparatorView1Item];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextFieldItem *hideSeparatorView2Item = [RJFormTextFieldItem itemWithText:@"隐藏分割线2" detailText:@""];
     hideSeparatorView2Item.required = YES;
     hideSeparatorView2Item.bottomSeparatorViewHidden = YES;
     row = [RJFormRowDescriptor rowWithTag:@"hideSeparatorView2" item:hideSeparatorView2Item];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     
     section = [[RJFormSectionDescriptor alloc] init];
@@ -374,47 +374,46 @@
     imageDisabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithTag:@"imageDisabled" item:imageDisabledItem];
     row.rowHeight = 90.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextFieldItem *textFieldDiabledItem = [RJFormTextFieldItem itemWithText:@"企业名称" detailText:@"不可编辑"];
     textFieldDiabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithTag:@"textFieldDiabled" item:textFieldDiabledItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormSwitchItem *switchDisabledItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES];
     switchDisabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithTag:@"switchDisabled" item:switchDisabledItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextViewItem *textViewDisabledItem = [RJFormTextViewItem itemWithText:@"固定资产投资计划说明" detailText:@"sdfs"];
     textViewDisabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithTag:@"textViewDisabled" item:textViewDisabledItem];
     row.rowHeight = 150.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormTextButtonItem *textButtonDisabledItem = [RJFormTextButtonItem itemWithText:@"切换账号"];
     textButtonDisabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithItem:textButtonDisabledItem];
     row.didSelectedSelector = @"textButtonClick:";
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormButtonItem *buttonDisabledItem = [RJFormButtonItem itemWithText:@"退出登录" selector:@"signOutBtnClick:"];
     buttonDisabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithItem:buttonDisabledItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormDatePickerItem *datePickerDisabledItem = [RJFormDatePickerItem itemWithText:@"出生年月" detailText:@"2012-12-12"];
     datePickerDisabledItem.maximumDate = [NSDate date];
     datePickerDisabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithTag:@"datePickerDisabled" item:datePickerDisabledItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormSelectorItem *selectorDisabledItem = [RJFormSelectorItem itemWithText:@"国别（选择器 无数据）" selectedOption:nil];
     selectorDisabledItem.selectorTitle = @"国别";
     selectorDisabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithTag:@"selectorDisabled" item:selectorDisabledItem];
-    [section.formRows addObject:row];
-    
+    [section addFormRow:row];
 
     [form.formSections addObjectsFromArray:formSections];
     

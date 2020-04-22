@@ -87,19 +87,19 @@
     rightIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:rightIconItem];
     row.rowHeight = 90.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormImageItem *middleIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
     middleIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:middleIconItem];
     row.rowHeight = 90.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormImageItem *leftIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleLeft];
     leftIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:leftIconItem];
     row.rowHeight = 90.0;
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -108,7 +108,7 @@
     RJFormInfoItem *infoItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
     infoItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:infoItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -117,10 +117,10 @@
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
     changePwdItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:changePwdItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     RJFormSwitchItem *notificationItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES];
     row = [RJFormRowDescriptor rowWithItem:notificationItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -129,7 +129,7 @@
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
     versionUpdateItem.hiddenArrow = YES;
     row = [RJFormRowDescriptor rowWithItem:versionUpdateItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;

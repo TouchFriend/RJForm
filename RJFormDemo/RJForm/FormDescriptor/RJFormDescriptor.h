@@ -85,31 +85,27 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSIndexPath *)indexPathOfFormRow:(RJFormRowDescriptor *)row;
 
-
-- (void)addFormSections:(RJFormSectionDescriptor *)section;
+/// 添加分组
+/// @param section 分组模型
+/// @return 添加结果
+- (BOOL)addFormSections:(RJFormSectionDescriptor *)section;
 
 #warning 动态添加表单项的方法
 
-/**
- 通过下标删除分组
+/// 通过下标删除分组
+/// @param index 下标
+/// @return 删除结果
+- (BOOL)removeFormSectionAtIndex:(NSUInteger)index;
 
- @param index 下标
- */
-- (void)removeFormSectionAtIndex:(NSUInteger)index;
-
-
-/**
- 通过section实例删除分组
-
- @param section section实例
- */
-- (void)removeFormSection:(RJFormSectionDescriptor *)section;
+/// 通过section实例删除分组
+/// @param section section实例
+/// @return 删除结果
+- (BOOL)removeFormSection:(RJFormSectionDescriptor *)section;
 
 /**
  注册cell。动态添加表单项时，有新的cell类使用，记得注册一下
  */
 - (void)registerAllCells;
-
 
 /**
  刷新表单数据。内部会重新注册一遍cell。

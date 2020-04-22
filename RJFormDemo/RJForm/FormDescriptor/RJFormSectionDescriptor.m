@@ -33,23 +33,34 @@
 
 #pragma mark - Public Methods
 
-- (void)addFormRow:(RJFormRowDescriptor *)row
+- (BOOL)addFormRow:(RJFormRowDescriptor *)row
 {
-    if (row == nil)
+    if (!row)
     {
-        return;
+        return NO;
     }
     
     [self.formRows addObject:row];
+    return YES;
 }
 
-- (void)removeFormRow:(RJFormRowDescriptor *)row
+- (BOOL)removeFormRowAtIndex:(NSUInteger)index {
+    if (index >= self.formRows.count) {
+        return NO;
+    }
+    
+    [self.formRows removeObjectAtIndex:index];
+    return YES;
+}
+
+- (BOOL)removeFormRow:(RJFormRowDescriptor *)row
 {
-    if (row == nil)
+    if (!row)
     {
-        return;
+        return NO;
     }
     [self.formRows removeObject:row];
+    return YES;
 }
 
 #pragma mark - Properties Methods

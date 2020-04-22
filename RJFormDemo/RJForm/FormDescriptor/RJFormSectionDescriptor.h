@@ -27,12 +27,22 @@ NS_ASSUME_NONNULL_BEGIN
 /********* 行数据 *********/
 @property (nonatomic, strong) NSMutableArray<RJFormRowDescriptor *> *formRows;
 
-- (void)addFormRow:(RJFormRowDescriptor *)row;
-
-- (void)removeFormRow:(RJFormRowDescriptor *)row;
-
-
 + (instancetype)sectionWithSectionHeaderHeight:(CGFloat)sectionHeaderHeight sectionFooterHeight:(CGFloat)sectionFooterHeight;
+
+/// 添加行
+/// @param row 行模型
+/// @return 添加结果
+- (BOOL)addFormRow:(RJFormRowDescriptor *)row;
+
+/// 通过索引移除行
+/// @param index 索引
+/// @return 移除结果
+- (BOOL)removeFormRowAtIndex:(NSUInteger)index;
+
+/// 移除行
+/// @param row 行模型
+/// @return 移除结果
+- (BOOL)removeFormRow:(RJFormRowDescriptor *)row;
 
 @end
 

@@ -92,7 +92,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     row = [RJFormRowDescriptor rowWithTag:RJUserIconTag item:userIconItem];
     row.rowHeight = 90.0;
     row.didSelectedSelector = @"iconClick:";
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -103,7 +103,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     phoneNumberItem.detailTextColor = [UIColor colorWithRed:181.0/255.0 green:181.0/255.0 blue:181.0/255.0 alpha:1.0];
     row = [RJFormRowDescriptor rowWithTag:RJPhoneNumberTag item:phoneNumberItem];
     row.didSelectedSelector = @"phoneClick:";
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -113,11 +113,11 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     changePwdItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithTag:RJChangePwdTag item:changePwdItem];
     row.didSelectedSelector = @"changePwdClick:";
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     RJFormSwitchItem *notificationItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES switchSelector:@"notificationSwitchChange:"];
     row = [RJFormRowDescriptor rowWithTag:RJNotificationTag item:notificationItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
@@ -128,7 +128,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     versionUpdateItem.detailTextColor = [UIColor colorWithRed:181.0/255.0 green:181.0/255.0 blue:181.0/255.0 alpha:1.0];
     row = [RJFormRowDescriptor rowWithTag:RJVersionUpdateTag item:versionUpdateItem];
     row.didSelectedSelector = @"versionUpdateClick:";
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 15.0;
@@ -136,7 +136,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     
     RJFormButtonItem *signOutItem = [RJFormButtonItem itemWithText:@"退出登录" selector:@"signOutBtnClick:"];
     row = [RJFormRowDescriptor rowWithItem:signOutItem];
-    [section.formRows addObject:row];
+    [section addFormRow:row];
     
     //注册cell
     [form registerAllCells];

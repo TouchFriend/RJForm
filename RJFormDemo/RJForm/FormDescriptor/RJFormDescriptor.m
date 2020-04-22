@@ -59,8 +59,6 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     return formDescriptor;
 }
 
-
-
 - (instancetype)init
 {
     if (self = [super init])
@@ -170,28 +168,34 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     return nil;
 }
 
-- (void)addFormSections:(RJFormSectionDescriptor *)section
+- (BOOL)addFormSections:(RJFormSectionDescriptor *)section
 {
+    if (!section) {
+        return NO;
+    }
+    
     [self.formSections addObject:section];
+    return YES;
 //    [self registerCells:@[section]];
 }
 
-- (void)removeFormSectionAtIndex:(NSUInteger)index
+- (BOOL)removeFormSectionAtIndex:(NSUInteger)index
 {
     if (index < self.formSections.count)
     {
         [self.formSections removeObjectAtIndex:index];
+        return YES;
     }
+    return NO;
 }
 
-- (void)removeFormSection:(RJFormSectionDescriptor *)section
+- (BOOL)removeFormSection:(RJFormSectionDescriptor *)section
 {
-    NSUInteger index = [self.formSections indexOfObject:section];
-    if (index == NSNotFound)
-    {
-        return;
+    if (!section) {
+        return NO;
     }
-    [self removeFormSectionAtIndex:index];
+    [self.formSections removeObject:section];
+    return YES;
 }
 
 - (void)registerAllCells
