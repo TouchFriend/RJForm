@@ -243,24 +243,14 @@
 			isa = PBXGroup;
 			children = (
 				BF24755622E6E66B0060AC12 /* RJForm.h */,
-				BF24755B22E6F0EE0060AC12 /* RJFormDescriptor.h */,
-				BF24755C22E6F0EE0060AC12 /* RJFormDescriptor.m */,
-				BF24753D22E6AA260060AC12 /* RJFormSectionDescriptor.h */,
-				BF24753E22E6AA260060AC12 /* RJFormSectionDescriptor.m */,
-				BF24754022E6AA410060AC12 /* RJFormRowDescriptor.h */,
-				BF24754122E6AA410060AC12 /* RJFormRowDescriptor.m */,
-				BF6D9C1722E7F7B60039FBB7 /* RJFormConstant.h */,
-				BF6D9C1822E7F7B60039FBB7 /* RJFormConstant.m */,
-				BFE1342D22EAE85000B0CC0B /* RJFormEmptyTool.h */,
-				BFE1342E22EAE85000B0CC0B /* RJFormEmptyTool.m */,
-				BF15E2EF231628FA00607F26 /* RJFormImageTapProtocol.h */,
-				BFA6542823335553006DDC96 /* RJFormCalculateRowHeightProtocol.h */,
-				BFE3394323016AA500460F71 /* Categorys */,
+				BFFA89862450237F00C2EAD9 /* FormDescriptor */,
+				BFFA8987245023C700C2EAD9 /* Protocol */,
 				BFC7D78022FD6E2E0068C407 /* ImagePicker */,
 				BFBB7BE422F9746100D4CDF9 /* Selector */,
 				BF24753C22E6A9FC0060AC12 /* Validators */,
 				BF24753B22E6A9DF0060AC12 /* Models */,
 				BF24753A22E6A9D90060AC12 /* Cells */,
+				BFE3394323016AA500460F71 /* UIKit */,
 			);
 			path = RJForm;
 			sourceTree = "<group>";
@@ -400,9 +390,11 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
-		BFE3394323016AA500460F71 /* Categorys */ = {
+		BFE3394323016AA500460F71 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				BFE1342D22EAE85000B0CC0B /* RJFormEmptyTool.h */,
+				BFE1342E22EAE85000B0CC0B /* RJFormEmptyTool.m */,
 				BFE3394423016ACC00460F71 /* NSBundle+RJFormBundle.h */,
 				BFE3394523016ACC00460F71 /* NSBundle+RJFormBundle.m */,
 				BFE3394A23016B3F00460F71 /* UIImage+RJFormImage.h */,
@@ -410,7 +402,31 @@
 				BF32702C230508A200CD06BA /* UITextView+RJFormPlaceholder.h */,
 				BF32702D230508A200CD06BA /* UITextView+RJFormPlaceholder.m */,
 			);
-			path = Categorys;
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		BFFA89862450237F00C2EAD9 /* FormDescriptor */ = {
+			isa = PBXGroup;
+			children = (
+				BF6D9C1722E7F7B60039FBB7 /* RJFormConstant.h */,
+				BF6D9C1822E7F7B60039FBB7 /* RJFormConstant.m */,
+				BF24755B22E6F0EE0060AC12 /* RJFormDescriptor.h */,
+				BF24755C22E6F0EE0060AC12 /* RJFormDescriptor.m */,
+				BF24753D22E6AA260060AC12 /* RJFormSectionDescriptor.h */,
+				BF24753E22E6AA260060AC12 /* RJFormSectionDescriptor.m */,
+				BF24754022E6AA410060AC12 /* RJFormRowDescriptor.h */,
+				BF24754122E6AA410060AC12 /* RJFormRowDescriptor.m */,
+			);
+			path = FormDescriptor;
+			sourceTree = "<group>";
+		};
+		BFFA8987245023C700C2EAD9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				BF15E2EF231628FA00607F26 /* RJFormImageTapProtocol.h */,
+				BFA6542823335553006DDC96 /* RJFormCalculateRowHeightProtocol.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

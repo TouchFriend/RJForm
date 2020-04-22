@@ -496,6 +496,7 @@
     return sectionDescriptor.sectionFooterHeight;
 }
 
+#warning 后面支持自定义头部和尾部view
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];

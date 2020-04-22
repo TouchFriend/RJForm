@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /**
- 如果是动态改变cell高度的，请遵守此协议，并更加内容计算新的cell高度
+ 如果是动态改变cell高度的，请遵守此协议，并根据内容计算新的cell高度
  **/
 @protocol RJFormCalculateRowHeightProtocol <NSObject>
 

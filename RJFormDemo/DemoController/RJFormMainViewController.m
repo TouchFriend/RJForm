@@ -9,6 +9,7 @@
 #import "RJFormMainViewController.h"
 #import "RJFormAllSimpleViewController.h"
 #import "RJFormSettingViewController.h"
+#import "RJFormEnterpriseInfoViewController.h"
 
 static NSString * const ID = @"UITableViewCell";
 
@@ -124,7 +125,7 @@ static NSString * const ID = @"UITableViewCell";
                          },
                      @{
                          @"title" : @"企业基本信息",
-                         @"controller" : @"RJFormEnterpriseInfoViewController"
+                         @"controller" : NSStringFromClass([RJFormEnterpriseInfoViewController class])
                          }
                      ];
     }
