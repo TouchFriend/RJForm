@@ -122,7 +122,7 @@
     [formSections addObject:section];
     
     RJFormImageItem *rightIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
-    rightIconItem.hiddenArror = NO;
+    rightIconItem.hiddenArrow = NO;
     rightIconItem.iconSize = CGSizeMake(60.0, 60.0);
     rightIconItem.iconCornerRadius = 30.0;
     rightIconItem.iconBorderWidth = 1.0;
@@ -135,7 +135,7 @@
     
     NSString *iconUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
     RJFormImageItem *right1IconItem = [RJFormImageItem itemWithText:@"头像" webImageUrl:iconUrl style:RJFormImageCellStyleRight];
-    right1IconItem.hiddenArror = NO;
+    right1IconItem.hiddenArrow = NO;
     right1IconItem.iconSize = CGSizeMake(60.0, 60.0);
     right1IconItem.iconCornerRadius = 30.0;
     right1IconItem.iconBorderWidth = 1.0;
@@ -147,13 +147,13 @@
     [section.formRows addObject:row];
     
     RJFormImageItem *middleIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
-    middleIconItem.hiddenArror = NO;
+    middleIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:middleIconItem];
     row.rowHeight = 90.0;
     [section.formRows addObject:row];
     
     RJFormImageItem *leftIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleLeft];
-    leftIconItem.hiddenArror = NO;
+    leftIconItem.hiddenArrow = NO;
     leftIconItem.iconSize = CGSizeMake(22.5, 22.5);
     row = [RJFormRowDescriptor rowWithItem:leftIconItem];
     row.rowHeight = 90.0;
@@ -164,12 +164,12 @@
     [formSections addObject:section];
     
     RJFormInfoItem *infoItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
-    infoItem.hiddenArror = NO;
+    infoItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:infoItem];
     [section.formRows addObject:row];
     
     RJFormInfoItem *info1Item = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
-    info1Item.hiddenArror = NO;
+    info1Item.hiddenArrow = NO;
     info1Item.required = YES;
     row = [RJFormRowDescriptor rowWithItem:info1Item];
     row.didSelectedSelector = @"phoneClick:";
@@ -180,7 +180,7 @@
     [formSections addObject:section];
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
-    changePwdItem.hiddenArror = NO;
+    changePwdItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:changePwdItem];
     [section.formRows addObject:row];
     RJFormSwitchItem *notificationItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES];
@@ -192,7 +192,7 @@
     [formSections addObject:section];
     
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
-    versionUpdateItem.hiddenArror = YES;
+    versionUpdateItem.hiddenArrow = YES;
     row = [RJFormRowDescriptor rowWithItem:versionUpdateItem];
     [section.formRows addObject:row];
     
@@ -369,7 +369,7 @@
     [formSections addObject:section];
     
     RJFormImageItem *imageDisabledItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
-    imageDisabledItem.hiddenArror = YES;
+    imageDisabledItem.hiddenArrow = YES;
     imageDisabledItem.enabled = NO;
     row = [RJFormRowDescriptor rowWithTag:@"imageDisabled" item:imageDisabledItem];
     row.rowHeight = 90.0;

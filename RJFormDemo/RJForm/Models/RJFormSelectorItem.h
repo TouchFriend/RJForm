@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *noDetailTextColor;
 
 /********* 隐藏箭头 *********/
-@property (nonatomic, assign) BOOL hiddenArror;
+@property (nonatomic, assign) BOOL hiddenArrow;
 
 /********* 选择器标题 为空，默认使用text属性 *********/
 @property (nonatomic, copy) NSString *selectorTitle;

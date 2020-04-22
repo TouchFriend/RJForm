@@ -124,7 +124,7 @@
         self.iconImageV.image = data.placeholderImage;
     }
     
-    CGFloat detailTextRightMargin = data.hiddenArror ? RJFormRowLeftAndRightMargin : 0;
+    CGFloat detailTextRightMargin = data.hiddenArrow ? RJFormRowLeftAndRightMargin : 0;
     switch (data.style) {
         case RJFormImageCellStyleLeft:
         {
@@ -187,7 +187,7 @@
     self.iconImageV.layer.borderWidth = data.iconBorderWidth;
     self.iconImageV.layer.borderColor = data.iconBorderColor.CGColor;
     
-    self.accessoryType = data.hiddenArror ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
+    self.accessoryType = data.hiddenArrow ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
     
     //是否可用
     self.tapContentViewGesture.enabled = data.enabled;

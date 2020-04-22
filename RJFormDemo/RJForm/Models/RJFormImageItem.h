@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *iconBorderColor;
 
 /********* 隐藏箭头 *********/
-@property (nonatomic, assign) BOOL hiddenArror;
+@property (nonatomic, assign) BOOL hiddenArrow;
 
 + (instancetype)itemWithText:(NSString *)text iconImage:(UIImage * _Nullable)iconImage style:(RJFormImageCellStyle)style;
 

@@ -1,12 +1,12 @@
 PODS:
-  - IQKeyboardManager (6.5.0)
+  - IQKeyboardManager (6.5.5)
   - Masonry (1.1.0)
   - PhotoBrowser (0.8.1)
-  - SDWebImage (4.4.7):
-    - SDWebImage/Core (= 4.4.7)
-  - SDWebImage/Core (4.4.7)
+  - SDWebImage (4.4.8):
+    - SDWebImage/Core (= 4.4.8)
+  - SDWebImage/Core (4.4.8)
   - SVProgressHUD (2.2.5)
-  - TZImagePickerController (3.2.4)
+  - TZImagePickerController (3.3.1)
 
 DEPENDENCIES:
   - IQKeyboardManager
@@ -26,13 +26,13 @@ SPEC REPOS:
     - TZImagePickerController
 
 SPEC CHECKSUMS:
-  IQKeyboardManager: 700e5155d6a292383b54e8678aec769e14fc78fc
+  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   PhotoBrowser: afab1abad5dfc58609460d66fb27a166cafadf0d
-  SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TZImagePickerController: d259369c5c2cc96299e53da868ae5be1b24353cd
+  TZImagePickerController: 99f03b64145a8c92c55b9b1b931410967d9be4cb
 
 PODFILE CHECKSUM: d5ac3f96a92ff8736dd5ca9bdbfcf51fed2a6241
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.7.5

@@ -87,7 +87,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     [form addFormSections:section];
     
     RJFormImageItem *userIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
-    userIconItem.hiddenArror = NO;
+    userIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithTag:RJUserIconTag item:userIconItem];
     row.rowHeight = 90.0;
     row.didSelectedSelector = @"iconClick:";
@@ -98,7 +98,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     [form addFormSections:section];
     
     RJFormInfoItem *phoneNumberItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
-    phoneNumberItem.hiddenArror = NO;
+    phoneNumberItem.hiddenArrow = NO;
     phoneNumberItem.detailTextColor = [UIColor colorWithRed:181.0/255.0 green:181.0/255.0 blue:181.0/255.0 alpha:1.0];
     row = [RJFormRowDescriptor rowWithTag:RJPhoneNumberTag item:phoneNumberItem];
     row.didSelectedSelector = @"phoneClick:";
@@ -109,7 +109,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     [form addFormSections:section];
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
-    changePwdItem.hiddenArror = NO;
+    changePwdItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithTag:RJChangePwdTag item:changePwdItem];
     row.didSelectedSelector = @"changePwdClick:";
     [section.formRows addObject:row];
@@ -123,7 +123,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     [form addFormSections:section];
     
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
-    versionUpdateItem.hiddenArror = YES;
+    versionUpdateItem.hiddenArrow = YES;
     versionUpdateItem.detailTextColor = [UIColor colorWithRed:181.0/255.0 green:181.0/255.0 blue:181.0/255.0 alpha:1.0];
     row = [RJFormRowDescriptor rowWithTag:RJVersionUpdateTag item:versionUpdateItem];
     row.didSelectedSelector = @"versionUpdateClick:";

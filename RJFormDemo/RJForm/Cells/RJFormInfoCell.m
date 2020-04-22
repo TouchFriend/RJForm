@@ -79,12 +79,12 @@
     self.detailTextLbl.textColor = data.detailTextColor;
     
     
-    CGFloat detailTextRightMargin = data.hiddenArror ? RJFormRowLeftAndRightMargin : 0;
+    CGFloat detailTextRightMargin = data.hiddenArrow ? RJFormRowLeftAndRightMargin : 0;
     [self.detailTextLbl mas_updateConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-detailTextRightMargin);
     }];
     
-    self.accessoryType = data.hiddenArror ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
+    self.accessoryType = data.hiddenArrow ? UITableViewCellAccessoryNone : UITableViewCellAccessoryDisclosureIndicator;
     
 }
 

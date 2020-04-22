@@ -83,19 +83,19 @@
     [formSections addObject:section];
     
     RJFormImageItem *rightIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
-    rightIconItem.hiddenArror = NO;
+    rightIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:rightIconItem];
     row.rowHeight = 90.0;
     [section.formRows addObject:row];
     
     RJFormImageItem *middleIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
-    middleIconItem.hiddenArror = NO;
+    middleIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:middleIconItem];
     row.rowHeight = 90.0;
     [section.formRows addObject:row];
     
     RJFormImageItem *leftIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleLeft];
-    leftIconItem.hiddenArror = NO;
+    leftIconItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:leftIconItem];
     row.rowHeight = 90.0;
     [section.formRows addObject:row];
@@ -105,7 +105,7 @@
     [formSections addObject:section];
     
     RJFormInfoItem *infoItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
-    infoItem.hiddenArror = NO;
+    infoItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:infoItem];
     [section.formRows addObject:row];
     
@@ -114,7 +114,7 @@
     [formSections addObject:section];
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
-    changePwdItem.hiddenArror = NO;
+    changePwdItem.hiddenArrow = NO;
     row = [RJFormRowDescriptor rowWithItem:changePwdItem];
     [section.formRows addObject:row];
     RJFormSwitchItem *notificationItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES];
@@ -126,7 +126,7 @@
     [formSections addObject:section];
     
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
-    versionUpdateItem.hiddenArror = YES;
+    versionUpdateItem.hiddenArrow = YES;
     row = [RJFormRowDescriptor rowWithItem:versionUpdateItem];
     [section.formRows addObject:row];
     
