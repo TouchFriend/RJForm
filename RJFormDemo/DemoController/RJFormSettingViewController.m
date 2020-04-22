@@ -8,6 +8,7 @@
 
 #import "RJFormSettingViewController.h"
 #import "RJForm.h"
+#import <Masonry/Masonry.h>
 
 static NSString * const RJUserIconTag = @"RJUserIconTag";
 static NSString * const RJPhoneNumberTag = @"RJPhoneNumberTag";

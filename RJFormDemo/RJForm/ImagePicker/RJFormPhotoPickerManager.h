@@ -6,7 +6,7 @@
 //  Copyright © 2018 Redirect. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class PHAsset;
 

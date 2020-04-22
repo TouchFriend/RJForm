@@ -10,6 +10,7 @@
 #import "RJFormImagePickerContentItem.h"
 #import <UIImageView+WebCache.h>
 #import "UIImage+RJFormImage.h"
+#import <Masonry/Masonry.h>
 
 @interface RJFormImagePickerCollectionViewCell ()
 

@@ -10,10 +10,11 @@
 #define RJForm_h
 
 #import <UIKit/UIKit.h>
+#import "RJFormConstant.h"
 #import "RJFormDescriptor.h"
 #import "RJFormSectionDescriptor.h"
 #import "RJFormRowDescriptor.h"
-#import "RJFormConstant.h"
+
 #import "RJFormValidationStatus.h"
 #import "RJFormValidator.h"
 #import "RJFormRegexValidator.h"

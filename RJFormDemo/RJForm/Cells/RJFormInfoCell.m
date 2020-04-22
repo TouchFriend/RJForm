@@ -10,7 +10,7 @@
 #import "RJFormInfoItem.h"
 #import "RJFormDescriptor.h"
 #import "RJFormConstant.h"
-
+#import <Masonry/Masonry.h>
 
 @interface RJFormInfoCell ()
 

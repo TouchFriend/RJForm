@@ -8,6 +8,7 @@
 
 #import "RJFormDemoViewController.h"
 #import "RJForm.h"
+#import <Masonry/Masonry.h>
 
 @interface RJFormDemoViewController () <UITableViewDataSource, UITableViewDelegate>
 

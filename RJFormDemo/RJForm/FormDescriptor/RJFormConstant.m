@@ -6,6 +6,7 @@
 //  Copyright © 2019 RJSoft. All rights reserved.
 //
 
+#import "RJFormConstant.h"
 
 CGFloat const RJFormRowLeftAndRightMargin = 15.0;
 

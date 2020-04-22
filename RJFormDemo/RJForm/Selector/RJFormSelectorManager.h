@@ -6,7 +6,7 @@
 //  Copyright © 2019 RJSoft. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class RJFormSelectorItem;
 NS_ASSUME_NONNULL_BEGIN

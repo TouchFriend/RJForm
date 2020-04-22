@@ -10,6 +10,7 @@
 #import "RJFormImagePickerContentView.h"
 #import "RJFormImagePickerItem.h"
 #import "RJFormConstant.h"
+#import <Masonry/Masonry.h>
 
 @interface RJFormImagePickerCell ()
 

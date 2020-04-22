@@ -11,6 +11,7 @@
 #import "RJFormConstant.h"
 #import "RJFormTextViewItem.h"
 #import "UITextView+RJFormPlaceholder.h"
+#import <Masonry/Masonry.h>
 
 @interface RJFormTextViewCell () <UITextViewDelegate>
 

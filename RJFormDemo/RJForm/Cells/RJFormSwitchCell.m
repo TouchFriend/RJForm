@@ -9,6 +9,7 @@
 #import "RJFormSwitchCell.h"
 #import "RJFormSwitchItem.h"
 #import "RJFormConstant.h"
+#import <Masonry/Masonry.h>
 
 @interface RJFormSwitchCell ()
 

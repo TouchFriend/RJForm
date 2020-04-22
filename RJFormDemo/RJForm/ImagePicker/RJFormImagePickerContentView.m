@@ -17,6 +17,7 @@
 #import "RJFormPhotoPickerManager.h"
 #import "RJFormEmptyTool.h"
 #import "RJFormImageTapProtocol.h"
+#import <Masonry/Masonry.h>
 
 static NSString * const ID = @"RJFormImagePickerCollectionViewCell";
 static NSInteger const RJFormImageTotalCount = 6;

@@ -16,6 +16,7 @@
 #import "UIImage+RJFormImage.h"
 #import "RJFormEmptyTool.h"
 #import "RJFormImageTapProtocol.h"
+#import <Masonry/Masonry.h>
 
 @interface RJFormImageCell () <PBViewControllerDataSource, PBViewControllerDelegate>
 

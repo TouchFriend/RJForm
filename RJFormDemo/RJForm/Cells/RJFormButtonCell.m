@@ -8,6 +8,7 @@
 
 #import "RJFormButtonCell.h"
 #import "RJFormButtonItem.h"
+#import <Masonry/Masonry.h>
 
 @interface RJFormButtonCell ()
 

@@ -9,6 +9,7 @@
 #import "RJFormAllSimpleViewController.h"
 #import "RJForm.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <Masonry/Masonry.h>
 
 @interface RJFormAllSimpleViewController () <UITableViewDataSource, UITableViewDelegate, RJFormImageTapProtocol>
 
