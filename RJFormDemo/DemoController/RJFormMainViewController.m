@@ -11,6 +11,7 @@
 #import "RJFormSettingViewController.h"
 #import "RJFormEnterpriseInfoViewController.h"
 #import <Masonry/Masonry.h>
+#import "RJFormTestAllSimpleViewController.h"
 
 static NSString * const ID = @"UITableViewCell";
 
@@ -118,7 +119,7 @@ static NSString * const ID = @"UITableViewCell";
         _dataArr = @[
                      @{
                          @"title" : @"全部示例",
-                         @"controller" : NSStringFromClass([RJFormAllSimpleViewController class])
+                         @"controller" : NSStringFromClass([RJFormTestAllSimpleViewController class])
                          },
                      @{
                          @"title" : @"设置中心",

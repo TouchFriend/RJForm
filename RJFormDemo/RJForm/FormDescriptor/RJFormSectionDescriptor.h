@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
 /********* 分组尾部标题 *********/
 @property (nonatomic, copy) NSString *sectionFooterTitle;
+#warning 后面支持自定义头部和尾部view
 
 /********* 行数据 *********/
 @property (nonatomic, strong) NSMutableArray<RJFormRowDescriptor *> *formRows;

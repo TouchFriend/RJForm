@@ -56,6 +56,8 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 {
     RJFormDescriptor *formDescriptor = [[self alloc] init];
     formDescriptor.tableView = tableView;
+    //注册现有的所有cell
+    [formDescriptor registerAllCells];
     return formDescriptor;
 }
 
@@ -76,13 +78,19 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 
 #pragma mark - Public Methods
 
-+ (void)addItemCellClassPair:(Class)itemClass cellClass:(Class)cellClass
+- (void)addItemCellClassPair:(Class)itemClass cellClass:(Class)cellClass
 {
-    [_itemCellClassPairs setObject:NSStringFromClass(cellClass) forKey:NSStringFromClass(itemClass)];
+    NSAssert(itemClass, @"itemClass不能为空");
+    NSAssert(cellClass, @"cellClass不能为空");
+    NSString *cellClassString = NSStringFromClass(cellClass);
+    //注册cell
+    [self.tableView registerClass:cellClass forCellReuseIdentifier:cellClassString];
+    [_itemCellClassPairs setObject:cellClassString forKey:NSStringFromClass(itemClass)];
 }
 
-+ (void)removeItemCellClassPairWithItemClass:(Class)itemClass
+- (void)removeItemCellClassPairWithItemClass:(Class)itemClass
 {
+    NSAssert(itemClass, @"itemClass不能为空");
     [_itemCellClassPairs removeObjectForKey:NSStringFromClass(itemClass)];
 }
 
@@ -200,7 +208,17 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 
 - (void)registerAllCells
 {
-    [self registerCells:self.formSections];
+    if (self.tableView == nil)
+    {
+        
+        NSDictionary *userInfo = @{};
+        @throw [NSException exceptionWithName:@"RJFormDescriptor register cell failed" reason:@"RJFormDescriptor's tableView is nil" userInfo:userInfo];
+        return;
+    }
+    
+    for (NSString *cellClassString in [_itemCellClassPairs allValues]) {
+        [self.tableView registerClass:NSClassFromString(cellClassString) forCellReuseIdentifier:cellClassString];
+    };
 }
 
 - (void)reloadData
@@ -235,27 +253,6 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 }
 
 #pragma mark - Private Methods
-
-
-/**
- 注册cell
- */
-- (void)registerCells:(NSArray<RJFormSectionDescriptor *> *)formSections
-{
-    if (self.tableView == nil)
-    {
-        
-        NSDictionary *userInfo = @{};
-        @throw [NSException exceptionWithName:@"RJFormDescriptor register cell failed" reason:@"RJFormDescriptor's tableView is nil" userInfo:userInfo];
-        return;
-    }
-    for (RJFormSectionDescriptor *section in formSections) {
-        for (RJFormRowDescriptor *row in section.formRows) {
-            [self.tableView registerClass:row.cellClass forCellReuseIdentifier:row.reuseIdentifier];
-        }
-    }
-}
-
 
 /**
  添加监听通知

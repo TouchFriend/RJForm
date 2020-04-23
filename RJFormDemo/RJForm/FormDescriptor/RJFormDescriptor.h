@@ -30,19 +30,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, readonly, nonatomic, strong) NSDictionary *itemCellClassPairs;
 
 /**
- 添加自定义的模型和cell的配对
+ 添加自定义的模型和cell的配对，内部会给tableView注册cell
 
  @param itemClass 自定义模型类
  @param cellClass 自定义的cell类
  */
-+ (void)addItemCellClassPair:(Class)itemClass cellClass:(Class)cellClass;
+- (void)addItemCellClassPair:(Class)itemClass cellClass:(Class)cellClass;
 
 /**
  通过指定模型类，移除自定义的模型和cell的配对
 
  @param itemClass 自定义模型类
  */
-+ (void)removeItemCellClassPairWithItemClass:(Class)itemClass;
+- (void)removeItemCellClassPairWithItemClass:(Class)itemClass;
 
 
 /**
