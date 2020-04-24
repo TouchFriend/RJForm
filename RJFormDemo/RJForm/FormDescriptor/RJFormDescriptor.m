@@ -176,7 +176,7 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     return nil;
 }
 
-- (BOOL)addFormSections:(RJFormSectionDescriptor *)section
+- (BOOL)addFormSection:(RJFormSectionDescriptor *)section
 {
     if (!section) {
         return NO;
@@ -184,7 +184,16 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     
     [self.formSections addObject:section];
     return YES;
-//    [self registerCells:@[section]];
+}
+
+- (BOOL)addFormSections:(NSArray<RJFormSectionDescriptor *> *)sections
+{
+    if (!sections) {
+        return NO;
+    }
+    
+    [self.formSections addObjectsFromArray:sections];
+    return YES;
 }
 
 - (BOOL)removeFormSectionAtIndex:(NSUInteger)index
@@ -223,7 +232,6 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
 
 - (void)reloadData
 {
-    [self registerAllCells];
     [self.tableView reloadData];
 }
 

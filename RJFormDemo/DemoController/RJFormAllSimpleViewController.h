@@ -6,11 +6,11 @@
 //  Copyright © 2019 RJSoft. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RJFormViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RJFormAllSimpleViewController : UIViewController
+@interface RJFormAllSimpleViewController : RJFormViewController
 
 @end
 

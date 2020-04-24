@@ -68,7 +68,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (RJFormRowDescriptor *)formRowWithTag:(NSString *)tag;
 
-
 /**
  获取indexPath对应的row
 
@@ -88,7 +87,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 添加分组
 /// @param section 分组模型
 /// @return 添加结果
-- (BOOL)addFormSections:(RJFormSectionDescriptor *)section;
+- (BOOL)addFormSection:(RJFormSectionDescriptor *)section;
+
+/// 添加分组数组
+/// @param sections 分组数组
+/// @return 添加结果
+- (BOOL)addFormSections:(NSArray<RJFormSectionDescriptor *> *)sections;
 
 #warning 动态添加表单项的方法
 
@@ -103,12 +107,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)removeFormSection:(RJFormSectionDescriptor *)section;
 
 /**
- 注册cell。动态添加表单项时，有新的cell类使用，记得注册一下
+ 注册所有cell。
  */
 - (void)registerAllCells;
 
 /**
- 刷新表单数据。内部会重新注册一遍cell。
+ 刷新表单数据。
  */
 - (void)reloadData;
 

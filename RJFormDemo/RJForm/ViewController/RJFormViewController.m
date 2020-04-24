@@ -11,6 +11,9 @@
 
 @interface RJFormViewController ()
 
+/// tableView style
+@property (nonatomic, assign) UITableViewStyle style;
+
 @end
 
 @implementation RJFormViewController

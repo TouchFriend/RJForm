@@ -9,27 +9,29 @@
 #import "RJFormAllSimpleViewController.h"
 #import "RJForm.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-#import <Masonry/Masonry.h>
+#import "RJFormTestTableViewCell.h"
+#import "RJFormTestItem.h"
 
-@interface RJFormAllSimpleViewController () <UITableViewDataSource, UITableViewDelegate, RJFormImageTapProtocol>
-
-/********* tableView *********/
-@property (nonatomic, weak) UITableView *tableView;
-
-/********* 数据 *********/
-@property (nonatomic, strong) RJFormDescriptor *form;
-
+@interface RJFormAllSimpleViewController () <RJFormImageTapProtocol>
 
 @end
 
 @implementation RJFormAllSimpleViewController
 
-#pragma mark - Life Cycle Methods
-
-- (void)viewDidLoad
+- (instancetype)init
 {
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    if (!self) {
+        return nil;
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     [self setupInit];
+    
 }
 
 #pragma mark - Setup Init
@@ -39,8 +41,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupNaviBar];
-    
-    [self setupTableView];
     
     [self initializeForm];
 }
@@ -52,32 +52,6 @@
     UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(saveBtnClick)];
     self.navigationItem.rightBarButtonItems = @[saveItem];
 }
-
-#pragma mark - TableView
-
-- (void)setupTableView
-{
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    [self.view addSubview:tableView];
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(self.view);
-    }];
-    self.tableView = tableView;
-    tableView.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0];
-    tableView.showsHorizontalScrollIndicator = NO;
-    tableView.estimatedRowHeight = 0.0;
-    tableView.estimatedSectionHeaderHeight = 0.0;
-    tableView.estimatedSectionFooterHeight = 0.0;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    tableView.separatorColor = [UIColor colorWithRed:222.0/255.0 green:222.0/255.0 blue:222.0/255.0 alpha:1.0];
-    tableView.contentInset = UIEdgeInsetsMake(0, 0, 64.0, 0);
-    //    tableView.separatorInset = UIEdgeInsetsMake(0, 52.0, 0, 0);
-    
-    tableView.dataSource = self;
-    tableView.delegate = self;
-}
-
-#pragma mark - Init Form
 
 - (void)initializeForm
 {
@@ -92,30 +66,9 @@
     form = [RJFormDescriptor formWithTableView:self.tableView];
     self.form = form;
     
-//    section = [[RJFormSectionDescriptor alloc] init];
-//    section.sectionHeaderHeight = 50.0;
-//    section.sectionHeaderTitle = @"图片示例";
-//    [formSections addObject:section];
-//    RJFormSelectorItem *areaType1Item = [RJFormSelectorItem itemWithSelectorStyle:RJFormSelectorStylePicker text:@"区域分类（alert警告框）" selectedOption:[RJFormOptionItem itemWithOptionText:@"区域分类1" optionValue:@(0)]];
-//    areaType1Item.selectorTitle = @"区域分类";
-//    areaType1Item.selectorOptions = @[
-//                                     [RJFormOptionItem itemWithOptionText:@"区域分类1" optionValue:@(0)],
-//                                     [RJFormOptionItem itemWithOptionText:@"区域分类2" optionValue:@(1)],
-//                                     [RJFormOptionItem itemWithOptionText:@"区域分类3" optionValue:@(2)],
-//                                     [RJFormOptionItem itemWithOptionText:@"区域分类4" optionValue:@(3)],
-//                                     ];
-//    row = [RJFormRowDescriptor rowWithTag:@"areaType" item:areaType1Item];
-//    [section addFormRow:row];
-    
-//    section = [[RJFormSectionDescriptor alloc] init];
-//    section.sectionHeaderHeight = 44.0;
-//    section.sectionHeaderTitle = @"图片选择器";
-//    [formSections addObject:section];
-//    
-//    RJFormImagePickerItem *publicizeImage1Item = [RJFormImagePickerItem itemWithText:@"企业宣传图1" imageArr:nil];
-//    row = [RJFormRowDescriptor rowWithTag:@"publicizeImage1" item:publicizeImage1Item];
-//    row.rowHeight = publicizeImage1Item.rowHeight;
-//    [section addFormRow:row];
+#warning 添加自定义cell示例
+    //注册自定义cell
+    [form addItemCellClassPair:[RJFormTestItem class] cellClass:[RJFormTestTableViewCell class]];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 50.0;
@@ -415,112 +368,8 @@
     row = [RJFormRowDescriptor rowWithTag:@"selectorDisabled" item:selectorDisabledItem];
     [section addFormRow:row];
 
-    [form.formSections addObjectsFromArray:formSections];
-    
-    //注册cell
-    [form registerAllCells];
-    
+    [form addFormSections:formSections];
 }
-
-#pragma mark - UITableViewDataSource Methods
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return self.form.formSections.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
-    return sectionDescriptor.formRows.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[indexPath.section];
-    RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:rowDescriptor.reuseIdentifier forIndexPath:indexPath];
-    //    NSLog(@"%p--%ld--%ld", cell, indexPath.section, indexPath.row);
-    [rowDescriptor updateCell:cell];
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate Methods
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[indexPath.section];
-    RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
-    
-    //是否可编辑
-    if ([rowDescriptor.item isKindOfClass:[RJFormBaseItem class]] && ![(RJFormBaseItem *)rowDescriptor.item enabled])
-    {
-        return ;
-    }
-    
-    if (rowDescriptor.didSelectedSelector && rowDescriptor.didSelectedSelector.length > 0 && [self respondsToSelector:NSSelectorFromString(rowDescriptor.didSelectedSelector)])
-    {
-        SEL selector = NSSelectorFromString(rowDescriptor.didSelectedSelector);
-        
-        //内存泄露警告,因为编译器不知道selector是哪个方法id，需要在runtime才知道
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [self performSelector:selector withObject:rowDescriptor];
-#pragma clang diagnostic pop
-        
-        return;
-    }
-    
-    [self.form tableView:tableView didSelectRowAtIndexPath:indexPath formController:self];
-    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[indexPath.section];
-    RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
-    return rowDescriptor.rowHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
-    return sectionDescriptor.sectionHeaderHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
-    return sectionDescriptor.sectionFooterHeight;
-}
-
-#warning 后面支持自定义头部和尾部view
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
-    return sectionDescriptor.sectionHeaderTitle;
-}
-
-#pragma mark - RJFormImageTapProtocol Methods
-
-//- (void)singleImageTapWithTag:(NSString *)tag data:(RJFormImageItem *)item
-//{
-//    NSLog(@"点击用户头像");
-//}
-
-
-//- (void)multipleImageTapWithTag:(NSString *)tag index:(NSUInteger)index images:(NSArray<RJFormImagePickerContentItem *> *)images
-//{
-//    NSLog(@"点击显示大图");
-//}
-
-#pragma mark - Override Methods
-
-#pragma mark - Public Methods
-
-#pragma mark - Private Methods
 
 #pragma mark - Target Methods
 

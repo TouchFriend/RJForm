@@ -16,8 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RJFormViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-/// tableView style
-@property (nonatomic, assign) UITableViewStyle style;
 /// tableView
 @property (nonatomic, weak) UITableView *tableView;
 /// 表单
