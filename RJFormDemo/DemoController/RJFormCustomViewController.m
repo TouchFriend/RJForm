@@ -1,26 +1,31 @@
 //
-//  RJFormDemoViewController.m
+//  RJFormCustomViewController.m
 //  RJFormDemo
 //
-//  Created by TouchWorld on 2019/7/23.
-//  Copyright © 2019 RJSoft. All rights reserved.
+//  Created by TouchWorld on 2020/4/24.
+//  Copyright © 2020 RJSoft. All rights reserved.
 //
 
-#import "RJFormDemoViewController.h"
+#import "RJFormCustomViewController.h"
 #import "RJForm.h"
 #import <Masonry/Masonry.h>
 
-@interface RJFormDemoViewController () <UITableViewDataSource, UITableViewDelegate>
+static NSString * const RJUserIconTag = @"RJUserIconTag";
+static NSString * const RJPhoneNumberTag = @"RJPhoneNumberTag";
+static NSString * const RJChangePwdTag = @"RJChangePwdTag";
+static NSString * const RJNotificationTag = @"RJNotificationTag";
+static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
+
+@interface RJFormCustomViewController () <UITableViewDataSource, UITableViewDelegate>
 
 /********* tableView *********/
 @property (nonatomic, weak) UITableView *tableView;
 /********* 数据 *********/
 @property (nonatomic, strong) RJFormDescriptor *form;
 
-
 @end
 
-@implementation RJFormDemoViewController
+@implementation RJFormCustomViewController
 
 #pragma mark - Life Cycle Methods
 
@@ -73,72 +78,63 @@
     RJFormSectionDescriptor *section;
     RJFormRowDescriptor *row;
     
-    NSMutableArray *formSections = [NSMutableArray array];
-    
     form = [RJFormDescriptor formWithTableView:self.tableView];
     self.form = form;
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    [form addFormSection:section];
     
-    RJFormImageItem *rightIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
-    rightIconItem.hiddenArrow = NO;
-    row = [RJFormRowDescriptor rowWithItem:rightIconItem];
+    RJFormImageItem *userIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
+    userIconItem.hiddenArrow = NO;
+    row = [RJFormRowDescriptor rowWithTag:RJUserIconTag item:userIconItem];
     row.rowHeight = 90.0;
-    [section addFormRow:row];
-    
-    RJFormImageItem *middleIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleMiddle];
-    middleIconItem.hiddenArrow = NO;
-    row = [RJFormRowDescriptor rowWithItem:middleIconItem];
-    row.rowHeight = 90.0;
-    [section addFormRow:row];
-    
-    RJFormImageItem *leftIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleLeft];
-    leftIconItem.hiddenArrow = NO;
-    row = [RJFormRowDescriptor rowWithItem:leftIconItem];
-    row.rowHeight = 90.0;
+    row.didSelectedSelector = @"iconClick:";
     [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    [form addFormSection:section];
     
-    RJFormInfoItem *infoItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
-    infoItem.hiddenArrow = NO;
-    row = [RJFormRowDescriptor rowWithItem:infoItem];
+    RJFormInfoItem *phoneNumberItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
+    phoneNumberItem.hiddenArrow = NO;
+    phoneNumberItem.detailTextColor = [UIColor colorWithRed:181.0/255.0 green:181.0/255.0 blue:181.0/255.0 alpha:1.0];
+    row = [RJFormRowDescriptor rowWithTag:RJPhoneNumberTag item:phoneNumberItem];
+    row.didSelectedSelector = @"phoneClick:";
     [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    [form addFormSection:section];
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
     changePwdItem.hiddenArrow = NO;
-    row = [RJFormRowDescriptor rowWithItem:changePwdItem];
+    row = [RJFormRowDescriptor rowWithTag:RJChangePwdTag item:changePwdItem];
+    row.didSelectedSelector = @"changePwdClick:";
     [section addFormRow:row];
-    RJFormSwitchItem *notificationItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES];
-    row = [RJFormRowDescriptor rowWithItem:notificationItem];
+    
+    RJFormSwitchItem *notificationItem = [RJFormSwitchItem itemWithText:@"消息通知设置" open:YES switchSelector:@"notificationSwitchChange:"];
+    row = [RJFormRowDescriptor rowWithTag:RJNotificationTag item:notificationItem];
     [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    [form addFormSection:section];
     
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
     versionUpdateItem.hiddenArrow = YES;
-    row = [RJFormRowDescriptor rowWithItem:versionUpdateItem];
+    versionUpdateItem.detailTextColor = [UIColor colorWithRed:181.0/255.0 green:181.0/255.0 blue:181.0/255.0 alpha:1.0];
+    row = [RJFormRowDescriptor rowWithTag:RJVersionUpdateTag item:versionUpdateItem];
+    row.didSelectedSelector = @"versionUpdateClick:";
     [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
-    section.sectionHeaderHeight = 10.0;
-    [formSections addObject:section];
+    section.sectionHeaderHeight = 15.0;
+    [form addFormSection:section];
     
-    
-//    [formSections addObjectsFromArray:formSections];
-//    [formSections addObjectsFromArray:formSections];
-//    [formSections addObjectsFromArray:formSections];
-    [form.formSections addObjectsFromArray:formSections];
+    RJFormButtonItem *signOutItem = [RJFormButtonItem itemWithText:@"退出登录" selector:@"signOutBtnClick:"];
+    row = [RJFormRowDescriptor rowWithItem:signOutItem];
+    [section addFormRow:row];
     
     //注册cell
     [form registerAllCells];
@@ -163,7 +159,7 @@
     RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:rowDescriptor.reuseIdentifier forIndexPath:indexPath];
-//    NSLog(@"%p--%ld--%ld", cell, indexPath.section, indexPath.row);
+    //    NSLog(@"%p--%ld--%ld", cell, indexPath.section, indexPath.row);
     [rowDescriptor updateCell:cell];
     return cell;
 }
@@ -173,9 +169,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[indexPath.section];
+    RJFormRowDescriptor *rowDescriptor = sectionDescriptor.formRows[indexPath.row];
     
+    //是否可编辑
+    if ([rowDescriptor.item isKindOfClass:[RJFormBaseItem class]] && ![(RJFormBaseItem *)rowDescriptor.item enabled])
+    {
+        return ;
+    }
     
+    if (!rowDescriptor.didSelectedSelector || rowDescriptor.didSelectedSelector.length == 0)
+    {
+        return;
+    }
     
+    SEL selector = NSSelectorFromString(rowDescriptor.didSelectedSelector);
+    if (![self respondsToSelector:selector])
+    {
+        return;
+    }
+    
+    //内存泄露警告,因为编译器不知道selector是哪个方法id，需要在runtime才知道
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self performSelector:selector withObject:rowDescriptor];
+#pragma clang diagnostic pop
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -197,12 +215,50 @@
     return sectionDescriptor.sectionFooterHeight;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
+    return sectionDescriptor.sectionHeaderTitle;
+}
+
 
 #pragma mark - Override Methods
 
 #pragma mark - Public Methods
 
 #pragma mark - Private Methods
+
+#pragma mark - Target Methods
+
+- (void)signOutBtnClick:(UIButton *)btn
+{
+    NSLog(@"点击了退出登录按钮");
+}
+
+- (void)notificationSwitchChange:(UISwitch *)openSwitch
+{
+    NSLog(@"通知状态：%@", openSwitch.on ? @"打开" : @"关闭");
+}
+
+- (void)iconClick:(RJFormRowDescriptor *)rowDescriptor
+{
+    NSLog(@"点击了头像");
+}
+
+- (void)phoneClick:(RJFormRowDescriptor *)rowDescriptor
+{
+    NSLog(@"点击了手机号");
+}
+
+- (void)changePwdClick:(RJFormRowDescriptor *)rowDescriptor
+{
+    NSLog(@"点击了修改密码");
+}
+
+- (void)versionUpdateClick:(RJFormRowDescriptor *)rowDescriptor
+{
+    NSLog(@"点击了版本更新");
+}
 
 #pragma mark - Properties Methods
 

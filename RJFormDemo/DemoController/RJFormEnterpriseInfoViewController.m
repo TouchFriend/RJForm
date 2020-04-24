@@ -92,7 +92,7 @@
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 0.1;
     section.sectionFooterHeight = 10.0;
-    [form addFormSections:section];
+    [form addFormSection:section];
     
 //    NSString *iconUrl = @"https://leancloud-gold-cdn.xitu.io/2OeknvJNSvZDnNlzX1iEMyA?imageView2/1/w/100/h/100/q/85/interlace/1";
     RJFormImageItem *businessLicenseItem = [RJFormImageItem itemWithText:@"营业执照" webImageUrl:nil placeholderImage:[UIImage imageNamed:@"rjform_placeholder"] style:RJFormImageCellStyleRight];
@@ -110,7 +110,7 @@
     //第二分组
     
     section = [RJFormSectionDescriptor sectionWithSectionHeaderHeight:0.1 sectionFooterHeight:10.0];
-    [form addFormSections:section];
+    [form addFormSection:section];
     
     RJFormTextFieldItem *socialCreditCodeItem = [RJFormTextFieldItem itemWithText:@"统一社会信用代码" detailText:@"91310117740271746E" detailPlaceholder:@"请填写"];
     socialCreditCodeItem.required = YES;

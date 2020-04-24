@@ -11,6 +11,8 @@
 #import "RJFormSettingViewController.h"
 #import "RJFormEnterpriseInfoViewController.h"
 #import <Masonry/Masonry.h>
+#import "RJFormCustomViewController.h"
+#import "RJFormCustomCellViewController.h"
 
 static NSString * const ID = @"UITableViewCell";
 
@@ -38,6 +40,7 @@ static NSString * const ID = @"UITableViewCell";
 
 - (void)setupInit
 {
+    self.navigationItem.title = @"RJForm";
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupTableView];
@@ -125,9 +128,17 @@ static NSString * const ID = @"UITableViewCell";
                          @"controller" : NSStringFromClass([RJFormSettingViewController class])
                          },
                      @{
+                         @"title" : @"自定义cell",
+                         @"controller" : NSStringFromClass([RJFormCustomCellViewController class])
+                        },
+                     @{
+                         @"title" : @"自定义控制器",
+                         @"controller" : NSStringFromClass([RJFormCustomViewController class])
+                        },
+                     @{
                          @"title" : @"企业基本信息",
                          @"controller" : NSStringFromClass([RJFormEnterpriseInfoViewController class])
-                         }
+                        }
                      ];
     }
     return _dataArr;

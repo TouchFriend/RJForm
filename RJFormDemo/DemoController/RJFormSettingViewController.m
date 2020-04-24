@@ -85,7 +85,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [form addFormSections:section];
+    [form addFormSection:section];
     
     RJFormImageItem *userIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
     userIconItem.hiddenArrow = NO;
@@ -96,7 +96,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [form addFormSections:section];
+    [form addFormSection:section];
     
     RJFormInfoItem *phoneNumberItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
     phoneNumberItem.hiddenArrow = NO;
@@ -107,7 +107,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [form addFormSections:section];
+    [form addFormSection:section];
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
     changePwdItem.hiddenArrow = NO;
@@ -121,7 +121,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 10.0;
-    [form addFormSections:section];
+    [form addFormSection:section];
     
     RJFormInfoItem *versionUpdateItem = [RJFormInfoItem itemWithText:@"版本更新" detailText:@"最新版本v1.0"];
     versionUpdateItem.hiddenArrow = YES;
@@ -132,7 +132,7 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 15.0;
-    [form addFormSections:section];
+    [form addFormSection:section];
     
     RJFormButtonItem *signOutItem = [RJFormButtonItem itemWithText:@"退出登录" selector:@"signOutBtnClick:"];
     row = [RJFormRowDescriptor rowWithItem:signOutItem];
