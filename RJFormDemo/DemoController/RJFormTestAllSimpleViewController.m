@@ -20,7 +20,7 @@
 
 - (instancetype)init
 {
-    self = [super initWithForm:nil style:UITableViewStyleGrouped];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (!self) {
         return nil;
     }

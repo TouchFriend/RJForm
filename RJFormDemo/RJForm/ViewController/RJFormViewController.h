@@ -23,9 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 表单
 @property (nonatomic, strong) RJFormDescriptor *form;
 
-- (instancetype)initWithForm:(RJFormDescriptor *_Nullable)form;
-
-- (instancetype)initWithForm:(RJFormDescriptor *_Nullable)form style:(UITableViewStyle)style;
+- (instancetype)initWithStyle:(UITableViewStyle)style;
 
 @end
 

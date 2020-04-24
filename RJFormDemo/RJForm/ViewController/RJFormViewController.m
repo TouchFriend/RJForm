@@ -17,18 +17,12 @@
 
 #pragma mark - Initialize
 
-- (instancetype)initWithForm:(RJFormDescriptor *)form {
-    return [self initWithForm:form style:UITableViewStyleGrouped];
-}
-
-- (instancetype)initWithForm:(RJFormDescriptor *)form style:(UITableViewStyle)style {
+- (instancetype)initWithStyle:(UITableViewStyle)style {
     if (self = [super init]) {
-        self.form = form;
         self.style = style;
     }
     return self;
 }
-
 
 #pragma mark - Life Cycles
 
