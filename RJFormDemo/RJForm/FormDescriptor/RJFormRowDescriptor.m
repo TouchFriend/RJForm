@@ -7,7 +7,7 @@
 //
 
 #import "RJFormRowDescriptor.h"
-#import "RJFormCellDataUpdate.h"
+#import "RJFormCellDataUpdateProtocol.h"
 #import "RJFormDescriptor.h"
 #import "RJFormImagePickerItem.h"
 #import "RJFormCalculateRowHeightProtocol.h"
@@ -86,7 +86,7 @@
 {
     if ([cell respondsToSelector:@selector(updateViewData:tag:)])
     {
-        [(id<RJFormCellDataUpdate>)cell updateViewData:self.item tag:self.tag];
+        [(id<RJFormCellDataUpdateProtocol>)cell updateViewData:self.item tag:self.tag];
         return;
     }
 }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class RJFormSectionDescriptor, RJFormRowDescriptor;
+@class RJFormSectionDescriptor, RJFormRowDescriptor, RJFormSectionHeaderFooterView;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -129,6 +129,11 @@ NS_ASSUME_NONNULL_BEGIN
  注册所有cell。
  */
 - (void)registerAllCells;
+
+/// 注册分组头部或者尾部view，view要是RJFormSectionHeaderFooterView的子类，或者UITableViewHeaderFooterView子类，并且实现协议RJFormSectionHeaderFooterViewUpdateProtocol。
+/// @param aClass class，传nil为注销。
+/// @param identifier id
+- (void)registerClass:(nullable Class)aClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier;
 
 /**
  刷新表单数据。

@@ -262,6 +262,18 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     };
 }
 
+- (void)registerClass:(Class)aClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier {
+    if (self.tableView == nil)
+    {
+        
+        NSDictionary *userInfo = @{};
+        @throw [NSException exceptionWithName:@"RJFormDescriptor register cell failed" reason:@"RJFormDescriptor's tableView is nil" userInfo:userInfo];
+        return;
+    }
+    
+    [self.tableView registerClass:aClass forHeaderFooterViewReuseIdentifier:identifier];
+}
+
 - (void)reloadData
 {
     [self.tableView reloadData];

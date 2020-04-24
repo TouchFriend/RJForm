@@ -9,12 +9,14 @@
 #import "RJFormCustomViewController.h"
 #import "RJForm.h"
 #import <Masonry/Masonry.h>
+#import "RJFormTestHeaderView.h"
 
 static NSString * const RJUserIconTag = @"RJUserIconTag";
 static NSString * const RJPhoneNumberTag = @"RJPhoneNumberTag";
 static NSString * const RJChangePwdTag = @"RJChangePwdTag";
 static NSString * const RJNotificationTag = @"RJNotificationTag";
 static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
+static NSString * const RJSectionHeaderID = @"RJFormTestHeaderView";
 
 @interface RJFormCustomViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -81,8 +83,13 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     form = [RJFormDescriptor formWithTableView:self.tableView];
     self.form = form;
     
+    //注册分组头部和尾部
+    [form registerClass:[RJFormTestHeaderView class] forHeaderFooterViewReuseIdentifier:RJSectionHeaderID];
+    
     section = [[RJFormSectionDescriptor alloc] init];
-    section.sectionHeaderHeight = 10.0;
+    section.sectionHeaderHeight = 40.0;
+    section.sectionHeaderViewReuseIdentifier = RJSectionHeaderID;
+    section.sectionHeaderData = @"test1";
     [form addFormSection:section];
     
     RJFormImageItem *userIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
@@ -93,7 +100,9 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
-    section.sectionHeaderHeight = 10.0;
+    section.sectionHeaderHeight = 40.0;
+    section.sectionHeaderViewReuseIdentifier = RJSectionHeaderID;
+    section.sectionHeaderData = @"test2";
     [form addFormSection:section];
     
     RJFormInfoItem *phoneNumberItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
@@ -104,7 +113,9 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     [section addFormRow:row];
     
     section = [[RJFormSectionDescriptor alloc] init];
-    section.sectionHeaderHeight = 10.0;
+    section.sectionHeaderHeight = 40.0;
+    section.sectionHeaderViewReuseIdentifier = RJSectionHeaderID;
+    section.sectionHeaderData = @"test3";
     [form addFormSection:section];
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];
@@ -135,9 +146,6 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     RJFormButtonItem *signOutItem = [RJFormButtonItem itemWithText:@"退出登录" selector:@"signOutBtnClick:"];
     row = [RJFormRowDescriptor rowWithItem:signOutItem];
     [section addFormRow:row];
-    
-    //注册cell
-    [form registerAllCells];
 }
 
 #pragma mark - UITableViewDataSource Methods
@@ -220,6 +228,19 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     return sectionDescriptor.sectionHeaderTitle;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
+    RJFormSectionHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:sectionDescriptor.sectionHeaderViewReuseIdentifier];
+    [sectionHeaderView updateViewData:sectionDescriptor.sectionHeaderData];
+    return sectionHeaderView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
+    RJFormSectionHeaderFooterView *sectionFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:sectionDescriptor.sectionFooterViewReuseIdentifier];
+    [sectionFooterView updateViewData:sectionDescriptor.sectionFooterData];
+    return sectionFooterView;
+}
 
 #pragma mark - Override Methods
 

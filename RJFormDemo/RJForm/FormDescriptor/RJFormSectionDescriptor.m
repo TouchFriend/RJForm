@@ -9,6 +9,10 @@
 #import "RJFormSectionDescriptor.h"
 #import "RJFormRowDescriptor.h"
 
+@interface RJFormSectionDescriptor ()
+
+@end
+
 @implementation RJFormSectionDescriptor
 
 #pragma mark - Init Methods

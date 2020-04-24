@@ -20,6 +20,10 @@
 #import "RJFormRegexValidator.h"
 #import "RJFormValidatorProtocol.h"
 #import "RJFormImageTapProtocol.h"
+#import "RJFormCellDataUpdateProtocol.h"
+#import "RJFormSectionHeaderFooterViewUpdateProtocol.h"
+
+#import "RJFormSectionHeaderFooterView.h"
 
 #import "RJFormInfoCell.h"
 #import "RJFormImageCell.h"

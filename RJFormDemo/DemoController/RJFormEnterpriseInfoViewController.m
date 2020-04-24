@@ -257,8 +257,6 @@
     
     //第四分组
     
-    //注册cell
-    [form registerAllCells];
 }
 
 #pragma mark - UITableViewDataSource Methods

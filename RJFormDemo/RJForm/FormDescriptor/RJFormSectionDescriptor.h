@@ -23,7 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
 /********* 分组尾部标题 *********/
 @property (nonatomic, copy) NSString *sectionFooterTitle;
-#warning 后面支持自定义头部和尾部view
+///分组头部重利用id
+@property (nonatomic, copy) NSString *sectionHeaderViewReuseIdentifier;
+///分组尾部重利用id
+@property (nonatomic, copy) NSString *sectionFooterViewReuseIdentifier;
+/// 分组头部view数据
+@property (nonatomic, strong) id sectionHeaderData;
+/// 分组尾部view数据
+@property (nonatomic, strong) id sectionFooterData;
 
 /********* 行数据 *********/
 @property (nonatomic, strong) NSMutableArray<RJFormRowDescriptor *> *formRows;

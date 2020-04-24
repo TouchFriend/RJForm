@@ -1,5 +1,5 @@
 //
-//  RJFormCellDataUpdate.h
+//  RJFormCellDataUpdateProtocol.h
 //  RJFormDemo
 //
 //  Created by TouchWorld on 2019/7/23.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol RJFormCellDataUpdate <NSObject>
+@protocol RJFormCellDataUpdateProtocol <NSObject>
 
 @required
 

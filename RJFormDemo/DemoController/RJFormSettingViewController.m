@@ -138,8 +138,6 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
     row = [RJFormRowDescriptor rowWithItem:signOutItem];
     [section addFormRow:row];
     
-    //注册cell
-    [form registerAllCells];
 }
 
 #pragma mark - UITableViewDataSource Methods
