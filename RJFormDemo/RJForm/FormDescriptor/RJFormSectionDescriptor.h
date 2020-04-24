@@ -30,12 +30,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sectionWithSectionHeaderHeight:(CGFloat)sectionHeaderHeight sectionFooterHeight:(CGFloat)sectionFooterHeight;
 
-/// 添加行
+/// 添加行到尾部
 /// @param row 行模型
 /// @return 添加结果
 - (BOOL)addFormRow:(RJFormRowDescriptor *)row;
 
-/// 通过索引移除行
+/// 添加行到指定位置
+/// @param row 行模型
+/// @param index 索引
+- (BOOL)addFormRow:(RJFormRowDescriptor *)row atIndex:(NSUInteger)index;
+
+/// 通过对应位置的行
 /// @param index 索引
 /// @return 移除结果
 - (BOOL)removeFormRowAtIndex:(NSUInteger)index;

@@ -94,8 +94,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @return 添加结果
 - (BOOL)addFormSections:(NSArray<RJFormSectionDescriptor *> *)sections;
 
-#warning 动态添加表单项的方法
-
 /// 通过下标删除分组
 /// @param index 下标
 /// @return 删除结果
@@ -105,6 +103,27 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param section section实例
 /// @return 删除结果
 - (BOOL)removeFormSection:(RJFormSectionDescriptor *)section;
+
+/// 向指定分组添加行数据
+/// @param sectionIndex 分组索引
+/// @param rowDescriptor 行模型
+- (BOOL)addFormRowInSection:(NSUInteger)sectionIndex rowDescriptor:(RJFormRowDescriptor *)rowDescriptor;
+
+/// 向指定分组插入行数据
+/// @param sectionIndex 分组索引
+/// @param rowIndex 插入的位置
+/// @param rowDescriptor 行模型
+- (BOOL)insertFormRowInSection:(NSUInteger)sectionIndex rowIndex:(NSUInteger)rowIndex rowDescriptor:(RJFormRowDescriptor *)rowDescriptor;
+
+/// 移除指定分组指定位置的行
+/// @param sectionIndex 分组索引
+/// @param rowIndex 行索引
+- (BOOL)removeFormRowInSection:(NSUInteger)sectionIndex rowIndex:(NSUInteger)rowIndex;
+
+/// 移除指定分组的指定行数据
+/// @param sectionIndex 分组索引
+/// @param rowDescriptor 行模型
+- (BOOL)removeFormRowInSection:(NSUInteger)sectionIndex rowDescriptor:(RJFormRowDescriptor *)rowDescriptor;
 
 /**
  注册所有cell。

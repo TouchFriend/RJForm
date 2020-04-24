@@ -35,12 +35,15 @@
 
 - (BOOL)addFormRow:(RJFormRowDescriptor *)row
 {
-    if (!row)
+    return [self addFormRow:row atIndex:self.formRows.count];
+}
+
+- (BOOL)addFormRow:(RJFormRowDescriptor *)row atIndex:(NSUInteger)index {
+    if (!row || index > self.formRows.count)
     {
         return NO;
     }
-    
-    [self.formRows addObject:row];
+    [self.formRows insertObject:row atIndex:index];
     return YES;
 }
 

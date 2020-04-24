@@ -215,6 +215,38 @@ static BOOL _addAsteriskToRequiredRowsTitle = YES;
     return YES;
 }
 
+- (BOOL)addFormRowInSection:(NSUInteger)sectionIndex rowDescriptor:(RJFormRowDescriptor *)rowDescriptor {
+    if (sectionIndex >= self.formSections.count) {
+        return NO;
+    }
+    RJFormSectionDescriptor *sectionDescriptor = self.formSections[sectionIndex];
+    return [sectionDescriptor addFormRow:rowDescriptor];
+}
+
+- (BOOL)insertFormRowInSection:(NSUInteger)sectionIndex rowIndex:(NSUInteger)rowIndex rowDescriptor:(RJFormRowDescriptor *)rowDescriptor {
+    if (sectionIndex >= self.formSections.count) {
+        return NO;
+    }
+    RJFormSectionDescriptor *sectionDescriptor = self.formSections[sectionIndex];
+    return [sectionDescriptor addFormRow:rowDescriptor atIndex:rowIndex];
+}
+
+- (BOOL)removeFormRowInSection:(NSUInteger)sectionIndex rowIndex:(NSUInteger)rowIndex {
+    if (sectionIndex >= self.formSections.count) {
+        return NO;
+    }
+    RJFormSectionDescriptor *sectionDescriptor = self.formSections[sectionIndex];
+    return [sectionDescriptor removeFormRowAtIndex:rowIndex];
+}
+
+- (BOOL)removeFormRowInSection:(NSUInteger)sectionIndex rowDescriptor:(RJFormRowDescriptor *)rowDescriptor {
+    if (sectionIndex >= self.formSections.count) {
+        return NO;
+    }
+    RJFormSectionDescriptor *sectionDescriptor = self.formSections[sectionIndex];
+    return [sectionDescriptor removeFormRow:rowDescriptor];
+}
+
 - (void)registerAllCells
 {
     if (self.tableView == nil)
