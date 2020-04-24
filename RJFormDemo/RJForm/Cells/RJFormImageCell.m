@@ -125,7 +125,7 @@
         self.iconImageV.image = data.placeholderImage;
     }
     
-    CGFloat detailTextRightMargin = data.hiddenArrow ? RJFormRowLeftAndRightMargin : 0;
+    CGFloat detailTextRightMargin = data.hiddenArrow ? RJFormRowLeftAndRightMargin : RJFormRowDefaultRightMarginWhenShowArrow;
     switch (data.style) {
         case RJFormImageCellStyleLeft:
         {

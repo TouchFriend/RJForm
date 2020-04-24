@@ -9,6 +9,7 @@
 #import "RJFormConstant.h"
 
 CGFloat const RJFormRowLeftAndRightMargin = 15.0;
+CGFloat const RJFormRowDefaultRightMarginWhenShowArrow = 5.0;
 
 NSString * const RJFormErrorDomain = @"RJFormErrorDomain";
 NSString * const RJFormValidationErrorKey = @"RJFormValidationErrorKey";

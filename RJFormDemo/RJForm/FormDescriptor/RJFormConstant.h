@@ -12,6 +12,7 @@
 #define RJFormScreenWidth [UIScreen mainScreen].bounds.size.width
 #define RJFormScreenHeight [UIScreen mainScreen].bounds.size.height
 
+/// 图片的位置
 typedef NS_ENUM(NSUInteger, RJFormImageCellStyle)
 {
     RJFormImageCellStyleLeft = 0, //图片在左边
@@ -20,6 +21,7 @@ typedef NS_ENUM(NSUInteger, RJFormImageCellStyle)
     
 };
 
+/// 选择器显示方式
 typedef NS_ENUM(NSUInteger, RJFormSelectorStyle)
 {
     RJFormSelectorStylePicker = 0, //选择器
@@ -28,6 +30,7 @@ typedef NS_ENUM(NSUInteger, RJFormSelectorStyle)
     RJFormSelectorStylePush , //push
 };
 
+/// 表单错误
 typedef NS_ENUM(NSUInteger, RJFormErrorCode)
 {
     RJFormErrorCodeValidation = -1000, //验证错误
@@ -38,6 +41,8 @@ typedef NS_ENUM(NSUInteger, RJFormErrorCode)
 
 //每行的左右间距 15.0
 UIKIT_EXTERN CGFloat const RJFormRowLeftAndRightMargin;
+//显示箭头时，距离箭头的默认间距
+UIKIT_EXTERN CGFloat const RJFormRowDefaultRightMarginWhenShowArrow;
 
 FOUNDATION_EXTERN NSString * const RJFormErrorDomain;
 FOUNDATION_EXTERN NSString * const RJFormValidationErrorKey;

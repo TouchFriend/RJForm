@@ -82,7 +82,7 @@
     self.detailTextLbl.font = data.detailTextFont;
     self.detailTextLbl.textColor = isEmpty ? data.noDetailTextColor : data.detailTextColor;
     
-    CGFloat detailTextRightMargin = data.hiddenArrow ? RJFormRowLeftAndRightMargin : 0;
+    CGFloat detailTextRightMargin = data.hiddenArrow ? RJFormRowLeftAndRightMargin : RJFormRowDefaultRightMarginWhenShowArrow;
     [self.detailTextLbl mas_updateConstraints:^(MASConstraintMaker *make) {
         make.right.mas_offset(-detailTextRightMargin);
     }];

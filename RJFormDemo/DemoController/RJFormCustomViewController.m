@@ -178,22 +178,21 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
         return ;
     }
     
-    if (!rowDescriptor.didSelectedSelector || rowDescriptor.didSelectedSelector.length == 0)
+    if (rowDescriptor.didSelectedSelector && rowDescriptor.didSelectedSelector.length > 0 && [self respondsToSelector:NSSelectorFromString(rowDescriptor.didSelectedSelector)])
     {
-        return;
-    }
-    
-    SEL selector = NSSelectorFromString(rowDescriptor.didSelectedSelector);
-    if (![self respondsToSelector:selector])
-    {
-        return;
-    }
-    
-    //内存泄露警告,因为编译器不知道selector是哪个方法id，需要在runtime才知道
+        SEL selector = NSSelectorFromString(rowDescriptor.didSelectedSelector);
+        
+        //内存泄露警告,因为编译器不知道selector是哪个方法id，需要在runtime才知道
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [self performSelector:selector withObject:rowDescriptor];
+        [self performSelector:selector withObject:rowDescriptor];
 #pragma clang diagnostic pop
+        
+        return;
+    }
+    
+    [self.form tableView:tableView didSelectRowAtIndexPath:indexPath formController:self];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
