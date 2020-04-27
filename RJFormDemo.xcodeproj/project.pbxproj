@@ -49,6 +49,9 @@
 		BF6D9C2C22E839910039FBB7 /* RJFormButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6D9C2B22E839910039FBB7 /* RJFormButtonItem.m */; };
 		BF6D9C2F22E839A50039FBB7 /* RJFormButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6D9C2E22E839A50039FBB7 /* RJFormButtonCell.m */; };
 		BF6D9C3222E83FD60039FBB7 /* RJFormBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6D9C3122E83FD60039FBB7 /* RJFormBaseItem.m */; };
+		BF9116A62457066A0015DB59 /* RJFormTestFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9116A52457066A0015DB59 /* RJFormTestFooterView.m */; };
+		BF9116AA245707E10015DB59 /* RJFormTestTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9116A9245707E10015DB59 /* RJFormTestTableHeaderView.m */; };
+		BF9116AD2457179D0015DB59 /* RJFormTestTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9116AC2457179D0015DB59 /* RJFormTestTableFooterView.m */; };
 		BFAD00CE2452D25900B07349 /* RJFormCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD00CD2452D25900B07349 /* RJFormCustomViewController.m */; };
 		BFAD00D12452D43D00B07349 /* RJFormCustomCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD00D02452D43D00B07349 /* RJFormCustomCellViewController.m */; };
 		BFAD00D52452EF1A00B07349 /* RJFormSectionHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD00D42452EF1A00B07349 /* RJFormSectionHeaderFooterView.m */; };
@@ -160,6 +163,12 @@
 		BF6D9C3122E83FD60039FBB7 /* RJFormBaseItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormBaseItem.m; sourceTree = "<group>"; };
 		BF6D9C3322E840790039FBB7 /* RJFormItemValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormItemValue.h; sourceTree = "<group>"; };
 		BF8FED0F83E320004828BD8A /* Pods-RJFormDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJFormDemo.debug.xcconfig"; path = "Target Support Files/Pods-RJFormDemo/Pods-RJFormDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		BF9116A42457066A0015DB59 /* RJFormTestFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormTestFooterView.h; sourceTree = "<group>"; };
+		BF9116A52457066A0015DB59 /* RJFormTestFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormTestFooterView.m; sourceTree = "<group>"; };
+		BF9116A8245707E10015DB59 /* RJFormTestTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormTestTableHeaderView.h; sourceTree = "<group>"; };
+		BF9116A9245707E10015DB59 /* RJFormTestTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormTestTableHeaderView.m; sourceTree = "<group>"; };
+		BF9116AB2457179D0015DB59 /* RJFormTestTableFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormTestTableFooterView.h; sourceTree = "<group>"; };
+		BF9116AC2457179D0015DB59 /* RJFormTestTableFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormTestTableFooterView.m; sourceTree = "<group>"; };
 		BFA6542823335553006DDC96 /* RJFormCalculateRowHeightProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormCalculateRowHeightProtocol.h; sourceTree = "<group>"; };
 		BFAD00CC2452D25900B07349 /* RJFormCustomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormCustomViewController.h; sourceTree = "<group>"; };
 		BFAD00CD2452D25900B07349 /* RJFormCustomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormCustomViewController.m; sourceTree = "<group>"; };
@@ -230,6 +239,7 @@
 		BF0CCBF72451A6F500EB79D7 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				BF9116A7245707CB0015DB59 /* TableHeaderFooterView */,
 				BFAD00D82452F2B200B07349 /* SectionHeaderFooterView */,
 				BFAD00D72452F2A800B07349 /* Cells */,
 			);
@@ -389,14 +399,25 @@
 				BF6D9C1E22E801FF0039FBB7 /* RJFormAllSimpleViewController.m */,
 				BF6D9C2122E802400039FBB7 /* RJFormSettingViewController.h */,
 				BF6D9C2222E802400039FBB7 /* RJFormSettingViewController.m */,
-				BF116E5E22EE96B900954453 /* RJFormEnterpriseInfoViewController.h */,
-				BF116E5F22EE96B900954453 /* RJFormEnterpriseInfoViewController.m */,
-				BFAD00CC2452D25900B07349 /* RJFormCustomViewController.h */,
-				BFAD00CD2452D25900B07349 /* RJFormCustomViewController.m */,
 				BFAD00CF2452D43D00B07349 /* RJFormCustomCellViewController.h */,
 				BFAD00D02452D43D00B07349 /* RJFormCustomCellViewController.m */,
+				BFAD00CC2452D25900B07349 /* RJFormCustomViewController.h */,
+				BFAD00CD2452D25900B07349 /* RJFormCustomViewController.m */,
+				BF116E5E22EE96B900954453 /* RJFormEnterpriseInfoViewController.h */,
+				BF116E5F22EE96B900954453 /* RJFormEnterpriseInfoViewController.m */,
 			);
 			path = DemoController;
+			sourceTree = "<group>";
+		};
+		BF9116A7245707CB0015DB59 /* TableHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				BF9116A8245707E10015DB59 /* RJFormTestTableHeaderView.h */,
+				BF9116A9245707E10015DB59 /* RJFormTestTableHeaderView.m */,
+				BF9116AB2457179D0015DB59 /* RJFormTestTableFooterView.h */,
+				BF9116AC2457179D0015DB59 /* RJFormTestTableFooterView.m */,
+			);
+			path = TableHeaderFooterView;
 			sourceTree = "<group>";
 		};
 		BFAD00D22452EEDD00B07349 /* SectionHeaderFooterView */ = {
@@ -424,6 +445,8 @@
 			children = (
 				BFAD00D92452F40B00B07349 /* RJFormTestHeaderView.h */,
 				BFAD00DA2452F40B00B07349 /* RJFormTestHeaderView.m */,
+				BF9116A42457066A0015DB59 /* RJFormTestFooterView.h */,
+				BF9116A52457066A0015DB59 /* RJFormTestFooterView.m */,
 			);
 			path = SectionHeaderFooterView;
 			sourceTree = "<group>";
@@ -636,10 +659,12 @@
 				BFAD00D12452D43D00B07349 /* RJFormCustomCellViewController.m in Sources */,
 				BF24755D22E6F0EE0060AC12 /* RJFormDescriptor.m in Sources */,
 				BF6D9C2F22E839A50039FBB7 /* RJFormButtonCell.m in Sources */,
+				BF9116A62457066A0015DB59 /* RJFormTestFooterView.m in Sources */,
 				BF17280922EEF01800C93002 /* RJFormValidator.m in Sources */,
 				BFAD00D52452EF1A00B07349 /* RJFormSectionHeaderFooterView.m in Sources */,
 				BFE3394C23016B3F00460F71 /* UIImage+RJFormImage.m in Sources */,
 				BF0CCBF62451A6DD00EB79D7 /* RJFormTestTableViewCell.m in Sources */,
+				BF9116AA245707E10015DB59 /* RJFormTestTableHeaderView.m in Sources */,
 				BF116E5D22EE91B800954453 /* RJFormTextViewItem.m in Sources */,
 				BFE1342C22EAE32200B0CC0B /* RJFormValidationStatus.m in Sources */,
 				BF4FC4CA22FD097900DB028D /* RJFormDatePickerCell.m in Sources */,
@@ -655,6 +680,7 @@
 				BF6D9C2C22E839910039FBB7 /* RJFormButtonItem.m in Sources */,
 				BF01AC7622E958DA00CAB41C /* RJFormTextFieldItem.m in Sources */,
 				BF6D9C2622E836D40039FBB7 /* RJFormTextButtonItem.m in Sources */,
+				BF9116AD2457179D0015DB59 /* RJFormTestTableFooterView.m in Sources */,
 				BF6D9C2322E802400039FBB7 /* RJFormSettingViewController.m in Sources */,
 				BFAD00CE2452D25900B07349 /* RJFormCustomViewController.m in Sources */,
 				BFD30F4322FA647B00F60284 /* RJFormSelectorManager.m in Sources */,

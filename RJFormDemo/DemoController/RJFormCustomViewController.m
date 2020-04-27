@@ -89,7 +89,7 @@ static NSString * const RJSectionHeaderID = @"RJFormTestHeaderView";
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 40.0;
     section.sectionHeaderViewReuseIdentifier = RJSectionHeaderID;
-    section.sectionHeaderData = @"test1";
+    section.sectionHeaderData = @"头部测试1";
     [form addFormSection:section];
     
     RJFormImageItem *userIconItem = [RJFormImageItem itemWithText:@"头像" iconImage:[UIImage imageNamed:@"zhanweijian"] style:RJFormImageCellStyleRight];
@@ -102,7 +102,7 @@ static NSString * const RJSectionHeaderID = @"RJFormTestHeaderView";
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 40.0;
     section.sectionHeaderViewReuseIdentifier = RJSectionHeaderID;
-    section.sectionHeaderData = @"test2";
+    section.sectionHeaderData = @"头部测试2";
     [form addFormSection:section];
     
     RJFormInfoItem *phoneNumberItem = [RJFormInfoItem itemWithText:@"手机号" detailText:@"182******25"];
@@ -115,7 +115,7 @@ static NSString * const RJSectionHeaderID = @"RJFormTestHeaderView";
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 40.0;
     section.sectionHeaderViewReuseIdentifier = RJSectionHeaderID;
-    section.sectionHeaderData = @"test3";
+    section.sectionHeaderData = @"头部测试3";
     [form addFormSection:section];
     
     RJFormInfoItem *changePwdItem = [RJFormInfoItem itemWithText:@"修改密码" detailText:@""];

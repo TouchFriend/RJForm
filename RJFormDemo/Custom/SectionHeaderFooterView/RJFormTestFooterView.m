@@ -1,22 +1,22 @@
 //
-//  RJFormTestHeaderView.m
+//  RJFormTestFooterView.m
 //  RJFormDemo
 //
-//  Created by TouchWorld on 2020/4/24.
+//  Created by TouchWorld on 2020/4/27.
 //  Copyright © 2020 RJSoft. All rights reserved.
 //
 
-#import "RJFormTestHeaderView.h"
+#import "RJFormTestFooterView.h"
 #import <Masonry/Masonry.h>
 
-@interface RJFormTestHeaderView ()
+@interface RJFormTestFooterView ()
 
 /// <#Desription#>
 @property (nonatomic, weak) UILabel *textLbl;
 
 @end
 
-@implementation RJFormTestHeaderView
+@implementation RJFormTestFooterView
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
@@ -26,21 +26,12 @@
 }
 
 - (void)setupInit {
-    self.contentView.backgroundColor = [UIColor grayColor];
-    
-    UIView *verticalView = [[UIView alloc] init];
-    [self.contentView addSubview:verticalView];
-    [verticalView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(2.0, 15.0));
-        make.left.mas_offset(15.0);
-        make.centerY.mas_equalTo(self.contentView);
-    }];
-    verticalView.backgroundColor = [UIColor blueColor];
+    self.contentView.backgroundColor = [UIColor yellowColor];
     
     UILabel *textLbl = [[UILabel alloc] init];
     [self.contentView addSubview:textLbl];
     [textLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(verticalView).mas_offset(5.0);
+        make.left.mas_offset(15.0);
         make.centerY.mas_equalTo(self.contentView);
     }];
     self.textLbl = textLbl;

@@ -9,8 +9,6 @@
 #import "RJFormAllSimpleViewController.h"
 #import "RJForm.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-#import "RJFormTestTableViewCell.h"
-#import "RJFormTestItem.h"
 
 @interface RJFormAllSimpleViewController () <RJFormImageTapProtocol>
 
@@ -63,9 +61,6 @@
     
     form = [RJFormDescriptor formWithTableView:self.tableView];
     self.form = form;
-    
-    //注册自定义cell
-    [form addItemCellClassPair:[RJFormTestItem class] cellClass:[RJFormTestTableViewCell class]];
     
     section = [[RJFormSectionDescriptor alloc] init];
     section.sectionHeaderHeight = 50.0;

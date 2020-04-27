@@ -8,6 +8,7 @@
 
 #import "RJFormViewController.h"
 #import <Masonry/Masonry.h>
+#import "RJFormSectionHeaderFooterView.h"
 
 @interface RJFormViewController ()
 
@@ -142,5 +143,18 @@
     return sectionDescriptor.sectionHeaderTitle;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
+    RJFormSectionHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:sectionDescriptor.sectionHeaderViewReuseIdentifier];
+    [sectionHeaderView updateViewData:sectionDescriptor.sectionHeaderData];
+    return sectionHeaderView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
+    RJFormSectionHeaderFooterView *sectionFooterView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:sectionDescriptor.sectionFooterViewReuseIdentifier];
+    [sectionFooterView updateViewData:sectionDescriptor.sectionFooterData];
+    return sectionFooterView;
+}
 
 @end

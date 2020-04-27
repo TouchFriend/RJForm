@@ -128,7 +128,7 @@ static NSString * const ID = @"UITableViewCell";
                          @"controller" : NSStringFromClass([RJFormSettingViewController class])
                          },
                      @{
-                         @"title" : @"自定义cell",
+                         @"title" : @"自定义cell、分组头部和尾部",
                          @"controller" : NSStringFromClass([RJFormCustomCellViewController class])
                         },
                      @{
