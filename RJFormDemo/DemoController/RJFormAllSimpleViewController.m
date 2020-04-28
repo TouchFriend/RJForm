@@ -16,6 +16,8 @@
 
 @implementation RJFormAllSimpleViewController
 
+#pragma mark - Init Methods
+
 - (instancetype)init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];

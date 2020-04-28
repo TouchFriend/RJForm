@@ -39,10 +39,12 @@
 #pragma mark - Setting
 
 - (void)setupInitialize {
-    [self setupTableView];
+    [self initializeTableView];
 }
 
-- (void)setupTableView
+#pragma mark - 初始化TableView
+
+- (void)initializeTableView
 {
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.style];
     [self.view addSubview:tableView];
