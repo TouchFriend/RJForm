@@ -8,7 +8,7 @@ target 'RJFormDemo' do
   pod 'Masonry'  
   pod 'IQKeyboardManager'
   pod 'SVProgressHUD'
-  pod 'SDWebImage', '~> 4.4.6'
+  pod 'SDWebImage'
   pod 'TZImagePickerController'
   pod 'PhotoBrowser'
   
