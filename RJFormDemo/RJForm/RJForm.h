@@ -24,6 +24,7 @@
 #import "RJFormSectionHeaderFooterViewUpdateProtocol.h"
 
 #import "RJFormSectionHeaderFooterView.h"
+#import "RJFormViewController.h"
 
 #import "RJFormInfoCell.h"
 #import "RJFormImageCell.h"
