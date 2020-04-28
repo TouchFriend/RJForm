@@ -23,6 +23,17 @@ static NSString * const RJVersionUpdateTag = @"RJVersionUpdateTag";
 
 @implementation RJFormSettingViewController
 
+#pragma mark - Init Methods
+
+- (instancetype)init
+{
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    if (!self) {
+        return nil;
+    }
+    return self;
+}
+
 #pragma mark - Life Cycle Methods
 
 - (void)viewDidLoad

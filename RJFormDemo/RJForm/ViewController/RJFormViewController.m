@@ -145,6 +145,11 @@
     return sectionDescriptor.sectionHeaderTitle;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
+    return sectionDescriptor.sectionFooterTitle;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     RJFormSectionDescriptor *sectionDescriptor = self.form.formSections[section];
     RJFormSectionHeaderFooterView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:sectionDescriptor.sectionHeaderViewReuseIdentifier];
