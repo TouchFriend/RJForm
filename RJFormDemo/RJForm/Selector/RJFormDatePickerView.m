@@ -142,6 +142,9 @@
     }];
     
     self.pickerView = pickerView;
+    if (@available(iOS 13.4, *)) {
+        pickerView.preferredDatePickerStyle = UIDatePickerStyleWheels;
+    }
     pickerView.backgroundColor = [UIColor whiteColor];
     pickerView.datePickerMode = UIDatePickerModeDate;
     //设置地区
