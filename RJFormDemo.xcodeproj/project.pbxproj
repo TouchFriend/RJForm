@@ -56,6 +56,7 @@
 		BFAD00D12452D43D00B07349 /* RJFormCustomCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD00D02452D43D00B07349 /* RJFormCustomCellViewController.m */; };
 		BFAD00D52452EF1A00B07349 /* RJFormSectionHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD00D42452EF1A00B07349 /* RJFormSectionHeaderFooterView.m */; };
 		BFAD00DB2452F40B00B07349 /* RJFormTestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD00DA2452F40B00B07349 /* RJFormTestHeaderView.m */; };
+		BFB03820256F526900F8DCF6 /* RJForm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BFB0381F256F526900F8DCF6 /* RJForm.bundle */; };
 		BFBB7BE022F970A100D4CDF9 /* RJFormSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB7BDF22F970A100D4CDF9 /* RJFormSelectorCell.m */; };
 		BFBB7BE322F970AF00D4CDF9 /* RJFormSelectorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB7BE222F970AF00D4CDF9 /* RJFormSelectorItem.m */; };
 		BFBB7BE722F9747C00D4CDF9 /* RJFormOptionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBB7BE622F9747C00D4CDF9 /* RJFormOptionItem.m */; };
@@ -179,6 +180,7 @@
 		BFAD00D62452EFA800B07349 /* RJFormSectionHeaderFooterViewUpdateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSectionHeaderFooterViewUpdateProtocol.h; sourceTree = "<group>"; };
 		BFAD00D92452F40B00B07349 /* RJFormTestHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormTestHeaderView.h; sourceTree = "<group>"; };
 		BFAD00DA2452F40B00B07349 /* RJFormTestHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormTestHeaderView.m; sourceTree = "<group>"; };
+		BFB0381F256F526900F8DCF6 /* RJForm.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RJForm.bundle; sourceTree = "<group>"; };
 		BFBB7BDE22F970A100D4CDF9 /* RJFormSelectorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSelectorCell.h; sourceTree = "<group>"; };
 		BFBB7BDF22F970A100D4CDF9 /* RJFormSelectorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormSelectorCell.m; sourceTree = "<group>"; };
 		BFBB7BE122F970AF00D4CDF9 /* RJFormSelectorItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSelectorItem.h; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				BF24753B22E6A9DF0060AC12 /* Models */,
 				BF24753A22E6A9D90060AC12 /* Cells */,
 				BFE3394323016AA500460F71 /* UIKit */,
+				BFB0381F256F526900F8DCF6 /* RJForm.bundle */,
 			);
 			path = RJForm;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF24752D22E6A37C0060AC12 /* LaunchScreen.storyboard in Resources */,
+				BFB03820256F526900F8DCF6 /* RJForm.bundle in Resources */,
 				BF24752A22E6A37C0060AC12 /* Assets.xcassets in Resources */,
 				BF24752822E6A37B0060AC12 /* Main.storyboard in Resources */,
 			);
