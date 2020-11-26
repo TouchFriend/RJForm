@@ -52,7 +52,7 @@ static NSInteger const RJFormImageTotalCount = 6;
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.sectionInset = UIEdgeInsetsMake(20.0, 15.0, 23.0, 15.0);
-    CGFloat itemWidth = (RJFormScreenWidth - 56) / 3.0;
+    CGFloat itemWidth = (RJScreenWidth - 56) / 3.0;
     flowLayout.itemSize = CGSizeMake(itemWidth, itemWidth);
     flowLayout.minimumLineSpacing = 8.0;
     flowLayout.minimumInteritemSpacing = 13.0;

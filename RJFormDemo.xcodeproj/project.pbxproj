@@ -181,6 +181,7 @@
 		BFAD00D92452F40B00B07349 /* RJFormTestHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormTestHeaderView.h; sourceTree = "<group>"; };
 		BFAD00DA2452F40B00B07349 /* RJFormTestHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormTestHeaderView.m; sourceTree = "<group>"; };
 		BFB0381F256F526900F8DCF6 /* RJForm.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RJForm.bundle; sourceTree = "<group>"; };
+		BFB03844256F5C0300F8DCF6 /* RJFormSelectorConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSelectorConst.h; sourceTree = "<group>"; };
 		BFBB7BDE22F970A100D4CDF9 /* RJFormSelectorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSelectorCell.h; sourceTree = "<group>"; };
 		BFBB7BDF22F970A100D4CDF9 /* RJFormSelectorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RJFormSelectorCell.m; sourceTree = "<group>"; };
 		BFBB7BE122F970AF00D4CDF9 /* RJFormSelectorItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RJFormSelectorItem.h; sourceTree = "<group>"; };
@@ -457,6 +458,7 @@
 		BFBB7BE422F9746100D4CDF9 /* Selector */ = {
 			isa = PBXGroup;
 			children = (
+				BFB03844256F5C0300F8DCF6 /* RJFormSelectorConst.h */,
 				BFD30F4122FA647B00F60284 /* RJFormSelectorManager.h */,
 				BFD30F4222FA647B00F60284 /* RJFormSelectorManager.m */,
 				BF4FC4D122FD136B00DB028D /* RJFormDatePickerManager.h */,

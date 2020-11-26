@@ -8,37 +8,7 @@
 
 #import "RJFormValuePickerView.h"
 #import <Masonry/Masonry.h>
-
-/*************** 适配iPhone X *********************/
-
-// 判断iPhoneX
-#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-// 判断iPHoneXr
-#define IS_IPHONE_Xr ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
-// 判断iPhoneXs
-#define IS_IPHONE_Xs ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-// 判断iPhoneXs Max
-#define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size): NO)
-
-//是否是FaceID
-#define IS_FaceID (IS_IPHONE_X == YES || IS_IPHONE_Xr == YES || IS_IPHONE_Xs == YES || IS_IPHONE_Xs_Max == YES)
-
-// 状态栏高度
-#define STATUS_BAR_HEIGHT (IS_FaceID ? 44.0 : 20.0)
-// 导航条高度
-#define NAVIGATION_BAR_HEIGHT 44.0
-// 导航栏高度
-#define NAVIGATION_BAR_Max_Y (IS_FaceID ? 88.0 : 64.0)
-// tabBar高度
-#define TAB_BAR_HEIGHT (IS_FaceID ? 83.0 : 49.0)
-// home indicator
-#define HOME_INDICATOR_HEIGHT (IS_FaceID ? 34.0 : 0)
-
-/*************** 适配iPhone X *********************/
-
-#define RJFormContainerViewHeight (294 + HOME_INDICATOR_HEIGHT)
-
-#define RJFormPickerTitleColor [UIColor colorWithRed:51.0 / 255.0 green:51.0 / 255.0 blue:51.0 / 255.0 alpha:1.0]
+#import "RJFormSelectorConst.h"
 
 @interface RJFormValuePickerView () <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (nonatomic, weak) UIView *containerView;

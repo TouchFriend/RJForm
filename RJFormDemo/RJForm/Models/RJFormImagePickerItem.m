@@ -98,7 +98,7 @@
     NSUInteger rowCount = (imageArrM.count + column - 1) / column;
     //33 + 20.0 + 23.0
     CGFloat rowHeight = 76.0;
-    CGFloat itemWidth = (RJFormScreenWidth - 56.0) / 3.0;
+    CGFloat itemWidth = (RJScreenWidth - 56.0) / 3.0;
     rowHeight += rowCount * itemWidth + (rowCount - 1) * 7.0;
     
     self.rowHeight = rowHeight;

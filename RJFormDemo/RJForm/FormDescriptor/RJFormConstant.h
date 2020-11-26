@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RJFormDescriptor.h"
-
-#define RJFormScreenWidth [UIScreen mainScreen].bounds.size.width
-#define RJFormScreenHeight [UIScreen mainScreen].bounds.size.height
+#import <RJKit/RJKitConst.h>
 
 /// 图片的位置
 typedef NS_ENUM(NSUInteger, RJFormImageCellStyle)

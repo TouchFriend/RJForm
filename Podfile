@@ -1,5 +1,7 @@
+source 'http://192.168.0.40/wisp/wisp-ios/components/specs'  # 私有spec库
+source 'https://github.com/CocoaPods/Specs.git'    # CocoaPods官方spec库
 
- platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'RJFormDemo' do
 
@@ -11,6 +13,6 @@ target 'RJFormDemo' do
   pod 'SDWebImage'
   pod 'TZImagePickerController'
   pod 'PhotoBrowser'
-  
+  pod 'RJKit/Core'
   
 end
