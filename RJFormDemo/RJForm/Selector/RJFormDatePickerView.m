@@ -155,7 +155,6 @@
     pickerView.minuteInterval = 1;
     //日期值的改变
     [pickerView addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-    
 }
 
 #pragma mark - Target Methods

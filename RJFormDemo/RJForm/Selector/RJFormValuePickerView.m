@@ -145,8 +145,6 @@
     pickerView.backgroundColor = [UIColor whiteColor];
     pickerView.dataSource = self;
     pickerView.delegate = self;
-    
-    
 }
 
 #pragma mark - UIPickerViewDataSource方法
