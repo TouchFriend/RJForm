@@ -204,7 +204,7 @@
 
 - (void)show:(BOOL)animated
 {
-    [[UIApplication sharedApplication].windows[0] addSubview:self];
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
     
     //动画开始前，强制刷新
     [self layoutIfNeeded];
